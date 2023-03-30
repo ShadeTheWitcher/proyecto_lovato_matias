@@ -1,0 +1,76 @@
+
+/*
+p{ 
+    font-family: verdana; 
+    text-align: justify; 
+    color: rgb(201, 11, 11); 
+    font-size:24 px;
+    font-style: italic; 
+    font-weight: bold; 
+
+    
+    }
+
+
+
+
+    
+    
+    
+ h1 { color: white;
+    font-weight: bold;
+    text-align: center;
+    } 
+
+ 
+  
+ .parrafo1{
+    font-style: italic; 
+    font-weight: bold; 
+    text-align: center;
+ }
+   
+.division1{
+    font-size: xx-large;
+    color: blue;
+}
+
+/*
+
+/*Eliminamos los márgenes y paddings que agrega el navegador por defecto, en la actualidad
+hay que probar esta funcionalidad */
+*{ margin:0;
+    padding:0;
+    }
+    .titulo{
+     background-color: #92a8d1;
+    margin: 20px;
+    }
+    .parrafo{
+    color: beige;
+    text-align: center;
+    font-size: xx-large;
+     background-color: rgb(33, 91, 165);
+    padding-top:50px;
+    padding-left: 10px;
+    padding-bottom: 60px;
+    padding-right: 300px;
+    } 
+
+    footer{
+        background-color: GoldenRod;
+       padding: 10px 20px 30px 40px;
+       margin: 10px 200px;
+       } 
+
+.menu{
+    background-color: #92a8d1;
+    margin: 20px;
+    text-align: left;
+    font-weight: bold; 
+    font-size: x-large;
+}
+
+body {
+    background-color: lightblue; 
+    }
