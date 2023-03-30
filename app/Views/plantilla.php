@@ -8,7 +8,7 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" integrity=" " crossorigin="">
 </head>
 <body>
-    <h1>HOLA Mundo generico I</h1>
+    <h1>HOLA Mundo generico </h1>
     <scrip src="assets/js/bootstrap.bundle.min.js" integrity="" crossorigin=""></scrip>
 </body>
 </html>
