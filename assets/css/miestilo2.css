@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(34, 30, 46); 
+    }
+
+.carousel, .carousel-inner > .item > img{
+    align-items: center;
+    display: block;
+    height: 80%;
+    width: 80%;
+
+}
+
+section{
+    margin: 50px;
+    color: aliceblue;
+    text-align: center; 
+    align-items: center;
+    text-align: justify;
+}
+
+.titulo{
+    text-align: center; 
+}
+
+footer{
+    text-align: left;
+    color: azure;
+    background-color: rgb(22, 43, 88);
+    padding: 10px 20px 30px 40px;
+    margin: 20px 200px;
+}
+
