@@ -3,15 +3,15 @@ body {
     }
 
 .carousel, .carousel-inner > .item > img{
-    align-items: center;
+    
     display: block;
-    height: 80%;
-    width: 80%;
+    height: 90%;
+    width: 90%;
 
 }
 
-section{
-    margin: 50px;
+.section-carrusel{
+    
     color: aliceblue;
     text-align: center; 
     align-items: center;
@@ -19,7 +19,9 @@ section{
 }
 
 .titulo{
-    text-align: center; 
+    margin: 20px;
+    text-align: center;
+    color: aliceblue; 
 }
 
 footer{
@@ -30,3 +32,11 @@ footer{
     margin: 20px 200px;
 }
 
+.navbar{
+    font-size: 20px;
+    width: 100%;
+}
+
+p{
+    margin: 500px;
+}
