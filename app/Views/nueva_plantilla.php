@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initialscale=1">
 
     <title>Boostrap tp3</title>
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" integrity=" " crossorigin="">
-    <link href="../assets/css/miestilo2.css" rel="stylesheet" >
-    <script src="../assets/js/bootstrap.bundle.min.js" integrity="" crossorigin=""></script>
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet" integrity=" " crossorigin="">
+    <link href="./assets/css/miestilo2.css" rel="stylesheet" >
+    <script src="./assets/js/bootstrap.bundle.min.js" integrity="" crossorigin=""></script>
 
-    <img src="../assets/img/bann3.png"   >
+    <img src="./assets/img/bann3.png"   >
 
     
 
@@ -34,7 +34,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="../app/Views/principal.html">Home </a>
+                    <a class="nav-link" href="./app/Views/principal.html">Home </a>
                 </li>
 
 
@@ -91,15 +91,15 @@
                     <div class="carousel-inner">
 
                         <div class="carousel-item active">
-                        <img src="../assets/img/re4r.jpg" class="d-block w-100" alt="...">
+                        <img src="./assets/img/re4r.jpg" class="d-block w-100" alt="...">
                         </div>
 
                         <div class="carousel-item">
-                        <img src="../assets/img/atomH.webp" class="d-block w-100" alt="...">
+                        <img src="./assets/img/atomH.webp" class="d-block w-100" alt="...">
                         </div>
 
                         <div class="carousel-item">
-                        <img src="../assets/img/gowr.jpg" class="d-block w-100" alt="...">
+                        <img src="./assets/img/gowr.jpg" class="d-block w-100" alt="...">
                         </div>
 
                     </div>
