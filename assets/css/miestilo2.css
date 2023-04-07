@@ -1,5 +1,13 @@
+#logo-nav > img{
+  color: aqua;
+}
+
 body {
-    background-color: rgb(34, 30, 46); 
+    background-color: rgb(34, 30, 46);
+    /*background-image: url("../img/wpp5.jpg"); */
+    background-repeat: repeat;
+    min-height: 100vh; 
+    
     }
 
 .carousel, .carousel-inner > .item > img{
@@ -34,8 +42,10 @@ body {
 
 
 
-
-
+html {
+  position: relative;
+  min-height: 100%;
+}
 
 img { 
     display: block; /* esto sirve para que las imagenes sean responsivas */
@@ -47,7 +57,9 @@ img {
     background-color: rgb(22, 43, 88);
     margin-top: 50px ;
     width: 100%;
-    height: 50%;
+    height: 35%;
+    display: block;
+    margin-bottom: 0%;
 
   }
 
@@ -73,10 +85,12 @@ img {
     width: 70%;
   }
 
-  .pie-de-pagina .grupo-1 .box h2{
+  .pie-de-pagina .grupo-1 .box h4{
+    
     color: aliceblue;
+    text-decoration: underline;
     margin-bottom: 25px;
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .pie-de-pagina .grupo-1 p{
@@ -85,6 +99,7 @@ img {
   }
 
   .pie-de-pagina .grupo-1 .red-social a{
+    font-size: 50px;
     display: inline-block;
     text-decoration: none;
     width: 45px;
@@ -92,16 +107,16 @@ img {
     line-height: 45px;
     color: aliceblue;
     margin-right: 10px;
-    background-color: rgb(53, 63, 63);
+    
     text-align: center;
     transition: all 300ms ease;  /* agregamos el efecto "ease" a los iconos */
   }
 
-  .pie-de-pagina .grupo-1 .red-social a:hover{
+  .pie-de-pagina .grupo-1 .red-social a:hover{ /* cuando se pase el mouse se pondra cyan */
     color:cyan
   }
 
-  .pie-de-pagina-2{   /* se modifica la caja donde esta el copy */
+  .pie-de-pagina-2{   /* se modifica la caja donde esta el copy */ 
     background-color: black;
     
     
@@ -113,7 +128,7 @@ img {
   .pie-de-pagina .grupo-2 small{ /* accedemos al texto de la caja zona small */
     font-size: 15px;
     
-    
+
     
   }
 
@@ -121,10 +136,13 @@ img {
     .pie-de-pagina .grupo-1{
         
         width: 90%;
-        margin: auto;
+        margin-top: auto;
         display: grid;
         grid-template-columns: repeat(1, 1fr); /* al estar en 800px sera 1 columna en vez de 3 */
-        grid: gap 50px;
+        gap :50px;
         padding: 45px ;
+        height: 90%;
       }
   }
+
+  

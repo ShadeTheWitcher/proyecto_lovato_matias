@@ -17,12 +17,7 @@
 
     <div class="container-fluid  "> 
         <div class="col- col-sm- col-md- col-lg- col-xl-">
-            <img srcset="../assets/img/GfaLogoMini.png 320w,
-                ../assets/img/GfaLogoMini.png 480w,     
-                ../assets/img/Gfa1.png 800w"    
-                sizes="(max-width: 320px) 280px,
-                (max-width: 480px) 440px,
-                800px"
+            <img 
             src="../assets/img/Gfa1.png"   >   <!-- sirve para que al ser de cierto tamaño cambie a otra img mas pequeña diferente a la original --> 
         </div>
       
@@ -52,24 +47,24 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="../app/Views/principal.html">Home </a>
+                    <a class="nav-link" href="<?php echo base_url("/"); ?>">Home </a>
                 </li>
 
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sobre nosotros</a>
+                    <a class="nav-link" href="<?php echo base_url("quienes-somos"); ?>">Quienes somos</a>
                 </li>
                                     
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contacto</a>
+                    <a class="nav-link" href="<?php echo base_url("contacto"); ?>">Contacto</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Comercializacion</a>
+                    <a class="nav-link" href="<?php echo base_url("comercializacion"); ?>">Comercializacion</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">terminos y usos</a> <!-- solo texto en este apartado --> 
+                    <a class="nav-link" href="<?php echo base_url("term-usos"); ?>">terminos y usos</a> <!-- solo texto en este apartado --> 
                 </li>
                 
                 
