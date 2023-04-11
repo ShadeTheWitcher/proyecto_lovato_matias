@@ -1,0 +1,18 @@
+
+
+.container-terminos{
+    margin-top: 30px;
+    color: aliceblue;
+    padding-left: 26%;
+    padding-right: 26%;
+    text-align: justify;
+
+}
+
+
+
+@media screen and (max-width:800px) {
+    .container-terminos{
+        padding: 1%;
+    }
+}

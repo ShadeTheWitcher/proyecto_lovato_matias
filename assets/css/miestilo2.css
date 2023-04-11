@@ -1,8 +1,12 @@
+@import url("estilos_term_uso.css");
+
+
 #logo-nav > img{
   color: aqua;
 }
 
 body {
+  
     background-color: rgb(34, 30, 46);
     /*background-image: url("../img/wpp5.jpg"); */
     background-repeat: repeat;
@@ -13,8 +17,8 @@ body {
 .carousel, .carousel-inner > .item > img{
     
     display: block;
-    height: 90%;
-    width: 90%;
+    height: 100%;
+    width: 100%;
 
 }
 
@@ -41,6 +45,36 @@ body {
 
 
 
+.seccion-parrafos{
+  margin-top: 40px;
+}
+
+
+.container-cuadro{
+  text-justify: center;
+  text-align: center;
+  margin-top: 50px;
+  color: aliceblue;
+  font-size: 20px;
+  background-color: #1c2331;
+  padding: 5%;
+}
+
+.estrellas{
+  display: inline-block;
+}
+
+
+
+.seccion-img-promo img{
+  margin-top: 50px;
+  
+  width: 100%;
+  
+}
+
+
+
 
 html {
   position: relative;
@@ -53,8 +87,10 @@ img {
     max-width: 100%; 
   }
 
+/* --------------------pie de pagina --------------------------------------- */
+
   .pie-de-pagina{
-    background-color: rgb(22, 43, 88);
+    background-color: #1c2331;
     margin-top: 50px ;
     width: 100%;
     height: 35%;
@@ -132,6 +168,15 @@ img {
     
   }
 
+
+  /* --------------------pie de pagina --------------------------------------- */
+
+
+
+
+
+  /* --------------------media screens --------------------------------------- */
+
   @media screen and (max-width:800px) {  /* para hacerlo responsivo */
     .pie-de-pagina .grupo-1{
         
@@ -143,6 +188,18 @@ img {
         padding: 45px ;
         height: 90%;
       }
+
+
+      .container-cuadro .row .col{
+        font-size: medium;
+        width: 90%;
+        margin-top: auto;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); /* al estar en 800px sera 1 columna en vez de 3 */
+        gap :50px;
+        padding: 45px ;
+        height: 90%;
+      }
   }
 
-  
+ 
