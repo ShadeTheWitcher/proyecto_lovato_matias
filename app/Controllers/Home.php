@@ -15,7 +15,7 @@ class Home extends BaseController
     public function contacto(){
         echo view('componentes//header.html');
         echo view("componentes//navbar.html");
-        echo view("contacto.html");
+        echo view("contacto.php");
         echo view("componentes//footer.html");
         
     }
