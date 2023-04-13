@@ -1,8 +1,13 @@
 .container-quienes-somos{
     margin-top: 30px;
     color: aliceblue;
+
     padding-left: 20%;
     padding-right: 20%;
+
+    padding-left: 26%;
+    padding-right: 26%;
+
     
 }
 
@@ -10,6 +15,7 @@
     padding: 2%;
     background-color: rgb(61, 47, 73);
 }
+
 
 .container-quienes-somos p{
     text-align: justify;
@@ -60,3 +66,4 @@
     width: 30%;
     
 }
+
