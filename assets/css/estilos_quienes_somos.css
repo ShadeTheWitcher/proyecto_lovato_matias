@@ -1,0 +1,62 @@
+.container-quienes-somos{
+    margin-top: 30px;
+    color: aliceblue;
+    padding-left: 20%;
+    padding-right: 20%;
+    
+}
+
+.container-quienes-somos .quienes-somos{
+    padding: 2%;
+    background-color: rgb(61, 47, 73);
+}
+
+.container-quienes-somos p{
+    text-align: justify;
+}
+
+
+.trabajador1 {
+    padding: 2%;
+    margin-top: 3%;
+    background-color: rgb(61, 47, 73);
+}
+
+.trabajador1 h1{
+    padding-bottom: 3%;
+}
+
+.trabajador1 .laura-img{
+    width: 20%;
+    
+}
+
+.trabajador2 {
+    padding: 2%;
+    margin-top: 3%;
+    background-color: rgb(61, 47, 73);
+}
+
+.trabajador2 h1{
+    padding-bottom: 3%;
+}
+
+.trabajador2 .marco-img{
+    width: 30%;
+    
+}
+
+.trabajador3 {
+    padding: 2%;
+    margin-top: 3%;
+    background-color: rgb(61, 47, 73);
+}
+
+.trabajador3 h1{
+    padding-bottom: 3%;
+}
+
+.trabajador3 .jane-img{
+    width: 30%;
+    
+}

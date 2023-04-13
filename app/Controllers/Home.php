@@ -8,14 +8,14 @@ class Home extends BaseController
     {
         echo view('componentes//header.html');
         echo view("componentes//navbar.html");
-        echo view("home.html");
+        echo view("principal.html");
         echo view("componentes//footer.html");
     }
 
     public function contacto(){
         echo view('componentes//header.html');
         echo view("componentes//navbar.html");
-        echo view("contacto.html");
+        echo view("contacto.php");
         echo view("componentes//footer.html");
         
     }

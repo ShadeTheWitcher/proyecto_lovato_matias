@@ -1,5 +1,6 @@
 @import url("estilos_term_uso.css");
-
+@import url("estilos_quienes_somos.css");
+@import url("estilos_contacto.css");
 
 #logo-nav > img{
   color: aqua;
@@ -11,8 +12,11 @@ body {
     /*background-image: url("../img/wpp5.jpg"); */
     background-repeat: repeat;
     min-height: 100vh; 
-    
+    color: azure; /* color global de letras*/
     }
+
+
+    
 
 .carousel, .carousel-inner > .item > img{
     
@@ -168,6 +172,8 @@ img {
     
   }
 
+
+  
 
   /* --------------------pie de pagina --------------------------------------- */
 
