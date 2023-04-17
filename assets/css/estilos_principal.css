@@ -1,0 +1,59 @@
+.carousel, .carousel-inner > .item > img{
+    
+    display: block;
+    height: 100%;
+    width: 100%;
+
+}
+
+.section-carrusel{
+    
+    color: aliceblue;
+    text-align: center; 
+    align-items: center;
+    text-align: justify;
+}
+
+.titulo{
+    margin: 20px;
+    text-align: center;
+    color: aliceblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+}
+
+
+.seccion-parrafos{
+    margin-top: 40px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+  }
+  
+.parrafo-titulo{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+}
+
+  
+  .container-cuadro{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-justify: center;
+    text-align: center;
+    margin-top: 50px;
+    color: aliceblue;
+    font-size: 20px;
+    background-color: #1c2331;
+    padding: 5%;
+  }
+  
+  .estrellas{
+    display: inline-block;
+  }
+  
+  
+  
+  .seccion-img-promo img{
+    margin-top: 50px;
+    
+    width: 100%;
+    
+  }
+  

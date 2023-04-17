@@ -9,6 +9,17 @@
 
 }
 
+.container-terminos .h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.container-terminos .h5{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.container-terminos p{
+    font-family: 'Times New Roman', Times, serif;
+}
 
 
 @media screen and (max-width:800px) {

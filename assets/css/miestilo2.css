@@ -1,6 +1,15 @@
 @import url("estilos_term_uso.css");
 @import url("estilos_quienes_somos.css");
 @import url("estilos_contacto.css");
+@import url("estilos_principal.css");
+
+*{   /*hago un reseteo para que se agregen cosas que no queremos*/
+  margin: 0%;    
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
 
 #logo-nav > img{
   color: aqua;
@@ -18,64 +27,17 @@ body {
 
     
 
-.carousel, .carousel-inner > .item > img{
-    
-    display: block;
-    height: 100%;
-    width: 100%;
-
-}
-
-.section-carrusel{
-    
-    color: aliceblue;
-    text-align: center; 
-    align-items: center;
-    text-align: justify;
-}
-
-.titulo{
-    margin: 20px;
-    text-align: center;
-    color: aliceblue; 
-}
 
 
 
 .navbar{
+    font-family: 'Lucida Sans';
     font-size: 20px;
     width: 100%;
 }
 
 
 
-.seccion-parrafos{
-  margin-top: 40px;
-}
-
-
-.container-cuadro{
-  text-justify: center;
-  text-align: center;
-  margin-top: 50px;
-  color: aliceblue;
-  font-size: 20px;
-  background-color: #1c2331;
-  padding: 5%;
-}
-
-.estrellas{
-  display: inline-block;
-}
-
-
-
-.seccion-img-promo img{
-  margin-top: 50px;
-  
-  width: 100%;
-  
-}
 
 
 

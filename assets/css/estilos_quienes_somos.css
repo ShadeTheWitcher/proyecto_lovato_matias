@@ -2,16 +2,15 @@
     margin-top: 30px;
     color: aliceblue;
 
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 10%;
+    padding-right: 10%;
 
-    padding-left: 26%;
-    padding-right: 26%;
+    
 
     
 }
 
-.container-quienes-somos .quienes-somos{
+.container-quienes-somos .presentacion{
     padding: 2%;
     background-color: rgb(61, 47, 73);
 }
@@ -22,48 +21,72 @@
 }
 
 
-.trabajador1 {
-    padding: 2%;
-    margin-top: 3%;
-    background-color: rgb(61, 47, 73);
-}
 
-.trabajador1 h1{
-    padding-bottom: 3%;
-}
 
-.trabajador1 .laura-img{
-    width: 20%;
-    
-}
-
-.trabajador2 {
-    padding: 2%;
-    margin-top: 3%;
-    background-color: rgb(61, 47, 73);
-}
-
-.trabajador2 h1{
-    padding-bottom: 3%;
-}
-
-.trabajador2 .marco-img{
+.card{
+    display: block;
+    margin: 1%;
+    color: azure;
     width: 30%;
-    
-}
-
-.trabajador3 {
-    padding: 2%;
-    margin-top: 3%;
     background-color: rgb(61, 47, 73);
-}
-
-.trabajador3 h1{
-    padding-bottom: 3%;
-}
-
-.trabajador3 .jane-img{
-    width: 30%;
+    border-radius: 2px;
+    justify-content: center;
+    font-family: "Nunito", sans-serif;
+    padding: 2%;
     
 }
 
+.card img{
+    border-radius: 50%;
+    width: 80%;
+}
+
+.card .card-titulos{
+    text-align: center;
+}
+
+.card .card-titulos h4{
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+
+.card .descripcion{
+    color: rgba(240, 255, 255, 0.685);
+    padding: 2%;
+}
+
+.staff1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    
+
+    font-family: "Nunito", sans-serif;
+    padding: 0 20px;  /* el 1er valor corresponde arriba y abajo y el 2do a los lados izq der */
+}
+
+.card-container{
+    display: flex;
+    width: 600px;
+    height: auto;
+    background: #374285;
+    border-radius: 2px;
+    box-shadow: 1px 1px 4px 2px rgba(0,0,0, .2)
+}
+
+
+
+@media (max-width:800px) {
+    .container-quienes-somos{
+        padding: 0%;
+        font-size: 10px;
+    }
+
+    .card-titulos h1{
+        font-size: 100%;
+    }
+    .card-titulos h4{
+        font-size: 100%;
+    }
+}
