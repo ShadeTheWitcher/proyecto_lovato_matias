@@ -2,6 +2,7 @@
 @import url("estilos_quienes_somos.css");
 @import url("estilos_contacto.css");
 @import url("estilos_principal.css");
+@import url("estilos_comercializacion.css");
 
 *{   /*hago un reseteo para que se agregen cosas que no queremos*/
   margin: 0%;    
@@ -170,4 +171,3 @@ img {
       }
   }
 
- 

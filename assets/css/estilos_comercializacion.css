@@ -1,0 +1,51 @@
+.fila-comercializacion .card{
+    width: 100%;
+    display: block;
+    margin: 1%;
+    color: azure;
+    
+    background-color: rgb(53, 47, 59);
+    border-radius: 2px;
+    justify-content: center;
+    font-family: "Nunito", sans-serif;
+    padding: 2%;
+}
+
+.tipo-entrega .card .sub-titulos{
+    text-align: right;
+    
+    
+}
+
+
+
+
+.logos-env .col-2 img{
+    display: block;
+}
+
+
+
+
+
+.fila-comercializacion .card img{
+    width: 80%;
+}
+
+
+
+.cc img{
+    display: block;
+    width: 80%;
+}
+
+@media screen and (max-width:800px){
+
+    
+
+    .cc img{
+        width: 80%;
+    }
+}
+
+

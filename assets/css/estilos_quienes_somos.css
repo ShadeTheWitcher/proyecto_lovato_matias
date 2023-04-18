@@ -23,7 +23,7 @@
 
 
 
-.card{
+.container-quienes-somos .card{
     display: block;
     margin: 1%;
     color: azure;
@@ -36,21 +36,21 @@
     
 }
 
-.card img{
+.container-quienes-somos .card img{
     border-radius: 50%;
     width: 80%;
 }
 
-.card .card-titulos{
+.container-quienes-somos .card .card-titulos{
     text-align: center;
 }
 
-.card .card-titulos h4{
+.container-quienes-somos .card .card-titulos h4{
     font-family: 'Courier New', Courier, monospace;
     
 }
 
-.card .descripcion{
+.container-quienes-somos .card .descripcion{
     color: rgba(240, 255, 255, 0.685);
     padding: 2%;
 }
