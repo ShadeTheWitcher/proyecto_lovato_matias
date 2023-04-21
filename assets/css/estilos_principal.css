@@ -1,3 +1,9 @@
+
+.section-carrusel .titulo h2{
+  font-size: medium;
+}
+
+
 .carousel, .carousel-inner > .item > img{
     
     display: block;
@@ -47,13 +53,56 @@
   .estrellas{
     display: inline-block;
   }
-  
-  
-  
-  .seccion-img-promo img{
-    margin-top: 50px;
-    
-    width: 100%;
-    
+
+
+
+  .seccion-productos .card{
+    width: 80%;
+    height: 250px;
+    display: block;
   }
+
+
+
+
+
+/* .seccion-principal .grid-container {
+  display: grid;
+  width: 800px;
+  height: 800px;
+  grid-template-rows: repeat(auto-fit, 100px);
+  grid-template-columns: repeat(auto-fit, 100px);
+  grid-gap: 5px;
   
+  
+}
+  
+.seccion-principal .grid-item1 {
+  background: blue;
+  text-align: center;
+  border: black 5px solid;
+  
+  
+}
+
+.grid-item2 {
+  background: red;
+  text-align: center;
+  border: black 5px solid;
+  
+}
+
+.grid-item3 {
+  background: green;
+  text-align: center;
+  border: black 5px solid;
+  
+}
+.grid-item4 {
+  background: yellow;
+  text-align: center;
+  border: black 5px solid;
+  
+}  */
+
+

@@ -10,6 +10,14 @@
   box-sizing: border-box;
 }
 
+.logo-principal{  /*caja que abarca todo la parte de arriba*/
+  background-color: rgb(44, 49, 98);
+}
+
+.img-header{
+  height: 100px;
+  
+}
 
 
 #logo-nav > img{
