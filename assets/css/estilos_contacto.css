@@ -35,7 +35,8 @@
 
 
 .div-form{
-    
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: large;
     color: rgb(0, 0, 0);
     /*background-color: rgb(93, 109, 155); */
     padding: 0%;

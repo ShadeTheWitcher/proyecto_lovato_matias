@@ -11,6 +11,18 @@
     padding: 2%;
 }
 
+
+.descripcion-envios{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 35px;
+}
+
+
+.sub-titulos{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
 .tipo-entrega .card .sub-titulos{
     text-align: right;
     
@@ -41,7 +53,9 @@
 
 @media screen and (max-width:800px){
 
-    
+    .descripcion-envios{
+        font-size: 24px;
+    }
 
     .cc img{
         width: 80%;

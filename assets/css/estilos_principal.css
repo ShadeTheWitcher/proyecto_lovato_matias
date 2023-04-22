@@ -4,6 +4,7 @@
 }
 
 
+
 .carousel, .carousel-inner > .item > img{
     
     display: block;
@@ -40,6 +41,8 @@
 
   
   .container-cuadro{
+    size-adjust: inherit;
+    display: block;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-justify: center;
     text-align: center;
@@ -47,7 +50,8 @@
     color: aliceblue;
     font-size: 20px;
     background-color: #1c2331;
-    padding: 5%;
+    padding: 2%;
+    
   }
   
   .estrellas{
@@ -56,53 +60,48 @@
 
 
 
-  .seccion-productos .card{
-    width: 80%;
-    height: 250px;
+  .seccion-productos{
+    margin-top: 3%;
+  }
+
+  .seccion-productos .card img{
+    width: 250%;
+    
     display: block;
   }
 
+  .seccion-productos .card .producto{
+    
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
 
-
-
-
-/* .seccion-principal .grid-container {
-  display: grid;
-  width: 800px;
-  height: 800px;
-  grid-template-rows: repeat(auto-fit, 100px);
-  grid-template-columns: repeat(auto-fit, 100px);
-  grid-gap: 5px;
-  
-  
-}
-  
-.seccion-principal .grid-item1 {
-  background: blue;
-  text-align: center;
-  border: black 5px solid;
-  
-  
+  .producto div{  /* estas serie de comando sirve para recortar el texto que no entra en la zona */
+    white-space: nowrap;  /*esto sirve para que la línea no se comporte de la manera predeterminada cuando se acaba el espacio, continuando en la parte de abajo, en una nueva línea */
+    text-overflow: ellipsis; /* genera puntos suspensivos cuando se corta el texto */
+    overflow: hidden; /* esconde el "overflow" osea cuando se sale del contenedor el texto */
 }
 
-.grid-item2 {
-  background: red;
-  text-align: center;
-  border: black 5px solid;
-  
+.producto p{
+  color: rgb(218, 218, 218);
 }
 
-.grid-item3 {
-  background: green;
-  text-align: center;
-  border: black 5px solid;
-  
+ 
+
+
+
+
+
+
+@media screen and (max-width:800px){
+    .producto p{
+
+      font-size: small;
+    }
+
+    .container-cuadro{
+      font-size: x-small;
+    }
+    
 }
-.grid-item4 {
-  background: yellow;
-  text-align: center;
-  border: black 5px solid;
-  
-}  */
-
-

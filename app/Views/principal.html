@@ -10,17 +10,20 @@
 
     <div class="container-de-carrusel">
         <div class="row justify-content-md-center">
-            <div class="col-8">
 
+
+            <div class="col-1"></div>
             
-            <div id="carouselExample" class="carousel slide">
+         <div class="col-10">  
+            
+            <div id="carrusel" class="carousel slide" data-bs-ride="carousel">
 
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                    <button type="button" data-bs-target="#carruselIndicatores" data-bs-slide-to="0"
                         class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    <button type="button" data-bs-target="#carruselIndicatores" data-bs-slide-to="1"
                         aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    <button type="button" data-bs-target="#carruselIndicatores" data-bs-slide-to="2"
                         aria-label="Slide 3"></button>
                 </div>
 
@@ -28,33 +31,35 @@
 
                 <div class="carousel-inner">
 
-                    <div class="carousel-item active">
-                        <img src="../assets/img/banre4-1.png" class="d-block w-100" alt="...">
+                    <div class="carousel-item active " data-bs-interval="3000">
+                        <img src="../assets/img/di2.jpg" class="d-block w-100" alt="...">
                     </div>
 
-                    <div class="carousel-item">
-                        <img src="../assets/img/banah.png" class="d-block w-100" alt="...">
+                    <div class="carousel-item" data-bs-interval="2500">
+                        <img src="../assets/img/banre4.jpg" class="d-block w-100" alt="...">
                     </div>
 
-                    <div class="carousel-item">
-                        <img src="../assets/img/bangowr.png" class="d-block w-100" alt="...">
+                    <div class="carousel-item" data-bs-interval="2500">
+                        <img src="../assets/img/bangowr.jpg" class="d-block w-100" alt="...">
                     </div>
 
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                <button class="carousel-control-prev" type="button" data-bs-target="#carrusel"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                <button class="carousel-control-next" type="button" data-bs-target="#carrusel"
                     data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
 
+        </div> 
+        
+        <div class="col-1"></div>
 
-        </div>
       </div>
     </div>
 </section>
@@ -70,8 +75,8 @@
 
 
 
-                <p class="h1 text-center fw-bold fst-italic text-white mt-0 parrafo-titulo">
-                    ¡Bienvenido a GFA, tu destino confiable para la compra de videojuegos digitales!
+                <p class="h2 text-center fw-bold fst-italic text-white mt-0 parrafo-titulo">
+                    ¡Bienvenido a GFA, tu destino confiable para la compra de videojuegos!
                 </p>
 
                 <p class="text-white text-justify parrafo-intro">
@@ -103,19 +108,19 @@
 <div class="container-cuadro">
 
     <div class="row justify-content-md-center">
-        <div class="col">
+        <div class="col-3">
             <i class="fa-solid fa-cloud-arrow-down fa-2xl"></i> <b class="">Super rapido</b>
         </div>
 
-        <div class="col">
+        <div class="col-3">
             <i class="fa-solid fa-shield-halved fa-2xl"></i> <b class="">Fiable y seguro</b>
         </div>
 
-        <div class="col">
+        <div class="col-3">
             <i class="fa-solid fa-comments fa-2xl"></i> <b class="">Atencion al cliente</b>
         </div>
 
-        <div class="col estrellas">
+        <div class="col-3 estrellas">
             <img src="../assets/img/stars.png" alt="">
             <b class="">Reseñas positivas</b>
         </div>
@@ -138,40 +143,157 @@
 </div> -->
 
 <div class="container seccion-productos">
-    <div class="row justify-content-md-center">
-        <div class="col-2">
-            <div class="card producto">
-                <img src="../assets/img/productos/gta5.jpg" alt="">
-                <p class="text-center">GTA 5</p>
+
+    <h4 class="text-left">Tendencias <br> </h4>
+
+    <div class="row ">
+        <div class="col-sm-3">
+            <div class=" producto rounded">
+                <img src="../assets/img/productos/sm-mm.jpg" class="card-img-top"  alt="">
+                
+                <div class="row">
+                    <div class="col-9">
+                        <p class="text-left">Marvel’s Spider-Man: Miles Morales  </p>
+                    </div>
+
+                    <div class="col-3">
+                        <p class="fw-bold">$60.00</p>
+                    </div>
+                </div>
+                
             </div>
         </div>
 
-        <div class="col-2">    
-            <div class="card producto">
-                <img src="../assets/img/productos/uncharted4.jpg" alt="">
-                <p class="text-center">Uncharted 4</p>
+        <div class="col-sm-3">    
+            <div class="card-img-top producto rounded">
+                <img src="../assets/img/productos/injustice-god.jpg" alt="">
+                
+                <div class="row">
+                    <div class="col-9">
+                        <p class="text-left">Injustice  </p>
+                    </div>
+
+                    <div class="col-3">
+                        <p class="fw-bold">$30.00</p>
+                    </div>
+                </div>
             </div>
 
         </div>
 
-        <div class="col-2">    
-            <div class="card producto">
-                <img src="../assets/img/productos/gow.webp" alt="">
-                <p class="text-center">GoW</p>
+        <div class="col-sm-3">    
+            <div class="card-img-top producto rounded">
+                <img src="../assets/img/productos/the-last-of-us.jpg" alt="">
+                
+                <div class="row">
+                    <div class="col-9">
+                        <p class="text-left">The Last of Us Part I  </p>
+                    </div>
+
+                    <div class="col-3">
+                        <p class="fw-bold">$40.50</p>
+                    </div>
+                </div>
             </div>
 
         </div>
 
-        <div class="col-2">    
-            <div class="card producto">
-                <img src="../assets/img/productos/gow.webp" alt="">
-                <p class="text-center">GoW</p>
+        <div class="col-sm-3">    
+            <div class="card-img-top producto rounded">
+                <img src="../assets/img/productos/wrc.jpg" alt="">
+                <div class="row">
+                    <div class="col-9">
+                        <p class="text-left">WRC Generations Fully Loaded Edition</p>
+                    </div>
+
+                    <div class="col-3">
+                        <p class="fw-bold">$33.40</p>
+                    </div>
+                </div>
+                
             </div>
 
         </div>
 
 
     </div>
+
+
+    <div class="row ">
+        <div class="col-sm-3">
+            <div class=" producto rounded">
+                <img src="../assets/img/productos/dredge.jpg" class="card-img-top"  alt="">
+                
+                <div class="row">
+                    <div class="col-9">
+                        <p class="text-left">Dredge  </p>
+                    </div>
+
+                    <div class="col-3">
+                        <p class="fw-bold">$40.50</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="col-sm-3">    
+            <div class="card-img-top producto rounded">
+                <img src="../assets/img/productos/grim-dawn.jpg" alt="">
+                
+                <div class="row">
+                    <div class="col-9">
+                        <p class="text-left">Grim Dawn  </p>
+                    </div>
+
+                    <div class="col-3">
+                        <p class="fw-bold">$20.00</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-3">    
+            <div class="card-img-top producto rounded">
+                <img src="../assets/img/productos/planet-zoo.jpg" alt="">
+                
+                <div class="row">
+                    <div class="col-9">
+                        <p class="text-left">Planet Zoo  </p>
+                    </div>
+
+                    <div class="col-3">
+                        <p class="fw-bold">$40.00</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-3">    
+            <div class="card-img-top producto rounded">
+                <img src="../assets/img/productos/assetto-corsa-competizione.jpg" alt="">
+                <div class="row">
+                    <div class="col-9">
+                        <p class="text-left">Asseto Corsa Competizione</p>
+                    </div>
+
+                    <div class="col-3">
+                        <p class="fw-bold">$33.00</p>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
 
 </div>
 
