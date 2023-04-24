@@ -131,7 +131,7 @@
   .div-form button {
     /* Este margen adicional representa aproximadamente el mismo espacio que el espacio
        entre las etiquetas y sus campos de texto */
-    margin-left: .5em;
+    margin-left: .5em;   /* em es la medicion que se usa para tener en cuenta el padre 5em es 5 veces el tamaño del padre */
   }
 
 
