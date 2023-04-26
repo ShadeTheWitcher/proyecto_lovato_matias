@@ -153,14 +153,22 @@
 
 
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:800px) {
     .container-contacto{
-        padding: 0%;
+        padding: 5%;
     }
+
+    
 
     .container-formulario{
         padding: 0%;
     }
+
+
+    .container-formulario .datos-titular{
+      width: auto;
+      align-items: center;
+  }
 
     .div-form form{
         width: auto;

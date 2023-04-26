@@ -21,7 +21,7 @@
 
     <div class="row justify-content-md-center">
 
-        <div class="col-6 datos-titular "> 
+        <div class="col-md-6 datos-titular "> 
             <p>Titular: Lovato Matias Sebastian</p>
             <p>Razon social: S.A</p>
             <p> <i class="fa-solid fa-phone"></i>  Tel: +19163850525</p>
@@ -35,7 +35,7 @@
     
 
         
-          <div class="col-6 div-form ">
+          <div class="col-md-6 div-form ">
           
             <form action="#" method="post"> 
                 <div class="elem-grupo"> 
