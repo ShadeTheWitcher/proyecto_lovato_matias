@@ -178,5 +178,10 @@ img {
         padding: 45px ;
         height: 90%;
       }
+
+
+      .barra-de-nav .nav-item{
+        font-size: small;
+      }
   }
 

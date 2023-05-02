@@ -30,6 +30,7 @@
 
 
 .seccion-parrafos{
+  text-align: justify;
     margin-top: 40px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
