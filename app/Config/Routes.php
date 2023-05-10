@@ -34,6 +34,22 @@ $routes->add('/contacto', 'Home::contacto');
 $routes->add('/quienes-somos', 'Home::quienes_somos');
 $routes->add('/comercializacion', 'Home::comercializacion');
 $routes->add('/term-usos', 'Home::term_usos');
+$routes->add('/catalogo', 'Home::catalogo');
+$routes->add('/login', 'Home::login');
+$routes->add('/registro', 'Home::registro');
+$routes->post('/enviar-post', 'Home::registro');
+
+
+$routes->get('products', 'ProductController::index');
+$routes->get('products/create', 'ProductController::create');
+$routes->post('products/store', 'ProductController::store');
+$routes->get('products/edit/(:num)', 'ProductController::edit/$1');
+$routes->post('products/update', 'ProductController::update');
+$routes->get('products/delete/(:num)', 'ProductController::delete/$1');
+
+$routes->get('usuario', 'usuario_controller::index');
+$routes->post('usuario/register', 'usuario_controller::insertar');
+
 
 /*
  * --------------------------------------------------------------------

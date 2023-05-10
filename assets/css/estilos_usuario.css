@@ -1,0 +1,192 @@
+
+/* ------------------------        login                ---------------------- */
+
+
+.login{
+    padding-top: 3%;
+    padding-left: 40%;
+    padding-right: 40%;
+    
+}
+
+
+/* Bordered form */
+.login form {
+    border: 3px solid #f1f1f1;
+  }
+  
+
+  .login input[type=text] , input[type=password] {
+    width: 20%;
+}
+
+
+
+  /* Full-width inputs */
+  .login input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  .login button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Add a hover effect for buttons */
+  .login button:hover {
+    opacity: 0.8;
+  }
+  
+  
+  
+  /* Center the avatar image inside this container */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  
+  /* Avatar image */
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  /* Add padding to containers */
+  .login .container {
+    padding: 16px;
+  }
+  
+  /* The "Forgot password" text */
+  .login span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+
+
+
+/* ------------------------        registro                ---------------------- */
+
+
+* {box-sizing: border-box}
+
+
+.registro{
+    padding: 2%;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+/* Full-width input fields */
+  .registro input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.registro input[type=text] , input[type=password] {
+    width: 60%;
+}
+
+.registro input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+  
+}
+
+.registro hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+.registro button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  opacity: 0.9;
+}
+
+.registro button:hover {
+  opacity:1;
+}
+
+
+
+/* Add padding to container elements */
+.registro .container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.registro .clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* -----------------------------  media query   ------------------------------------- */
+
+
+@media screen and (max-width: 1200px){
+    .login{
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+
+    .registro{
+        padding-left: 10%;
+        padding-right: 10%;
+        
+    }
+
+    .registro input[type=text] , input[type=password] {
+        width: auto;
+    }
+  }
+
+
+  @media screen and (max-width: 800px) {
+    .login{
+        padding: 0%;
+    }
+
+    .registro{
+        padding: 0%;
+    }
+  }
+
+  
+
+
+  
