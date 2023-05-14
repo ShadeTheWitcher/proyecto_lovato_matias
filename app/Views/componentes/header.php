@@ -75,5 +75,5 @@
 </head>
 
 <body>
-    <script src="../assets/fontawesome/js/brands.js" integrity="" crossorigin=""></script>
-    <script src="../assets/fontawesome/js/solid.js" integrity="" crossorigin=""></script>   
+    <script src="<?= base_url('./assets/fontawesome/js/brands.js') ?>" integrity="" crossorigin=""></script>
+    <script src="<?= base_url('./assets/fontawesome/js/solid.js') ?>" integrity="" crossorigin=""></script>   

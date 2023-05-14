@@ -20,10 +20,10 @@
 		  <?php endif;?>
       <div class="container">
         <label class="form-label col-12" for="usuario"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="usuario" required>
+        <input type="text" placeholder="Enter Username" name="Usuario" required>
 
         <label class="form-label col-12" for="pass"><b>Contraseña</b></label>
-        <input class="form-control" type="password" placeholder="Enter Password" name="pass" required>
+        <input class="form-control" type="password" placeholder="Enter Password" name="Pass" required>
 
         <button type="submit">Iniciar</button>
         <label>

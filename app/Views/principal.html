@@ -1,6 +1,8 @@
 <section class="seccion-principal">
 
-
+    <?php if(session()->getFlashdata('msg')):?>
+    <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
+  <?php endif;?>
 
 
 <section class="seccion-carrusel">

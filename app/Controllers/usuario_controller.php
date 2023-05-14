@@ -1,9 +1,11 @@
-<?php namespace App\Controllers;
+<?php 
 
+namespace App\Controllers;
 use App\Models\Modelo_Usuario;
 use CodeIgniter\Controller;
+use App\Libraries\Hash;
 
-class usuario_controller extends BaseController{
+class usuario_controller extends Controller{
 
     public function __construct(){
         helper(['form', 'url']);
@@ -28,52 +30,57 @@ class usuario_controller extends BaseController{
         echo view("componentes//footer.html");
     }
 
+
+    public function login_form(){
+        $data['title']='login'; 
+        echo view('componentes//header.php', $data);
+        echo view("componentes//navbar.html");
+        echo view("back//usuario//login.php");
+        echo view("componentes//footer.html");
+    }
+
     
 
 
-//     public function add(){
 
-    
-
-//     $this->load->helper('form');
-//     $this->load->library('form_validation');
-
-//     $this->form_validation->set_rules('nombre', 'Nombre', 'required');
-//     if ($this->form_validation->run() === FALSE)
-//     {
-//         $this->load->view('templates/header', $data);
-//         $this->load->view('editoriales/add');
-//         $this->load->view('templates/footer');
-
-//     }
-//     else
-//     {
-//         $this->editoriales_model->add();
-//         $this->load->view('templates/header', $data);
-//         $this->load->view('editoriales/success');
-//         $this->load->view('templates/footer');
-//     }
-// }
 
 public function insertar() {
-    $usuario = new Modelo_Usuario();
-
-    $data = [
-        'usuario' => $this->request->getVar('usuario'),
-        'nombre' => $this->request->getVar('nombre'),
-        'apellido'  => $this->request->getVar('apellido'),
-        'email'  => $this->request->getVar('email'),
-        'pass'  => $this->request->getVar('pass'),
-    ];
+   
+    $user = new Modelo_Usuario();
 
     
 
 
-    //$usuario->insert($data);
+    $nombre = $this->request->getVar('nombre');
+    $apellido = $this->request->getVar('apellido');
+    $usuario = $this->request->getVar('usuario');
+    $email = $this->request->getVar('email');
+    $password = $this->request->getVar('pass');
 
 
 
-    if(!$usuario->insert($data)){
+    $dataUser = [
+        'usuario' => $usuario,
+        'nombre' => $nombre,
+        'apellido'=> $apellido,
+        'email'=> $email,
+        'pass'  =>Hash::make($password)
+    ];
+
+    // $data = [
+    //     'usuario' => $this->request->getVar('usuario'),
+    //     'nombre' => $this->request->getVar('nombre'),
+    //     'apellido'  => $this->request->getVar('apellido'),
+    //     'email'  => $this->request->getVar('email'),
+    //     'pass'  => $this->request->getVar('pass'),
+    // ];
+
+
+   
+
+
+
+    if(!$user->insert($dataUser)){
         return redirect()->back()->with('fail','Hubo un error, Lo sentimos mucho :(');
        } else{
            return redirect()->to('usuario/crearUser')->with('success','Te has registrado exitosamente :)');
@@ -189,9 +196,8 @@ public function formValidation() {
    if (!$input){
 
        $data['titulo']='Registro'; 
-       echo view('plantillas/head',$data);
-       echo view('plantillas/header');
-       echo view('back/usuario/registration', [
+       echo view('componentes/header',$data);
+       echo view('back/usuario/registrarse', [
        'validation' =>$this->validator
         ]);
 
@@ -237,16 +243,19 @@ public function formValidation() {
 
 
 public function login(){
-
+    $request = \Config\Services::request();
     $session =session();
         $model = new Modelo_Usuario();
-        $usuario = $this->request->getVar('usuario');
-        $password = $this->request->getVar('pass');
+        $usuario = $this->request->getVar('Usuario');
+        $password = $this->request->getVar('Pass');
+        
         $data = $model->where('usuario',$usuario)->first();
-
+        
         if($data){
             $pass = $data['pass'];
+            
             $verify_pass = password_verify($password, $pass);
+            
             if($verify_pass){
                 $ses_data = [
                     'id'     => $data['id'],
@@ -261,16 +270,17 @@ public function login(){
                         return redirect() ->to('/usuario');
                         break;
                     case '2':  //por defecto es visitante
+                        $session->setFlashdata('msg','Inicio de session exitoso');
                         return redirect()->to('/');
                         break;
                         }
             }else{
                 $session->setFlashdata('msg','Contraseña Erronea');
-                return redirect()->to('/');
+                return redirect()->to('/usuario/login');
             }
         }else{
             $session->setFlashdata('msg','usuario no encontrado');
-                return redirect()->to('/registro');
+                return redirect()->to('/usuario/login');
         }
     }
 
