@@ -9,12 +9,15 @@
   
 
 
-
-    <form action="<?= site_url('/products/store') ?>" method="post">
+    <?php $validation = \Config\Services::validation() ?>
+    <form action="<?= site_url('usuario/envio-logearse') ?>" method="post">
       <div class="imgcontainer">
         
       </div>
       <p class="text-center">Iniciar sesion</p>
+      <?php if(session()->getFlashdata('msg')):?>
+			<div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
+		  <?php endif;?>
       <div class="container">
         <label class="form-label col-12" for="usuario"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="usuario" required>

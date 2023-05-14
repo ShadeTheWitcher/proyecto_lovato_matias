@@ -5,9 +5,18 @@
 
 
 
-<form method="post" action="<?= site_url('/usuario/register') ?>" style="border:1px solid #ccc">
+<form method="post" action="<?= site_url('/usuario/enviar-registo') ?>" style="border:1px solid #ccc">
   <div class="container">
     <h1>Sign Up</h1>
+    
+    <!--Notificacion de Registro-->
+    <?php if(!empty(session()->getFlashdata('fail'))) {;?>
+            <div class='alert alert-danger'> <?= session()->getFlashdata('fail'); ?> </div>
+          <?php } ?>
+          <?php if(!empty(session()->getFlashdata('success'))) { ?>
+            <div class='alert alert-success'><?= session()->getFlashdata('success'); ?></div>
+          <?php } ?>
+
     <p>Por favor rellene los campos para registrarse.</p>
     <hr>
 
@@ -56,7 +65,7 @@
 
         <div class="col-6">
           <label for="pass-repeat" class="form-label col-12"   ><b>repita contraseña</b></label>
-          <input type="password" placeholder="Repeat Password" name="pass-repeat" required>
+          <input type="password" placeholder="Repeat Password" name="pass-repetida" required>
         </div>
 
 

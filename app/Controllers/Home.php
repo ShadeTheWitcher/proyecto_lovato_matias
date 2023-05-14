@@ -4,9 +4,20 @@ namespace App\Controllers;
 use CodeIgniter\Model\Modelo_Usuario;
 class Home extends BaseController
 {
+    
+    
+
     public function index()
     {
-        echo view('componentes//header.html');
+        $data['title'] = 'Home';
+
+        $esVisitante = false;
+        if($esVisitante){
+            echo view('back//usuario//userHeader.php', $data);
+        }else{
+            echo view('componentes//header.php' ,$data);
+        }
+        
         echo view("componentes//navbar.html");
         echo view("principal.html");
         echo view("componentes//footer.html");
@@ -14,10 +25,13 @@ class Home extends BaseController
         // $userModel = model(Modelo_Usuario::class);
         //  $datos = $userModel->mostrar();
         //  print_r($datos);
+        
     }
 
     public function contacto(){
-        echo view('componentes//header.html');
+        $data['title'] = 'Contacto';
+
+        echo view('componentes//header.php' ,$data);
         echo view("componentes//navbar.html");
         echo view("contacto.php");
         echo view("componentes//footer.html");
@@ -25,42 +39,51 @@ class Home extends BaseController
     }
 
     public function quienes_somos(){
-        echo view('componentes//header.html');
+        $data['title'] = 'Quienes somos';
+
+        echo view('componentes//header.php' ,$data);
         echo view("componentes//navbar.html");
         echo view("quienes_somos.html");
         echo view("componentes//footer.html");
     }
 
     public function comercializacion(){
-        echo view('componentes//header.html');
+        $data['title'] = 'Comercializacion';
+
+        echo view('componentes//header.php' ,$data);
         echo view("componentes//navbar.html");
         echo view("comercializacion.html");
         echo view("componentes//footer.html");
     }
     
     public function term_usos(){
-        echo view('componentes//header.html');
+        $data['title'] = 'terminos y usos';
+        echo view('componentes//header.php' ,$data);
         echo view("componentes//navbar.html");
         echo view("term_usos.html");
         echo view("componentes//footer.html");
     }
 
     public function catalogo(){
-        echo view('componentes//header.html');
+        $data['title'] = 'catalogo';
+
+        echo view('componentes//header.php' ,$data);
         echo view("componentes//navbar.html");
         echo view("catalogo.html");
         echo view("componentes//footer.html");
     }
 
     public function login(){
-        echo view('componentes//header.html');
+        $data['title'] = 'login';
+        echo view('componentes//header.php' ,$data);
         echo view("componentes//navbar.html");
         echo view("back//usuario//login.php");
         echo view("componentes//footer.html");
     }
 
     public function registro(){
-        echo view('componentes//header.html');
+        $data['title'] = 'registro';
+        echo view('componentes//header.php' ,$data);
         echo view("componentes//navbar.html");
         echo view("back//usuario//registrarse.php");
         echo view("componentes//footer.html");
