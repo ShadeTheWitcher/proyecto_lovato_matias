@@ -39,7 +39,7 @@ $routes->add('/login', 'Home::login');
 $routes->add('/registro', 'Home::registro');
 $routes->post('/enviar-post', 'Home::registro');
 
-
+//rutas producto
 $routes->get('products', 'ProductController::index');
 $routes->get('products/create', 'ProductController::create');
 $routes->post('products/store', 'ProductController::store');
@@ -47,8 +47,19 @@ $routes->get('products/edit/(:num)', 'ProductController::edit/$1');
 $routes->post('products/update', 'ProductController::update');
 $routes->get('products/delete/(:num)', 'ProductController::delete/$1');
 
-$routes->get('usuario', 'usuario_controller::index');
-$routes->post('usuario/register', 'usuario_controller::insertar');
+//usuario
+$routes->get('usuario/admin', 'usuario_controller::index');
+$routes->get('usuario/crearUser', 'usuario_controller::registro_form');
+$routes->post('usuario/enviar-registo', 'usuario_controller::insertar');
+
+$routes->get('usuario/login', 'usuario_controller::login_form');
+$routes->post('usuario/envio-logearse', 'usuario_controller::login');
+
+$routes->get('usuario/edit/(:num)', 'usuario_controller::edit/$1');
+$routes->post('usuario/update', 'usuario_controller::update');
+$routes->get('usuario/delete/(:num)', 'usuario_controller::delete/$1');
+
+
 
 
 /*
