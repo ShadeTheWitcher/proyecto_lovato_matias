@@ -28,7 +28,7 @@
             <p>Domicilio legal: Junin 1084, W3400AVV </p>
 
 
-            <img src="../assets/img/gfa-logo2.png" alt="logo">
+            <img src="<?= base_url('/assets/img/gfa-logo2.png') ?>" alt="logo">
         </div>
 
 
