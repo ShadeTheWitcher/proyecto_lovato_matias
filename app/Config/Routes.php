@@ -54,6 +54,7 @@ $routes->post('usuario/enviar-registo', 'usuario_controller::insertar');
 
 $routes->get('usuario/login', 'usuario_controller::login_form');
 $routes->post('usuario/envio-logearse', 'usuario_controller::login');
+$routes->post('usuario/envio-logout', 'usuario_controller::logout');
 
 $routes->get('usuario/edit/(:num)', 'usuario_controller::edit/$1');
 $routes->post('usuario/update', 'usuario_controller::update');

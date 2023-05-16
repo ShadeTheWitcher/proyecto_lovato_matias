@@ -41,6 +41,25 @@ class Modelo_Usuario extends Model{
      }
 
 
+     public function insertarUser($datos){
+        return $this->insert($datos);
+     }
+
+     public function obtenerUsuarios(){
+        return $this->findAll();
+     }
+
+
+     public function existeUsuario($usuario){
+        $existeUser= $this-> where("usuario", $usuario);
+        return $existeUser->countAllResults();
+     }
+
+
+     public function obtenerUser($usuario){
+        $existeU= $this-> where("usuario", $usuario);
+        return $existeU->get()->getRouteArray();
+     }
 }
 
 

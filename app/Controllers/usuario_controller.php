@@ -3,7 +3,7 @@
 namespace App\Controllers;
 use App\Models\Modelo_Usuario;
 use CodeIgniter\Controller;
-use App\Libraries\Hash;
+
 
 class usuario_controller extends Controller{
 
@@ -47,7 +47,7 @@ class usuario_controller extends Controller{
 public function insertar() {
    
     $user = new Modelo_Usuario();
-
+   
     
 
 
@@ -56,16 +56,32 @@ public function insertar() {
     $usuario = $this->request->getVar('usuario');
     $email = $this->request->getVar('email');
     $password = $this->request->getVar('pass');
+    $cpass = $this->request->getVar('pass-repetida');
 
+    //$password= (string)$password;
+    //$cpass= (string)$cpass;
 
+    if( ($password === $cpass)==false) {
+        return redirect()->back()->with('fail','Las contraseñas no coinciden :(');
+    }
 
     $dataUser = [
         'usuario' => $usuario,
         'nombre' => $nombre,
         'apellido'=> $apellido,
         'email'=> $email,
-        'pass'  =>Hash::make($password)
+        'pass'  =>crypt($password, PASSWORD_DEFAULT),
+        "perfil_id"=> 2,
+        "baja" => "NO"
     ];
+
+
+    $existeUsuario = $user->existeUsuario($usuario); //compara la variable
+
+    if($existeUsuario > 0){
+        return redirect()->back()->with('fail','el usuario ya existe');
+    }
+
 
     // $data = [
     //     'usuario' => $this->request->getVar('usuario'),
@@ -249,18 +265,23 @@ public function login(){
         $usuario = $this->request->getVar('Usuario');
         $password = $this->request->getVar('Pass');
         
+        
         $data = $model->where('usuario',$usuario)->first();
         
         if($data){
-            $pass = $data['pass'];
+            $password = (string)$password;
+            $pass = (string)$data['pass'];
             
+
             $verify_pass = password_verify($password, $pass);
             
             if($verify_pass){
                 $ses_data = [
                     'id'     => $data['id'],
                     'nombre' => $data['nombre'],
+                    'apellido' => $data['apellido'],
                     'usuario'  => $data['usuario'],
+                    'email'  => $data['email'],
                     'perfil_id'  => $data['perfil_id'],
                     'logged_in'       =>TRUE
                 ];
@@ -288,6 +309,40 @@ public function login(){
         $session=session();
         $session->destroy();
         return redirect()->to('/');
+    }
+
+
+
+    public function baja($id){
+    
+        $Model=new Modelo_Usuario();
+        $data=$Model->getUsuario($id);
+        $datos=[
+                'id' => 'id',
+                'baja'  => 'SI',
+                
+            ];
+        $Model->update($id,$datos);
+
+        session()->setFlashdata('mensaje','Usuario Eliminado');
+
+        return redirect()->to(base_url('usuarios-list'));
+    }
+
+    public function habilitar($id){
+    
+        $Model=new Modelo_Usuario();
+        $data=$Model->getUsuario($id);
+        $datos=[
+                'id' => 'id',
+                'baja'  => 'NO',
+                
+            ];
+        $Model->update($id,$datos);
+
+        session()->setFlashdata('mensaje','Usuario Habilitado');
+
+        return redirect()->to(base_url('eliminados'));
     }
 
 
