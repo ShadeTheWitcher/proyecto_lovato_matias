@@ -3,12 +3,18 @@
 namespace App\Controllers;
 use CodeIgniter\Model\Modelo_Usuario;
 class Home extends BaseController
-{
+{   
+    private $session;
+    private $usuario;
     
-    
+    public function __construct(){
+        $this->session = \Config\Services::session();
+        $this->usuario =$this->session->get();
+    }
 
     public function index()
     {
+        
         $data['title'] = 'Home';
 
         $esVisitante = false;
@@ -20,7 +26,8 @@ class Home extends BaseController
         
         echo view("componentes//navbar.html");
         echo view("principal.html");
-        echo view("componentes//footer.html");
+        //echo view("componentes//footer.html");
+        return view("componentes//footer.html", ["usuario"=>$this->usuario]);
         
         // $userModel = model(Modelo_Usuario::class);
         //  $datos = $userModel->mostrar();
