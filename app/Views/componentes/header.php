@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initialscale=1">
 
     <title>GFA <?php echo ($title); ?></title>
-    <link href="<?= base_url('./assets/css/bootstrap.min.css') ?> " rel="stylesheet" integrity=" " crossorigin="">
-    <link href="<?= base_url('./assets/css/miestilo2.css') ?>" rel="stylesheet" >
-    <script src="<?= base_url('./assets/js/bootstrap.bundle.min.js') ?>" integrity="" crossorigin=""></script>
+    <link href="<?= base_url('../assets/css/bootstrap.min.css') ?> " rel="stylesheet" integrity=" " crossorigin="">
+    <link href="<?= base_url('assets/css/miestilo2.css') ?>" rel="stylesheet" >
+    <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>" integrity="" crossorigin=""></script>
 
     <link rel="stylesheet" href="<?= base_url('assets/fontawesome/css/fontawesome.css') ?>" >
     <link rel="stylesheet" href="<?= base_url('assets/fontawesome/css/all.css') ?>" >
@@ -26,7 +26,7 @@
 
             <div class="col-7 col-sm- col-md- col-lg- col-xl-">
                 <img  class="img-header"
-                src="<?= base_url('./assets/img/GfaMiniT.png') ?>"   >   
+                src="<?= base_url('assets/img/GfaMiniT.png') ?>"   >   
             </div>
 
             <div class="col-3">
@@ -43,7 +43,7 @@
                                 <i class="fa-solid fa-user fa-2xl" style="color: #ffffff;"></i>
                             </button>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="<?php echo base_url("login"); ?>">Iniciar Sesion</a></li>
+                              <li><a class="dropdown-item" href="<?php echo base_url("usuario/login"); ?>">Iniciar Sesion</a></li>
                               <li><a class="dropdown-item" href="<?php echo base_url("usuario/crearUser"); ?>">Registrarse</a></li>
                               <li><a class="dropdown-item" href="#">ver pedidos</a></li>
                             </ul>

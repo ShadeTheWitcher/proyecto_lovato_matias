@@ -288,10 +288,12 @@ public function login(){
                 $session->set($ses_data);
                 switch (session('perfil_id')){
                     case '1': //es admin
+                        
                         return redirect() ->to('/usuario');
                         break;
                     case '2':  //por defecto es visitante
-                        $session->setFlashdata('msg','Inicio de session exitoso');
+                        //$msj = "inicio de sesion exitoso.. Bienvenido " . $data["nombre"];
+                        $session->setFlashdata('msg',"inicio de sesion exitoso.. Bienvenido " . $data["nombre"] );
                         return redirect()->to('/');
                         break;
                         }

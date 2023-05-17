@@ -14,11 +14,14 @@ class Home extends BaseController
 
     public function index()
     {
-        
+        //$perfil_id = $_SESSION['perfil_id'];
+        //$estado_session = $_SESSION['logged_in'];
+
         $data['title'] = 'Home';
 
-        $esVisitante = false;
-        if($esVisitante){
+        $esUsuario =false; 
+
+        if($esUsuario){
             echo view('back//usuario//userHeader.php', $data);
         }else{
             echo view('componentes//header.php' ,$data);
