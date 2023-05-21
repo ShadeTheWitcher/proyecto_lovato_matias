@@ -29,15 +29,16 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+//paginas principales
 $routes->get('/', 'Home::index');
 $routes->add('/contacto', 'Home::contacto');
 $routes->add('/quienes-somos', 'Home::quienes_somos');
 $routes->add('/comercializacion', 'Home::comercializacion');
 $routes->add('/term-usos', 'Home::term_usos');
-$routes->add('/catalogo', 'Home::catalogo');
-$routes->add('/login', 'Home::login');
-$routes->add('/registro', 'Home::registro');
-$routes->post('/enviar-post', 'Home::registro');
+$routes->add('/catalogo', 'Carrito_Controller::catalogo');
+
+
 
 //rutas producto
 $routes->get('products', 'ProductController::index');
@@ -48,17 +49,20 @@ $routes->post('products/update', 'ProductController::update');
 $routes->get('products/delete/(:num)', 'ProductController::delete/$1');
 
 //usuario
-$routes->get('usuario/admin', 'usuario_controller::index');
+
 $routes->get('usuario/crearUser', 'usuario_controller::registro_form');
 $routes->post('usuario/enviar-registo', 'usuario_controller::insertar');
 
 $routes->get('usuario/login', 'usuario_controller::login_form');
 $routes->post('usuario/envio-logearse', 'usuario_controller::login');
 $routes->get('usuario/envio-logout', 'usuario_controller::logout');
-
+//usuario admin
+$routes->get('usuario/admin', 'usuario_controller::index');
 $routes->get('usuario/edit/(:num)', 'usuario_controller::edit/$1');
 $routes->post('usuario/update', 'usuario_controller::update');
 $routes->get('usuario/delete/(:num)', 'usuario_controller::delete/$1');
+$routes->get('usuario/baja/(:num)', 'usuario_controller::baja/$1');
+
 
 
 

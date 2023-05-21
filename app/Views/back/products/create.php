@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <div class="container mt-5">
+  <div class="container mt-5 ">
     <form method="post" id="createProduct" action="<?= site_url('/products/store') ?>">
       <div class="form-group">
         <label>Name</label>
@@ -40,6 +40,16 @@
         <button type="submit" class="btn btn-primary btn-block">Save</button>
       </div>
     </form>
+
+    
+         <div class="form-group">
+            <label>Imagen</label>
+              <input type="file" name="imagen" placeholder="" class="form-control"/>
+          </div>    
+     
+
+
+
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

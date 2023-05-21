@@ -10,11 +10,32 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
+            <?php if ($usuario && isset($usuario['logged_in']) &&  session('perfil_id') == 1)  { ?>
+
+                    <li class="nav-item active">
+                    <a class="nav-link" href="<?php echo base_url("/usuario/admin"); ?>">CRUD Usuarios </a>
+                    </li>
+
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url("products"); ?>">CRUD Productos</a>
+                    </li>
+                                        
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url("contacto"); ?>">Consultas</a>
+                    </li>
+
+
+            <?php }else{ ?>
+
+
+            
+
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url("/"); ?>">Home </a>
             </li>
 
-
+            
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url("quienes-somos"); ?>">Quienes somos</a>
             </li>
@@ -32,10 +53,10 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url("catalogo"); ?>">Catalogo</a> <!-- solo texto en este apartado --> 
+                <a class="nav-link" href="<?php echo base_url("catalogo"); ?>">Catalogo</a> 
             </li>
 
-            
+            <?php } ?>
             
         </ul>
         

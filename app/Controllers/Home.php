@@ -19,23 +19,19 @@ class Home extends BaseController
 
         $data['title'] = 'Home';
 
-        $esUsuario =false; 
-
-        if($esUsuario){
-            echo view('back//usuario//userHeader.php', $data);
-        }else{
-            echo view('componentes//header.php' ,[
-                "title"=>$data['title'],
-                "usuario"=>$this->usuario,
+  
+        echo view('componentes//header.php' ,[
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
              ]);
-        }
         
-        echo view("componentes//navbar.html");
+        
+        echo view("componentes//navbar");
         echo view("principal" ,[
             "usuario"=>$this->usuario
         ]);
         //echo view("componentes//footer.html");
-        return view("componentes//footer.html", ["usuario"=>$this->usuario]);
+        return view("componentes//footer.html", ["usuario"=>$this->usuario]   )  ;
         
         // $userModel = model(Modelo_Usuario::class);
         //  $datos = $userModel->mostrar();
@@ -50,7 +46,7 @@ class Home extends BaseController
             "title"=>$data['title'],
             "usuario"=>$this->usuario,
          ]);
-        echo view("componentes//navbar.html");
+        echo view("componentes//navbar");
         echo view("contacto.php");
         echo view("componentes//footer.html");
         
@@ -63,7 +59,7 @@ class Home extends BaseController
                 "title"=>$data['title'],
                 "usuario"=>$this->usuario,
              ]);
-        echo view("componentes//navbar.html");
+        echo view("componentes//navbar");
         echo view("quienes_somos.html");
         echo view("componentes//footer.html");
     }
@@ -75,7 +71,7 @@ class Home extends BaseController
                 "title"=>$data['title'],
                 "usuario"=>$this->usuario,
              ]);
-        echo view("componentes//navbar.html");
+        echo view("componentes//navbar");
         echo view("comercializacion.html");
         echo view("componentes//footer.html");
     }
@@ -86,7 +82,7 @@ class Home extends BaseController
                 "title"=>$data['title'],
                 "usuario"=>$this->usuario,
              ]);
-        echo view("componentes//navbar.html");
+        echo view("componentes//navbar");
         echo view("term_usos.html");
         echo view("componentes//footer.html");
     }
@@ -98,7 +94,7 @@ class Home extends BaseController
                 "title"=>$data['title'],
                 "usuario"=>$this->usuario,
              ]);
-        echo view("componentes//navbar.html");
+        echo view("componentes//navbar");
         echo view("catalogo.html");
         echo view("componentes//footer.html");
     }
@@ -109,7 +105,7 @@ class Home extends BaseController
                 "title"=>$data['title'],
                 "usuario"=>$this->usuario,
              ]);
-        echo view("componentes//navbar.html");
+        echo view("componentes//navbar");
         echo view("back//usuario//login.php");
         echo view("componentes//footer.html");
     }
@@ -120,7 +116,7 @@ class Home extends BaseController
                 "title"=>$data['title'],
                 "usuario"=>$this->usuario,
              ]);
-        echo view("componentes//navbar.html");
+        echo view("componentes//navbar");
         echo view("back//usuario//registrarse.php");
         echo view("componentes//footer.html");
     }

@@ -3,18 +3,59 @@ namespace App\Controllers;
 use App\Models\Product;
 use CodeIgniter\Controller;
 
-class ProductController extends Controller
+class ProductController extends BaseController
 {
+
+    private $session;
+    private $usuario;
+
+    public function __construct(){
+        helper(['form', 'url']);
+        
+        $this->session = \Config\Services::session();
+        $this->usuario =$this->session->get();
+        
+
+     }
+
+
+
     // show products list
     public function index() {
         $product = new Product();
         $data['products'] = $product->orderBy('id', 'DESC')->findAll();
-        return view('products/index', $data);
+
+
+        $data['title'] = 'Añadir producto';
+
+  
+        echo view('componentes//header.php' ,[
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+             ]);
+        
+        
+        echo view("componentes//navbar");
+
+        echo view('back/products/index', $data);
     }
 
     // show create product form
     public function create() {
-        return view('products/create');
+        $data['title'] = 'Añadir producto';
+
+  
+        echo view('componentes//header.php' ,[
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+             ]);
+        
+        
+        echo view("componentes//navbar");
+        echo view('back/products/create');
+        
+
+
     }
 
     // save product data
@@ -36,7 +77,7 @@ class ProductController extends Controller
     public function edit($id) {
         $product = new Product();
         $data['product'] = $product->where('id', $id)->first();
-        return view('products/edit', $data);
+        return view('back/products/edit', $data);
     }
 
     // update product data

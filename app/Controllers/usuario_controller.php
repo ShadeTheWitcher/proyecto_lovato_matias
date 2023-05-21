@@ -23,14 +23,21 @@ class usuario_controller extends BaseController{
 
 
     public function index(){
+        $usuarios = new Modelo_Usuario();
+        $data['usuarios'] = $usuarios->orderBy('id', 'DESC')->findAll();
+
+
+
         $data['title']='administrador de usuarios'; 
         echo view('componentes//header.php' ,[
             "title"=>$data['title'],
             "usuario"=>$this->usuario,
          ]);
-        echo view("componentes//navbar.html");
-        echo view("back//usuario//registrarse.php");
-        echo view("componentes//footer.html");
+        echo view("componentes//navbar");
+        echo view("back//admin//adminUsuarios.php", [
+            "usuarios"=>$data['usuarios']
+        ]);
+        
     }
 
     public function registro_form(){
@@ -39,7 +46,7 @@ class usuario_controller extends BaseController{
             "title"=>$data['title'],
             "usuario"=>$this->usuario,
          ]);
-        echo view("componentes//navbar.html");
+        echo view("componentes//navbar");
         echo view("back//usuario//registrarse.php");
         echo view("componentes//footer.html");
     }
@@ -51,7 +58,7 @@ class usuario_controller extends BaseController{
             "title"=>$data['title'],
             "usuario"=>$this->usuario,
          ]);
-        echo view("componentes//navbar.html");
+        echo view("componentes//navbar");
         echo view("back//usuario//login.php");
         echo view("componentes//footer.html");
     }
@@ -170,7 +177,8 @@ public function update() {
     ];
 
     $usuario->update($id, $data);
-    return $this->response->redirect(site_url('/'));
+    //return $this->response->redirect(site_url('/'));
+    return redirect()->back();
 }
 
 // delete product
@@ -329,7 +337,13 @@ public function login(){
                     'logged_in'       =>TRUE
                 ];
                 $session->set($ses_data);
-                return redirect()->to('/');
+
+                if(session('perfil_id') == 1){
+                    return redirect()->to('/usuario/admin');
+                }else{
+                    return redirect()->to('/');
+                }
+                
                 
             }else{
                 $session->setFlashdata('msg','usuario o contraseña erronea');
@@ -349,7 +363,7 @@ public function login(){
     public function baja($id){
     
         $Model=new Modelo_Usuario();
-        $data=$Model->getUsuario($id);
+        $data=$Model->obtenerUserPorID($id);
         $datos=[
                 'id' => 'id',
                 'baja'  => 'SI',
@@ -359,7 +373,7 @@ public function login(){
 
         session()->setFlashdata('mensaje','Usuario Eliminado');
 
-        return redirect()->to(base_url('usuarios-list'));
+        return redirect()->to(base_url('usuario/admin'));
     }
 
     public function habilitar($id){

@@ -31,19 +31,22 @@
 
             <div class="col-3">
 
-                <?php
-                    
-                ?>
+                
+            
 
                 <div class="row">
+
+                <?php if ($usuario && isset($usuario['logged_in'])) { ?>
+
+                    <?php if ($usuario && isset($usuario['logged_in']) &&  session('perfil_id') == 2)  { ?>
                     <div class="col-sm-6 text-center">
                         <a href="<?php echo base_url("comercializacion"); ?>">      <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #ffffff;"></i>   </a>
                     </div>
-                    
-
+                    <?php } ?>
+                        
                     <div class="col-sm-3 col-md-6 text-center">
 
-                    <?php if ($usuario && isset($usuario['logged_in'])) { ?>
+                    
                     
                         
                     <div class="dropdown">
@@ -52,8 +55,9 @@
                             </button>
                             <ul class="dropdown-menu">
                               
+                            <li><a class="dropdown-item" href="<?php echo base_url("usuario/"); ?>">perfil</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url("usuario/envio-logout"); ?>">cerrar sesion</a></li>
-                              <li><a class="dropdown-item" href="#">ver pedidos</a></li>
+                            
                             </ul>
                           </div>
 
@@ -73,7 +77,7 @@
                               <li><a class="dropdown-item" href="<?php echo base_url("usuario/crearUser"); ?>">Registrarse</a></li>
                               
                               
-                              <li><a class="dropdown-item" href="#">ver pedidos</a></li>
+                              
                             </ul>
                           </div>
 

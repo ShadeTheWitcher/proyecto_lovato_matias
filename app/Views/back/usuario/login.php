@@ -34,7 +34,7 @@
       <div class="container" >
         
         
-        <p>Aun no te has <a style="color:green" href="<?php echo base_url('registro')?>">Registrado</a>?</p>
+        <p>Aun no te has <a style="color:green" href="<?php echo base_url('usuario/crearUser')?>">Registrado</a>?</p>
       </div>
     </form>
   
