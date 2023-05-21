@@ -31,6 +31,10 @@
 
             <div class="col-3">
 
+                <?php
+                    
+                ?>
+
                 <div class="row">
                     <div class="col-sm-6 text-center">
                         <a href="<?php echo base_url("comercializacion"); ?>">      <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #ffffff;"></i>   </a>
@@ -38,7 +42,7 @@
                     
                     <div class="col-sm-3 col-md-6 text-center">
                         
-                        <div class="dropdown">
+                    <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-user fa-2xl" style="color: #ffffff;"></i>
                             </button>

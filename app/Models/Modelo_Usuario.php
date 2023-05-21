@@ -35,11 +35,7 @@ class Modelo_Usuario extends Model{
     // }
 
 
-     public function mostrar(){
-         $usuarios = $this->db->query('SELECT * FROM usuarios');
-        return $usuarios->getResult();
-     }
-
+     
 
      public function insertarUser($datos){
         return $this->insert($datos);
@@ -60,9 +56,18 @@ class Modelo_Usuario extends Model{
         $existeU= $this-> where("usuario", $usuario);
         return $existeU->get()->getRouteArray();
      }
+
+     public function existeEmail($email){
+      $existeUser= $this-> where("email", $email);
+      return $existeUser->countAllResults();
+   }
+
+     
+   public function obtenerUserPorID($id){
+      $existeU= $this-> where("id", $id);
+      return $existeU->get()->getRouteArray();
+   }
+
+
 }
-
-
-
-
 ?>

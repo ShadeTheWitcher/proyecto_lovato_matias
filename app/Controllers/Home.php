@@ -24,11 +24,16 @@ class Home extends BaseController
         if($esUsuario){
             echo view('back//usuario//userHeader.php', $data);
         }else{
-            echo view('componentes//header.php' ,$data);
+            echo view('componentes//header.php' ,[
+                "data"->$data,
+                "usuario"=>$this->usuario,
+             ]);
         }
         
         echo view("componentes//navbar.html");
-        echo view("principal.html");
+        echo view("principal" ,[
+            "usuario"=>$this->usuario
+        ]);
         //echo view("componentes//footer.html");
         return view("componentes//footer.html", ["usuario"=>$this->usuario]);
         

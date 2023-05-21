@@ -1,8 +1,14 @@
+
+
 <section class="seccion-principal">
 
     <?php if(session()->getFlashdata('msg')):?>
     <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
   <?php endif;?>
+
+  <?php if (session()->getFlashdata('success')) : ?>
+    <div id="success-message" class="alert alert-success welcome-message"><?= session()->getFlashdata('success') ?></div>
+  <?php endif; ?>
 
 
 <section class="seccion-carrusel">

@@ -45,27 +45,28 @@ class usuario_controller extends Controller{
 
 
 public function insertar() {
+    $session =session();
    
     $user = new Modelo_Usuario();
    
     
 
 
-    $nombre = $this->request->getVar('nombre');
-    $apellido = $this->request->getVar('apellido');
-    $usuario = $this->request->getVar('usuario');
-    $email = $this->request->getVar('email');
-    $password = $this->request->getVar('pass');
-    $cpass = $this->request->getVar('pass-repetida');
+    $nombre = $this->request->getPost('nombre');
+    $apellido = $this->request->getPost('apellido');
+    $usuario = $this->request->getPost('usuario');
+    $email = $this->request->getPost('email');
+    $password = $this->request->getPost('pass');
+    $cpass = $this->request->getPost('pass-repetida');
 
-    //$password= (string)$password;
-    //$cpass= (string)$cpass;
+    $password= (string)$password;
+    $cpass= (string)$cpass;
 
     if( ($password === $cpass)==false) {
         return redirect()->back()->with('fail','Las contraseñas no coinciden :(');
     }
 
-    $dataUser = [
+    $data = [
         'usuario' => $usuario,
         'nombre' => $nombre,
         'apellido'=> $apellido,
@@ -77,11 +78,42 @@ public function insertar() {
 
 
     $existeUsuario = $user->existeUsuario($usuario); //compara la variable
+    $existeEmail = $user->existeEmail($email); //compara la variable
 
     if($existeUsuario > 0){
-        return redirect()->back()->with('fail','el usuario ya existe');
+        return redirect()->back()->with('failUser','el usuario ya existe');
     }
 
+    if($existeEmail > 0){
+        return redirect()->back()->with('failEmail','el correo ya esta en uso');
+    }
+
+    
+
+    $user_id=  $user->insert($data); //guarda la id
+
+    if($user_id){ //si es null da error
+        $ses_data = [
+            'id'     => $user_id, //ya se logea al regsitrarse
+            'nombre' => $data['nombre'],
+            'apellido' => $data['apellido'],
+            'usuario'  => $data['usuario'],
+            'email'  => $data['email'],
+            'perfil_id'  => $data['perfil_id'],
+            'logged_in'       =>TRUE
+        ];
+
+        $session->set($ses_data);
+        $session->setFlashdata('success', '!Gracias ' . $nombre . ' por unirte!');
+        return redirect()->to(site_url('/'));
+        
+
+    }else{
+        $session->setFlashdata('failRegistro', '!No se ha podido registrar!');
+        return redirect()->back();
+    }
+
+    
 
     // $data = [
     //     'usuario' => $this->request->getVar('usuario'),
@@ -96,13 +128,7 @@ public function insertar() {
 
 
 
-    if(!$user->insert($dataUser)){
-        return redirect()->back()->with('fail','Hubo un error, Lo sentimos mucho :(');
-       } else{
-           return redirect()->to('usuario/crearUser')->with('success','Te has registrado exitosamente :)');
-       }
-
-        
+   
     
 
     //return $this->response->redirect(site_url('/'));
@@ -286,24 +312,12 @@ public function login(){
                     'logged_in'       =>TRUE
                 ];
                 $session->set($ses_data);
-                switch (session('perfil_id')){
-                    case '1': //es admin
-                        
-                        return redirect() ->to('/usuario');
-                        break;
-                    case '2':  //por defecto es visitante
-                        //$msj = "inicio de sesion exitoso.. Bienvenido " . $data["nombre"];
-                        $session->setFlashdata('msg',"inicio de sesion exitoso.. Bienvenido " . $data["nombre"] );
-                        return redirect()->to('/');
-                        break;
-                        }
+                return redirect()->to('/');
+                
             }else{
-                $session->setFlashdata('msg','Contraseña Erronea');
+                $session->setFlashdata('msg','usuario o contraseña erronea');
                 return redirect()->to('/usuario/login');
             }
-        }else{
-            $session->setFlashdata('msg','usuario no encontrado');
-                return redirect()->to('/usuario/login');
         }
     }
 

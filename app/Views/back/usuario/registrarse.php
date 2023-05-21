@@ -10,12 +10,17 @@
     <h1>Sign Up</h1>
     
     <!--Notificacion de Registro-->
-    <?php if(!empty(session()->getFlashdata('fail'))) {;?>
-            <div class='alert alert-danger'> <?= session()->getFlashdata('fail'); ?> </div>
+    <?php if(!empty(session()->getFlashdata('failUser'))) {;?>
+            <div class='alert alert-danger'> <?= session()->getFlashdata('failUser'); ?> </div>
           <?php } ?>
           <?php if(!empty(session()->getFlashdata('success'))) { ?>
             <div class='alert alert-success'><?= session()->getFlashdata('success'); ?></div>
           <?php } ?>
+
+    <?php if(!empty(session()->getFlashdata('failEmail'))) {;?>
+            <div class='alert alert-danger'> <?= session()->getFlashdata('failEmail'); ?> </div>
+          <?php } ?>        
+
 
     <p>Por favor rellene los campos para registrarse.</p>
     <hr>

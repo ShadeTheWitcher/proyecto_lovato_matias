@@ -1,0 +1,1 @@
+__ci_last_regenerate|i:1684632696;_ci_previous_url|s:67:"http://localhost/proyecto_lovato_matias/index.php/usuario/crearUser";id|i:29;nombre|s:3:"123";apellido|s:3:"123";usuario|s:4:"1234";email|s:13:"123@gmail.com";perfil_id|i:2;logged_in|b:1;fail|s:20:"el usuario ya existe";__ci_vars|a:1:{s:4:"fail";s:3:"old";}
