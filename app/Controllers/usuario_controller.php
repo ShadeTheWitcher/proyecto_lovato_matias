@@ -5,10 +5,18 @@ use App\Models\Modelo_Usuario;
 use CodeIgniter\Controller;
 
 
-class usuario_controller extends Controller{
+class usuario_controller extends BaseController{
+
+    private $session;
+    private $usuario;
 
     public function __construct(){
         helper(['form', 'url']);
+        
+        $this->session = \Config\Services::session();
+        $this->usuario =$this->session->get();
+        
+
      }
 
      
@@ -16,7 +24,10 @@ class usuario_controller extends Controller{
 
     public function index(){
         $data['title']='administrador de usuarios'; 
-        echo view('componentes//header.php', $data);
+        echo view('componentes//header.php' ,[
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+         ]);
         echo view("componentes//navbar.html");
         echo view("back//usuario//registrarse.php");
         echo view("componentes//footer.html");
@@ -24,7 +35,10 @@ class usuario_controller extends Controller{
 
     public function registro_form(){
         $data['title']='registro'; 
-        echo view('componentes//header.php', $data);
+        echo view('componentes//header.php' ,[
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+         ]);
         echo view("componentes//navbar.html");
         echo view("back//usuario//registrarse.php");
         echo view("componentes//footer.html");
@@ -33,7 +47,10 @@ class usuario_controller extends Controller{
 
     public function login_form(){
         $data['title']='login'; 
-        echo view('componentes//header.php', $data);
+        echo view('componentes//header.php' ,[
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+         ]);
         echo view("componentes//navbar.html");
         echo view("back//usuario//login.php");
         echo view("componentes//footer.html");

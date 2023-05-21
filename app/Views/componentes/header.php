@@ -40,24 +40,51 @@
                         <a href="<?php echo base_url("comercializacion"); ?>">      <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #ffffff;"></i>   </a>
                     </div>
                     
+
                     <div class="col-sm-3 col-md-6 text-center">
+
+                    <?php if ($usuario && isset($usuario['logged_in'])) { ?>
+                    
                         
                     <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fa-solid fa-user fa-2xl" style="color: #ffffff;"></i>
                             </button>
                             <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="<?php echo base_url("usuario/login"); ?>">Iniciar Sesion</a></li>
-                              <li><a class="dropdown-item" href="<?php echo base_url("usuario/crearUser"); ?>">Registrarse</a></li>
+                              
+                            <li><a class="dropdown-item" href="<?php echo base_url("usuario/envio-logout"); ?>">cerrar sesion</a></li>
                               <li><a class="dropdown-item" href="#">ver pedidos</a></li>
                             </ul>
                           </div>
 
 
+
+
+
+
+                        <?php }else { ?>
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-solid fa-user fa-2xl" style="color: #ffffff;">     </i>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="<?php echo base_url("usuario/login"); ?>">Iniciar Sesion</a></li>
+                              <li><a class="dropdown-item" href="<?php echo base_url("usuario/crearUser"); ?>">Registrarse</a></li>
+                              
+                              
+                              <li><a class="dropdown-item" href="#">ver pedidos</a></li>
+                            </ul>
+                          </div>
+
+                          <?php } ?>
+
+
+
+
                     </div>
 
                     
-
 
                 </div>
 
