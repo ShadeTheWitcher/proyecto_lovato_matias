@@ -2,7 +2,7 @@
 
 <div class="container mt-4">
     <div class="d-flex justify-content-end">
-        <a href="<?php echo site_url('/products/create') ?>" class="btn btn-success mb-2">Add Product</a>
+        <a href="<?php echo site_url('/products/create') ?>" class="btn btn-success mb-2">Agregar nuevo usuario</a>
 	</div>
     <?php
      if (isset($_SESSION['msg'])) {

@@ -22,7 +22,7 @@
                     </li>
                                         
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url("contacto"); ?>">Consultas</a>
+                        <a class="nav-link" href="<?php echo base_url("#"); ?>">Consultas</a>
                     </li>
 
 

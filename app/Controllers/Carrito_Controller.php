@@ -24,7 +24,7 @@ class Carrito_Controller extends BaseController
             "title"=>$data['title'],
             "usuario"=>$this->usuario,
          ]);
-            echo view("componentes//navbar.html");
+            echo view("componentes/navbar");
             echo view('catalogo.php',$datos);
         
     }

@@ -190,111 +190,111 @@ public function delete($id) {
 
 
 
-public function formValidation() {
+// public function formValidation() {
 
-    //helper(['form', 'url']);
-  // $input = $this->validate([
-  //    'nombre'   => 'required|min_length[3]',
-  //    'apellido' => 'required|min_length[3]|max_length[25]',
-  //     'email'    => 'required|min_length[4]|max_length[50]|valid_email|is_unique[usuarios.email]',
-  //     'usuario'  => 'required|min_length[3]',
-  //     'password'     => 'required|min_length[3]|max_length[10]',
-  //     'cpassword'    => 'required|min_length[3]|max_length[10]|matches[password]'
-  // ]);
+//     //helper(['form', 'url']);
+//   // $input = $this->validate([
+//   //    'nombre'   => 'required|min_length[3]',
+//   //    'apellido' => 'required|min_length[3]|max_length[25]',
+//   //     'email'    => 'required|min_length[4]|max_length[50]|valid_email|is_unique[usuarios.email]',
+//   //     'usuario'  => 'required|min_length[3]',
+//   //     'password'     => 'required|min_length[3]|max_length[10]',
+//   //     'cpassword'    => 'required|min_length[3]|max_length[10]|matches[password]'
+//   // ]);
 
-   $input = $this->validate([
-       'nombre'   =>[
-           'rules'=>'required|min_length[3]',
-           'errors'=>[
-               'required'=>'Su nombre es requerido',
-               'min_length[3]'=>'Su nombre debe de tener mas de 3 caracteres'
-               ]
-           ],
+//    $input = $this->validate([
+//        'nombre'   =>[
+//            'rules'=>'required|min_length[3]',
+//            'errors'=>[
+//                'required'=>'Su nombre es requerido',
+//                'min_length[3]'=>'Su nombre debe de tener mas de 3 caracteres'
+//                ]
+//            ],
 
-       'apellido'   =>[
-           'rules'=>'required|min_length[3]|max_length[30]',
-           'errors'=>[
-               'required'=>'Su apellido es requerido',
-               'min_length[3]'=>'Su apellido debe de tener mas de 3 caracteres',
-              'max_length[30]'=>'Su apellido supera el limite de caracteres'
-               ]
-           ],
+//        'apellido'   =>[
+//            'rules'=>'required|min_length[3]|max_length[30]',
+//            'errors'=>[
+//                'required'=>'Su apellido es requerido',
+//                'min_length[3]'=>'Su apellido debe de tener mas de 3 caracteres',
+//               'max_length[30]'=>'Su apellido supera el limite de caracteres'
+//                ]
+//            ],
 
-       'email'   =>[
-           'rules'=>'required|min_length[4]|max_length[50]|valid_email|is_unique[usuarios.email]',
-           'errors'=>[
-               'required'=>'Su email es requerido',
-               'min_length[4]'=>'Su email debe de tener mas de 4 caracteres',
-               'max_length[50]'=>'Su email supera el limite de caracteres',
-               'valid_email'=>'Su email no es valido',
-               'is_unique[usuarios.email]'=>'Su email ya ha sido registrado'
-               ] 
-           ],
+//        'email'   =>[
+//            'rules'=>'required|min_length[4]|max_length[50]|valid_email|is_unique[usuarios.email]',
+//            'errors'=>[
+//                'required'=>'Su email es requerido',
+//                'min_length[4]'=>'Su email debe de tener mas de 4 caracteres',
+//                'max_length[50]'=>'Su email supera el limite de caracteres',
+//                'valid_email'=>'Su email no es valido',
+//                'is_unique[usuarios.email]'=>'Su email ya ha sido registrado'
+//                ] 
+//            ],
 
-       'usuario'=>[
-           'rules'=>'required|min_length[3]',
-               'errors'=>[
-                   'required'=>'Su usuario es requerido',
-                   'min_length[3]'=>'Su usuario debe de tener mas de 3 caracteres'
-                   ]
-               ],      
+//        'usuario'=>[
+//            'rules'=>'required|min_length[3]',
+//                'errors'=>[
+//                    'required'=>'Su usuario es requerido',
+//                    'min_length[3]'=>'Su usuario debe de tener mas de 3 caracteres'
+//                    ]
+//                ],      
        
-       'pass'=>[
-           'rules'=>'required|min_length[3]|max_length[20]',
-           'errors'=>[
-               'required'=>'Su contraseña es requerida',
-               'min_length[3]'=>'Su contraseña debe de tener mas de 3 caracteres',
-               'max_length[20]'=>'Su contraseña supera el limite de caracteres'
-               ]
-           ],
+//        'pass'=>[
+//            'rules'=>'required|min_length[3]|max_length[20]',
+//            'errors'=>[
+//                'required'=>'Su contraseña es requerida',
+//                'min_length[3]'=>'Su contraseña debe de tener mas de 3 caracteres',
+//                'max_length[20]'=>'Su contraseña supera el limite de caracteres'
+//                ]
+//            ],
 
-       'pass-repetida'=>[
-           'rules'=>'required|min_length[3]|max_length[20]|matches[pass]',
-           'errors'=>[
-               'required'=>'Debe de confirmar su contraseña',
-               'min_length[3]'=>'Su contraseña debe de tener mas de 3 caracteres',
-               'max_length[20]'=>'Su contraseña supera el limite de caracteres',
-               'matches[password]'=>'Su contraseña no coincide con la anterior'
-               ]
-           ]
-   ]);
+//        'pass-repetida'=>[
+//            'rules'=>'required|min_length[3]|max_length[20]|matches[pass]',
+//            'errors'=>[
+//                'required'=>'Debe de confirmar su contraseña',
+//                'min_length[3]'=>'Su contraseña debe de tener mas de 3 caracteres',
+//                'max_length[20]'=>'Su contraseña supera el limite de caracteres',
+//                'matches[password]'=>'Su contraseña no coincide con la anterior'
+//                ]
+//            ]
+//    ]);
 
   
-   if (!$input){
+//    if (!$input){
 
-       $data['titulo']='Registro'; 
-       echo view('componentes/header',$data);
-       echo view('back/usuario/registrarse', [
-       'validation' =>$this->validator
-        ]);
+//        $data['titulo']='Registro'; 
+//        echo view('componentes/header',$data);
+//        echo view('back/usuario/registrarse', [
+//        'validation' =>$this->validator
+//         ]);
 
-   } else {
+//    } else {
       
-       $nombre = $this->request->getVar('nombre');
-       $apellido = $this->request->getVar('apellido');
-       $usuario = $this->request->getVar('usuario');
-       $email = $this->request->getVar('email');
-       $password = $this->request->getVar('pass');
+//        $nombre = $this->request->getVar('nombre');
+//        $apellido = $this->request->getVar('apellido');
+//        $usuario = $this->request->getVar('usuario');
+//        $email = $this->request->getVar('email');
+//        $password = $this->request->getVar('pass');
           
-       $values =[
-           'nombre'=>$nombre,
-           'apellido'=>$apellido,
-           'usuario'=>$usuario,
-           'email'=>$email,
-           'pass'=>Hash::make($password),
-       ];
+//        $values =[
+//            'nombre'=>$nombre,
+//            'apellido'=>$apellido,
+//            'usuario'=>$usuario,
+//            'email'=>$email,
+//            'pass'=>Hash::make($password),
+//        ];
 
-       $formModel = new Modelo_Usuario();
+//        $formModel = new Modelo_Usuario();
        
-       if(!$formModel->insert($values)){
-           return redirect()->back()->with('fail','Hubo un error, Lo sentimos mucho :(');
-       } else{
-           return redirect()->to('registracion')->with('success','Te has registrado exitosamente :)');
-       }
+//        if(!$formModel->insert($values)){
+//            return redirect()->back()->with('fail','Hubo un error, Lo sentimos mucho :(');
+//        } else{
+//            return redirect()->to('registracion')->with('success','Te has registrado exitosamente :)');
+//        }
            
-   }
+//    }
 
-}
+// }
 
 
 
@@ -347,7 +347,7 @@ public function login(){
                 
             }else{
                 $session->setFlashdata('msg','usuario o contraseña erronea');
-                return redirect()->to('/usuario/login');
+                return redirect()->back();
             }
         }
     }
