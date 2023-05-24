@@ -20,7 +20,7 @@
 
 <body>
   <div class="container mt-5 ">
-    <form method="post" id="createProduct" action="<?= site_url('/products/store') ?>">
+    <form enctype="multipart/form-data" method="post" id="createProduct" action="<?= site_url('/products/store') ?>">
       <div class="form-group">
         <label>Name</label>
         <input type="text" name="name" class="form-control">
@@ -36,16 +36,26 @@
         <textarea type="text" name="description" class="form-control"></textarea>
       </div>
 
+
+      <div class="form-group">
+            <label>Imagen</label>
+              <input type="file" name="imagen" placeholder="" class="form-control"/>
+      </div> 
+
+
+
       <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block">Save</button>
       </div>
+
+
+
+
+
     </form>
 
     
-         <div class="form-group">
-            <label>Imagen</label>
-              <input type="file" name="imagen" placeholder="" class="form-control"/>
-          </div>    
+            
      
 
 

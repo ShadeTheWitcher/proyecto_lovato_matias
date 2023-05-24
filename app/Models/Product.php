@@ -8,5 +8,5 @@ class Product extends Model
     protected $primaryKey = 'id';
     protected $useAutoIncreament = true;
 
-    protected $allowedFields = ['name', 'price', 'description'];
+    protected $allowedFields = ['name', 'price', 'description' , "imagen", "activo"];
 }

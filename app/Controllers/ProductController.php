@@ -61,17 +61,26 @@ class ProductController extends BaseController
     // save product data
     public function store() {
         $product = new Product();
-
+        
+        
         $img = $this->request->getFile('imagen');
-        $nombre_aleatorio = "juego";
-        $img->move(ROOTPATH. 'assets/uploads');
+
+
+       
+
+
+        $nombre_aleatorio = $img->getRandomName();
+        $img->move(ROOTPATH. 'assets/uploads' ,$nombre_aleatorio);
+
 
 
         $data = [
             'name' => $this->request->getVar('name'),
             'price'  => $this->request->getVar('price'),
             'description'  => $this->request->getVar('description'),
-            'imagen'  => $,
+            'activo'  => "SI" ,
+            'imagen'  => $nombre_aleatorio,
+
         ];
 
         $product->insert($data);
