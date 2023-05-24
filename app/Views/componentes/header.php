@@ -40,7 +40,7 @@
 
                     <?php if ($usuario && isset($usuario['logged_in']) &&  session('perfil_id') == 2)  { ?>
                     <div class="col-sm-6 text-center">
-                        <a href="<?php echo base_url("comercializacion"); ?>">      <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #ffffff;"></i>   </a>
+                        <a href="<?php echo base_url("carrito"); ?>">      <i class="fa-solid fa-cart-shopping fa-2xl" style="color: #ffffff;"></i>   </a>
                     </div>
                     <?php } ?>
                         

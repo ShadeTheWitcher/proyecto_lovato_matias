@@ -62,10 +62,16 @@ class ProductController extends BaseController
     public function store() {
         $product = new Product();
 
+        $img = $this->request->getFile('imagen');
+        $nombre_aleatorio = "juego";
+        $img->move(ROOTPATH. 'assets/uploads');
+
+
         $data = [
             'name' => $this->request->getVar('name'),
             'price'  => $this->request->getVar('price'),
             'description'  => $this->request->getVar('description'),
+            'imagen'  => $,
         ];
 
         $product->insert($data);

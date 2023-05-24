@@ -29,6 +29,19 @@ class Carrito_Controller extends BaseController
         
     }
 
+    public function index(){
+        $cart = \Config\Services::Cart();
+        $product = new Product();
+        
+		$data['title'] = 'Carrito de Compras';
+        echo view('componentes/header', [
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+         ]);
+         echo view("componentes/navbar");
+        echo view('back/usuario/carrito');
+    }
+
 
 
 

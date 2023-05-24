@@ -56,6 +56,9 @@ $routes->post('usuario/enviar-registo', 'usuario_controller::insertar');
 $routes->get('usuario/login', 'usuario_controller::login_form');
 $routes->post('usuario/envio-logearse', 'usuario_controller::login');
 $routes->get('usuario/envio-logout', 'usuario_controller::logout');
+
+
+
 //usuario admin
 $routes->get('usuario/admin', 'usuario_controller::index');
 $routes->get('usuario/edit/(:num)', 'usuario_controller::edit/$1');
@@ -64,6 +67,8 @@ $routes->get('usuario/delete/(:num)', 'usuario_controller::delete/$1');
 $routes->get('usuario/baja/(:num)', 'usuario_controller::baja/$1');
 
 
+//carrito
+$routes->get('carrito', 'Carrito_Controller::index');
 
 
 

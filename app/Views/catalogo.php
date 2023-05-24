@@ -15,8 +15,8 @@
                         <?php if (session('logged_in')) { 
                             echo form_open('Carrito_controller/add');
                             echo form_hidden('id',$product['id']);
-                            echo form_hidden('nombre_product',$product['nombre_product']);
-                            echo form_hidden('precio',$product['precio']);
+                            echo form_hidden('nombre_product',$product['name']);
+                            echo form_hidden('precio',$product['price']);
                             $btn= array(
                                 'class' => 'btn btn-danger',
                                 'value' => 'Agregar al Carrito',

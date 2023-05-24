@@ -26,10 +26,41 @@
                     </li>
 
 
-            <?php }else{ ?>
+            <?php }else if ($usuario && isset($usuario['logged_in']) &&  session('perfil_id') == 2)  { ?>
 
 
             
+
+            <li class="nav-item active">
+                <a class="nav-link" href="<?php echo base_url("/"); ?>">Home </a>
+            </li>
+
+            
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url("quienes-somos"); ?>">Quienes somos</a>
+            </li>
+                                
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url("contacto"); ?>">Consultas</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url("comercializacion"); ?>">Comercializacion</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url("term-usos"); ?>">terminos y usos</a> <!-- solo texto en este apartado --> 
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url("catalogo"); ?>">Catalogo</a> 
+            </li>
+
+            <?php }else{ ?>
+
+
+
+
 
             <li class="nav-item active">
                 <a class="nav-link" href="<?php echo base_url("/"); ?>">Home </a>
@@ -55,6 +86,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo base_url("catalogo"); ?>">Catalogo</a> 
             </li>
+
+
 
             <?php } ?>
             
