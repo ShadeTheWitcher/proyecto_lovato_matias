@@ -4,6 +4,7 @@
 @import url("estilos_principal.css");
 @import url("estilos_comercializacion.css");
 @import url("estilos_usuario.css");
+@import url("estilos_crud.css");
 
 *{   /*hago un reseteo para que se agregen cosas que no queremos*/
   margin: 0%;    

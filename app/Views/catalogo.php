@@ -1,9 +1,9 @@
 <section>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="row justify-content-md-center ">
         <?php foreach($productos as $product):?>
-            <?php if($product['categoria_id'] == '2' ): ?>
-            <div class="col">
+            <?php if($product ): ?> 
+            <div class="col-3">
                 <div class="card" style="width:15rem;">
                     <img class="card-img-top img-thumbnail" src="<?=base_url()?>assets/uploads/<?=$product['imagen'];?>" 
                     width="100" alt="">

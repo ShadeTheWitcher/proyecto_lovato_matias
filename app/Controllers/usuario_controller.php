@@ -368,7 +368,7 @@ public function login(){
         $Model=new Modelo_Usuario();
         $data=$Model->obtenerUserPorID($id);
         $datos=[
-                'id' => 'id',
+                
                 'baja'  => 'SI',
                 
             ];

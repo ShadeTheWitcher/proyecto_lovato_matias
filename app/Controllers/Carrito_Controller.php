@@ -42,6 +42,21 @@ class Carrito_Controller extends BaseController
         echo view('back/usuario/carrito');
     }
 
+    public function add(){
+       
+        $cart = \Config\Services::Cart();
+
+        $request = \Config\Services::request();
+        $data = array(
+            'id' =>$request->getPost('id'),
+            'name' => $request->getPost('nombre_product'),
+            'qty' => 1,
+            'price' =>$request->getPost('precio'),
+        );
+        $cart->insert($data);
+        return redirect()->back()->withInput();
+    }
+
 
 
 

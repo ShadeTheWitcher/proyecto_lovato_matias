@@ -65,7 +65,7 @@ class ProductController extends BaseController
         
         $img = $this->request->getFile('imagen');
 
-
+        $categoria= $this->request->getPost('categorias');
        
 
 
@@ -80,6 +80,7 @@ class ProductController extends BaseController
             'description'  => $this->request->getVar('description'),
             'activo'  => "SI" ,
             'imagen'  => $nombre_aleatorio,
+            "categoria_id" => $categoria
 
         ];
 
