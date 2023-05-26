@@ -13,12 +13,16 @@
             <?php if ($usuario && isset($usuario['logged_in']) &&  session('perfil_id') == 1)  { ?>
 
                     <li class="nav-item active">
-                    <a class="nav-link" href="<?php echo base_url("/usuario/admin"); ?>">CRUD Usuarios </a>
+                    <a class="nav-link" href="<?php echo base_url("/usuario/admin"); ?>">Gestion Usuarios </a>
                     </li>
 
                 
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url("products"); ?>">CRUD Productos</a>
+                        <a class="nav-link" href="<?php echo base_url("products"); ?>">Gestion Productos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url("/admin/historial-ventas"); ?>">Historial Ventas</a>
                     </li>
                                         
                     <li class="nav-item">

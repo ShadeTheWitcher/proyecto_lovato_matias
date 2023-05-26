@@ -51,6 +51,20 @@ class Carrito_Controller extends BaseController
         ]);
     }
 
+    public function gestionVentas(){ //vista de historial de ventas
+        $product = new Product();
+        $datos['productos'] = $product->findAll();
+
+        $data['title'] = 'Catalogo';
+        echo view('componentes/header', [
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+         ]);
+            echo view("componentes/navbar");
+            echo view('back/admin/adminVentas',$datos);
+        
+    }
+
     public function add(){
     
     $cart = session("cart");
@@ -236,17 +250,17 @@ class Carrito_Controller extends BaseController
         
         $ventaId = $venta->insert($datos);
 
-        $cart = \Config\Services::cart();
+        
         $detalle = new VentaDetalle_model();
         $product = new Product();
         $total = 0;
 
-        $cart1 = $cart->contents();
-        foreach($cart1 as $item){
+        $cart = session("cart");
+        foreach($cart as $item){
 
             $datosProduct = $product->where('id', $item['id'])->first();
             
-            if($datosProduct['stock'] < $item['qty']){
+            if($datosProduct['cantidad'] < $item['cant']){
                 
                 $venta->where('id', $ventaId)->delete($ventaId);
                 $session->setFlashdata('mensaje', 
@@ -257,15 +271,15 @@ class Carrito_Controller extends BaseController
             }else{
                 $subTotal = 0;
                 $datos= array(
-                    'stock'=> $datosProduct['stock'] - $item['qty'],  
+                    'cantidad'=> $datosProduct['cantidad'] - $item['cant'],  
                 );
 
                 $product->update($datosProduct['id'], $datos);
 
-                if( $item['qty'] > 1){
+                if( $item['cant'] > 1){
 
-                   $subTotal = $item['qty'] * $item['price'];
-                   $total = $total + ($item['qty'] * $item['price']);
+                   $subTotal = $item['cant'] * $item['price'];
+                   $total = $total + ($item['cant'] * $item['price']);
 
                 }else{
 
@@ -276,9 +290,9 @@ class Carrito_Controller extends BaseController
                 $detalle_venta = array(
                     'venta_id'=> $ventaId,
                     'producto_id' => $item['id'],
-                    'cantidad' => $item['qty'],
+                    'cantidad' => $item['cant'],
                     'precio' => $item['price'],
-                    'subTotal' => $subTotal,
+                    'total' => $subTotal,
                 );
                
                 $detalle->insert($detalle_venta);
@@ -292,8 +306,8 @@ class Carrito_Controller extends BaseController
         );
         
         $venta->update($ventaId ,$datos);
-        $cart->destroy();
-        return redirect('cartt');
+        session()->remove("cart");
+        return redirect('carrito');
     }
 
 

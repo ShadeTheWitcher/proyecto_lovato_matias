@@ -20,23 +20,61 @@
 
 <body>
   <div class="container mt-5">
-    <form method="post" id="createProduct" action="<?= site_url('/products/update') ?>">
-    <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
-        <div class="form-group">
-            <label>Name</label>
-            <input type="text" name="name" class="form-control" value="<?php echo $product['name']; ?>">
-        </div>
-        <div class="form-group">
-            <label>Price</label>
-            <input type="number" name="price" class="form-control" value="<?php echo $product['price']; ?>">
-        </div>
-        <div class="form-group">
-            <label>Description</label>
-            <textarea type="text" name="description" class="form-control"><?php echo $product['description']; ?></textarea>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Save</button>
-        </div>
+    <form enctype="multipart/form-data" method="post" id="createProduct" action="<?= site_url('/products/update') ?>">
+        <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" class="form-control" value="<?php echo $product['name']; ?>">
+            </div>
+            <div class="form-group">
+                <label>Price</label>
+                <input type="number" name="price" class="form-control" value="<?php echo $product['price']; ?>">
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea type="text" name="description" class="form-control"><?php echo $product['description']; ?></textarea>
+            </div>
+            
+
+            <div class="form-group">
+                <label>Cantidad</label>
+                <input type="number" name="cantidad" class="form-control" value="<?php echo $product['cantidad']; ?>"  ></input>
+            </div>
+
+            <div class="form-group">
+              <?php $categoria = $product['categoria_id']; ?>
+                <label>Categoria</label>
+                <select class="form-select mb-3" name="categorias" id="">
+                    <option value="1" <?php echo ($categoria == 1) ? 'selected' : ''; ?>>Accion</option>  
+                    <option value="2" <?php echo ($categoria == 2) ? 'selected' : ''; ?>>Aventura</option>  
+                    <option value="3" <?php echo ($categoria == 3) ? 'selected' : ''; ?>>Lucha</option>
+                    <option value="4" <?php echo ($categoria == 4) ? 'selected' : ''; ?>>Carreras</option>
+                </select>
+            </div>
+
+            <div>
+              <label for="opcion">Es tendencia?</label>
+              <?php $opcion_es_tendencia = $product['es_tendencia']; ?>
+              <div>
+                <input type="radio" id="opcion_si" name="opcion_tendencia" value="SI" <?php echo ($opcion_es_tendencia == 'SI') ? 'checked' : ''; ?>>
+                <label for="opcion_si">Sí</label>
+              </div>
+              <div>
+                <input type="radio" id="opcion_no" name="opcion_tendencia" value="NO" <?php echo ($opcion_es_tendencia == 'NO') ? 'checked' : ''; ?>>
+                <label for="opcion_no">No</label>
+              </div>
+            </div>
+
+
+          <div class="form-group">
+                <label>Imagen</label>
+                <input type="file" name="imagen" placeholder="" class="form-control" />
+          </div> 
+
+          <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Save</button>
+          </div>
+
     </form>
   </div>
 
@@ -48,25 +86,24 @@
       $("#createProduct").validate({
         rules: {
           name: {
-            required: true,
+              required: "Name is required.",
           },
           price: {
-            required: true,
+              required: "Price is required.",
           },
           description: {
-            required: true,
+              required: "Description is required.",
           },
-        },
-        messages: {
-          name: {
-            required: "Name is required.",
+          cantidad: {
+              required: "cantidad is required.",
           },
-          price: {
-            required: "Price is required.",
+          categorias: {
+              required: "categorias is required.",
           },
-          description: {
-            required: "Description is required.",
+          opcion_tendencia: {
+            required: "tendencia is required.",
           },
+          
         },
       })
     }

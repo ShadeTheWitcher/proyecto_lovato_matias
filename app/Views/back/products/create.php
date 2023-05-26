@@ -46,11 +46,25 @@
         <select class="form-select mb-3" name="categorias" id="">
             <option value="1">Accion</option>  
             <option value="2">Aventura</option>  
-            <option value="3">Tendencia</option>
+            <option value="3">Lucha</option>
             <option value="4">Carreras</option>
         </select>
         
       </div>
+
+      <div>
+        <label for="opcion">Es tendencia?</label>
+        <div>
+          <input type="radio" id="opcion_si" name="opcion_tendencia" value="SI">
+          <label for="opcion_si">Sí</label>
+        </div>
+        <div>
+          <input type="radio" id="opcion_no" name="opcion_tendencia" value="NO">
+          <label for="opcion_no">No</label>
+        </div>
+      </div>
+
+
 
       <div class="form-group">
             <label>Imagen</label>
@@ -93,6 +107,18 @@
           description: {
             required: true,
           },
+          cantidad: {
+            required: true,
+          },
+          categorias: {
+            required: true,
+          },
+          opcion_tendencia: {
+            required: true,
+          },
+          imagen: {
+            required: true,
+          },
         },
         messages: {
           name: {
@@ -104,6 +130,19 @@
           description: {
             required: "Description is required.",
           },
+          cantidad: {
+            required: "cantidad is required.",
+          },
+          categorias: {
+            required: "categorias is required.",
+          },
+          opcion_tendencia: {
+            required: "tendencia is required.",
+          },
+          imagen: {
+            required: "imagen is required.",
+          },
+          
         },
       })
     }

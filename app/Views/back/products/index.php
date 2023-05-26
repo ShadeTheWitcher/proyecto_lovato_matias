@@ -25,6 +25,9 @@
              <th>Name</th>
              <th>Price</th>
              <th>Description</th>
+             <th>Cantidad</th>
+             <th>Categoria</th>
+             <th>Es Tendencia</th>
              <th>Action</th>
           </tr>
        </thead>
@@ -36,6 +39,9 @@
              <td><?php echo $product['name']; ?></td>
              <td><?php echo $product['price']; ?></td>
              <td><?php echo $product['description']; ?></td>
+             <td><?php echo $product['cantidad']; ?></td>
+             <td><?php echo $product['categoria_id']; ?></td>
+             <td><?php echo $product['es_tendencia']; ?></td>
              <td>
               <a href="<?php echo base_url('products/edit/'.$product['id']);?>" class="btn btn-primary btn-sm">Edit</a>
               <a href="<?php echo base_url('products/delete/'.$product['id']);?>" class="btn btn-danger btn-sm">Delete</a>

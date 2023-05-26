@@ -68,6 +68,8 @@ $routes->post('usuario/update', 'usuario_controller::update');
 $routes->get('usuario/delete/(:num)', 'usuario_controller::delete/$1');
 $routes->get('usuario/baja/(:num)', 'usuario_controller::baja/$1');
 
+$routes->get('/admin/historial-ventas', 'Carrito_Controller::gestionVentas');
+$routes->get('/admin/consultas-admin', 'Consultas_controller::index');
 
 /*Carrito de Compras*/
 $routes->get('/carrito', 'Carrito_Controller::index');
