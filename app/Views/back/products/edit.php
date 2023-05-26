@@ -45,6 +45,7 @@
               <?php $categoria = $product['categoria_id']; ?>
                 <label>Categoria</label>
                 <select class="form-select mb-3" name="categorias" id="">
+                    <option value="">Selecciona una categoria</option>
                     <option value="1" <?php echo ($categoria == 1) ? 'selected' : ''; ?>>Accion</option>  
                     <option value="2" <?php echo ($categoria == 2) ? 'selected' : ''; ?>>Aventura</option>  
                     <option value="3" <?php echo ($categoria == 3) ? 'selected' : ''; ?>>Lucha</option>

@@ -6,7 +6,7 @@ class VentaDetalle_model extends Model
     protected $table = 'ventas_detalle';
     protected $primaryKey = 'id';
     protected $allowedFields = ['venta_id','producto_id','cantidad',
-    'precio','subTotal'];
+    'precio','sub_total'];
 
     public function getProductAll(){
         $db = \Config\Database::connect();//Conecta la base de datos

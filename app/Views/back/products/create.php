@@ -44,6 +44,7 @@
       <div class="form-group">
         <label>Categoria</label>
         <select class="form-select mb-3" name="categorias" id="">
+            <option value="">Selecciona una categoria</option>
             <option value="1">Accion</option>  
             <option value="2">Aventura</option>  
             <option value="3">Lucha</option>

@@ -236,6 +236,7 @@ class Carrito_Controller extends BaseController
 
     /*Guarda Compra del carrito */
     public function guardarCompra() {
+        $total = session("totalCarrito");
         
         $venta = new VentaCabecera_model();
         $session = session();
@@ -253,7 +254,7 @@ class Carrito_Controller extends BaseController
         
         $detalle = new VentaDetalle_model();
         $product = new Product();
-        $total = 0;
+        //$total = 0;
 
         $cart = session("cart");
         foreach($cart as $item){
@@ -276,23 +277,23 @@ class Carrito_Controller extends BaseController
 
                 $product->update($datosProduct['id'], $datos);
 
-                if( $item['cant'] > 1){
+                // if( $item['cant'] > 1){
 
-                   $subTotal = $item['cant'] * $item['price'];
-                   $total = $total + ($item['cant'] * $item['price']);
+                //    $subTotal = $item['cant'] * $item['price'];
+                //    $total = $total + ($item['cant'] * $item['price']);
 
-                }else{
+                // }else{
 
-                    $subTotal = $item['price'];
-                    $total = $total + $item['price'];
-                }
+                //     $subTotal = $item['price'];
+                //     $total = $total + $item['price'];
+                // }
 
                 $detalle_venta = array(
                     'venta_id'=> $ventaId,
                     'producto_id' => $item['id'],
                     'cantidad' => $item['cant'],
                     'precio' => $item['price'],
-                    'total' => $subTotal,
+                    'sub_total' => $item['sub_total'],
                 );
                
                 $detalle->insert($detalle_venta);
@@ -307,6 +308,7 @@ class Carrito_Controller extends BaseController
         
         $venta->update($ventaId ,$datos);
         session()->remove("cart");
+        session()->remove("totalCarrito");
         return redirect('carrito');
     }
 

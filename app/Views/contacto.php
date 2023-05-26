@@ -37,16 +37,29 @@
         
           <div class="col-md-6 div-form ">
           
-            <form action="#" method="post"> 
-                <div class="elem-grupo"> 
-                    <label for="name">Nombre y Apellido</label> 
-                    <input type="text" id="name" name="nombre_visitante" placeholder="Juan Carlos" pattern=[A-Z\sa-z]{3,20} required> 
-                </div> <div class="elem-grupo"> 
-                    <label for="email">Correo electrónico
+            <form action="#" method="post">
+                
+            <?php if ($usuario && isset($usuario['logged_in']) &&  session('perfil_id') == 2){ ?>
+                
+                        
+                        <input type="hidden" id="name" name="nombre_visitante" placeholder="" pattern=[A-Z\sa-z]{3,20} required  value="<?= $usuario['nombre'].$usuario['apellido'] ?>">  
+                        <input type="hidden" id="email" name="email_visitante" placeholder="" required  value="<?= $usuario['email'] ?>"> 
+                    
+                 
 
-                    </label> 
-                    <input type="email" id="email" name="email_visitante" placeholder="ejemplo@email.com" required> 
-                </div> 
+                <?php }else{  ?>
+
+                    <div class="elem-grupo"> 
+                        <label for="name">Nombre y Apellido</label> 
+                        <input type="text" id="name" name="nombre_visitante" placeholder="Juan Carlos" pattern=[A-Z\sa-z]{3,20} required> 
+                    </div> 
+                    <div class="elem-grupo"> 
+                        <label for="email">Correo electrónico</label> 
+                        <input type="email" id="email" name="email_visitante" placeholder="ejemplo@email.com" required> 
+                    </div>
+
+                <?php }  ?>
+
                 <div class="elem-grupo"> 
                     <label for="departmento-seleccion">
                         Área a contactar

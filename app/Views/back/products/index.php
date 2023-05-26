@@ -3,7 +3,7 @@
   <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Codeigniter 4 CRUD App Example Tutorial - codingdriver.com</title>
+  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
@@ -11,6 +11,7 @@
 <div class="container mt-4">
     <div class="d-flex justify-content-end">
         <a href="<?php echo site_url('/products/create') ?>" class="btn btn-success mb-2">Add Product</a>
+        <a href="<?php echo site_url('/products/create') ?>" class="btn btn-success mb-2">Ver productos eliminados</a>
 	</div>
     <?php
      if (isset($_SESSION['msg'])) {
