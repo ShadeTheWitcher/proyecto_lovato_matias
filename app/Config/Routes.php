@@ -74,9 +74,11 @@ $routes->get('/carrito', 'Carrito_Controller::index');
 $routes->post('/agregarItemCarrito', 'Carrito_Controller::add');
 $routes->post('/actualizar(:num)', 'Carrito_Controller::actualizarCarrito/$1');
 $routes->post('/eliminarItem/(:num)', 'Carrito_Controller::borrar/$1');
-$routes->get('/enviar-compra','Carrito_Controller::guardarCompra');
 
-$routes->post('Carrito_Controller/add', 'Carrito_Controller::add');
+$routes->get('/enviar-compra','Carrito_Controller::guardarCompra');
+$routes->get('/vaciar-carrito','Carrito_Controller::vaciarCarrito');
+
+
 
 
 

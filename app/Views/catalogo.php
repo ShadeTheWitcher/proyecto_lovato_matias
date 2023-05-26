@@ -1,10 +1,10 @@
 <section>
 
-<div class="row justify-content-md-center ">
+<div class="row justify-content-md-center fila-catalogo">
         <?php foreach($productos as $product):?>
             <?php if($product ): ?> 
-            <div class="col-3">
-                <div class="card" style="width:15rem;">
+            <div class="col-6 col-sm-4 col-mid-4 col-lg-3">
+                <div class="card producto-catalogo" style="width:15rem;">
                     <img class="card-img-top img-thumbnail" src="<?=base_url()?>assets/uploads/<?=$product['imagen'];?>" 
                     width="100" alt="">
                     <div class="card-body">

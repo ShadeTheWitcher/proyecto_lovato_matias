@@ -85,7 +85,9 @@
         <div class="col-md-4 d-flex justify-content-evenly btm-group mt-5">
 		<a href="<?php echo base_url('/enviar-compra')?>" class="edit" data-toggle="modal">
 		<button class="w-100 btn btn-danger btn-lg" type="submit">Confirmar</button></a>
-		<a class="btn btn-danger btn-lg" <?php echo anchor('Carrito_Controller/borrar/all','Vaciar carrito');?> </a>
+
+		<a href="<?php echo base_url('/vaciar-carrito')?>" class="edit" data-toggle="modal">
+		<button class="w-100 btn btn-danger btn-lg" type="submit">Vaciar carrito</button></a>
          
          
         </div>

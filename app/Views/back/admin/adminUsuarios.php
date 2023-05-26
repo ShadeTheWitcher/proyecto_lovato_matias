@@ -1,8 +1,9 @@
-<section>
+<section >
 
-<div class="container mt-4">
+<div class="container mt-4  seccion-tabla-usuario" >
     <div class="d-flex justify-content-end">
-        <a href="<?php echo site_url('/products/create') ?>" class="btn btn-success mb-2">Agregar nuevo usuario</a>
+        <a href="<?php echo site_url('/usuarios/eliminados') ?>" class="btn btn-success mb-2">Ver eliminados</a>
+        
 	</div>
     <?php
      if (isset($_SESSION['msg'])) {
@@ -19,6 +20,7 @@
              <th>Apellido</th>
              <th>Usuario</th>
              <th>email</th>
+             <th>accion</th>
           </tr>
        </thead>
        <tbody>
@@ -32,7 +34,7 @@
              <td><?php echo $usuarios['usuario']; ?></td>
              <td><?php echo $usuarios['email']; ?></td>
              <td>
-              <a href="<?php echo base_url('products/edit/'.$usuarios['id']);?>" class="btn btn-primary btn-sm">Edit</a>
+              
               <a href="<?php echo base_url('usuario/baja/'.$usuarios['id']);?>" class="btn btn-danger btn-sm">BAJA</a>
               </td>
           </tr>

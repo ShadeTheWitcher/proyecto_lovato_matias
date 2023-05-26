@@ -204,6 +204,19 @@ class Carrito_Controller extends BaseController
     }
 
 
+    public function vaciarCarrito(){
+
+        $sessionCart = session()->get("cart");
+
+        if ($sessionCart && !empty($sessionCart)) {
+            session()->remove("cart"); //para remover la variable cart
+            session()->remove("totalCarrito"); // y el total 
+        }
+
+        return redirect()->back()->withInput();
+}
+
+
 
     
 
