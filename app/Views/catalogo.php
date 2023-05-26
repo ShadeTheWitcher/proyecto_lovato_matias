@@ -12,18 +12,15 @@
                         <h6 class="card-text"><?=$product['description']?></h6>
                         <p class="card-text"><?=$product['price']?>$</p>
                     
-                        <?php if (session('logged_in')) { 
-                            echo form_open('Carrito_controller/add');
-                            echo form_hidden('id',$product['id']);
-                            echo form_hidden('nombre_product',$product['name']);
-                            echo form_hidden('precio',$product['price']);
-                            $btn= array(
-                                'class' => 'btn btn-danger',
-                                'value' => 'Agregar al Carrito',
-                                'name' => 'action',
-                            );
-                            echo form_submit($btn);
-                            echo form_close(); ?>
+                        <?php if (session('logged_in')) { ?>
+                            
+                            <form action="<?= site_url('agregarItemCarrito') ?>" method="POST">
+                                <input type="hidden" name="id" value="<?= $product['id'] ?>">
+                                <input type="hidden" name="nombre_product" value="<?= $product['name'] ?>">
+                                <input type="hidden" name="precio" value="<?= $product['price'] ?>">
+                                <button class="btn btn-danger" type="submit" name="action" value="Agregar al Carrito">Agregar al Carrito</button>
+                            </form>
+
                             <?php }else{ ?>
                                 <a href="<?php echo base_url('usuario/login') ?>">
                             <button class="btn btn-danger" type="button"aria-expanded="false" 

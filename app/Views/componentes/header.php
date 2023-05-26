@@ -5,6 +5,7 @@
     <meta charset="utf-0">
     <meta name="viewport" content="width=device-width, initialscale=1">
 
+
     <title>GFA <?php echo ($title); ?></title>
     <link href="<?= base_url('../assets/css/bootstrap.min.css') ?> " rel="stylesheet" integrity=" " crossorigin="">
     <link href="<?= base_url('assets/css/miestilo2.css') ?>" rel="stylesheet" >
@@ -14,7 +15,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/fontawesome/css/all.css') ?>" >
     
 
-    
+    <link rel="shortcut icon" href="<?= base_url("favicon.ico") ?>">  
 
     <div class="container-fluid  logo-principal"> 
         

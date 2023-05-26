@@ -15,6 +15,8 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
+$routes->setAutoRoute(true);
+
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
@@ -67,8 +69,14 @@ $routes->get('usuario/delete/(:num)', 'usuario_controller::delete/$1');
 $routes->get('usuario/baja/(:num)', 'usuario_controller::baja/$1');
 
 
-//carrito
-$routes->get('carrito', 'Carrito_Controller::index');
+/*Carrito de Compras*/
+$routes->get('/carrito', 'Carrito_Controller::index');
+$routes->post('/agregarItemCarrito', 'Carrito_Controller::add');
+$routes->post('/actualizar(:num)', 'Carrito_Controller::actualizarCarrito/$1');
+$routes->post('/eliminarItem/(:num)', 'Carrito_Controller::borrar/$1');
+$routes->get('/enviar-compra','Carrito_Controller::guardarCompra');
+
+$routes->post('Carrito_Controller/add', 'Carrito_Controller::add');
 
 
 
