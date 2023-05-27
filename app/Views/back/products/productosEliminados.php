@@ -10,12 +10,10 @@
 
 <div class="container-product mt-4">
     <div class="buttom-group d-flex justify-content-end">
-            <a href="<?php echo site_url('/products/create') ?>"
-        <button type="button" class="btn btn-success mb-2">Nuevo Producto</button>
+            <a href="<?php echo site_url('/products') ?>"
+        <button type="button" class="btn btn-success mb-2">Volver</button>
       </a>
-      <a href="<?php echo site_url('/products/eliminados') ?>"
-            <button type="button" class="btn btn-warning mb-2">Ver productos eliminados </button>
-      </a>
+      
 	</div>
     <?php
      if (isset($_SESSION['msg'])) {
@@ -40,7 +38,7 @@
        <tbody>
           <?php if($products): ?>
           <?php foreach($products as $key => $product): ?>
-            <?php if($product["activo"]=="SI"): ?>
+            <?php if($product["activo"]=="NO"): ?>
           <tr>
              <td><?php echo $key+1; ?></td>
              <td><?php echo $product['name']; ?></td>
@@ -54,8 +52,8 @@
              <td><?php echo $product['categoria_id']; ?></td>
              <td><?php echo $product['es_tendencia']; ?></td>
              <td>
-              <a href="<?php echo base_url('products/edit/'.$product['id']);?>" class="btn btn-primary btn-sm">Editar</a>
-              <a href="<?php echo base_url('products/baja/'.$product['id']);?>" class="btn btn-danger btn-sm">Baja</a>
+              
+              <a href="<?php echo base_url('products/alta/'.$product['id']);?>" class="btn btn-success btn-sm">ALTA</a>
               </td>
           </tr>
          <?php endif; ?>
@@ -92,3 +90,6 @@
 </script>
 </body>
 </html>
+
+
+

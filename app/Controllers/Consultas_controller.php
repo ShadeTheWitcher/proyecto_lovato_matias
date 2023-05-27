@@ -33,4 +33,55 @@ class Consultas_controller extends BaseController{
             echo view('/back/admin/adminConsultas',$consultas);
     }
 
+
+    
+
+
+    
+
+
+
+    public function enviar_consulta() {
+        
+       
+        $consulta_model = new Consulta_model();
+       
+    
+        $nombre_apellido = $this->request->getPost('nombre_apellido');
+        $email = $this->request->getPost('email');
+        $area = $this->request->getPost('area');
+        $razon = $this->request->getPost('razon');
+        $mensaje = $this->request->getPost('mensaje');
+
+
+        $data = [
+            'nombre_apellido' => $nombre_apellido,
+            'email'=> $email,
+            "razon"=> $razon,
+            "area"=> $area,
+            "mensaje"=> $mensaje,
+            
+        ];
+
+        $consulta_model->insert($data);
+        return redirect()->back();
+    }
+
+    public function marcar_leido($id){
+    
+        $Model=new Consulta_model();
+        
+        $datos=[
+                
+                'leido'  => 'SI',
+                
+            ];
+        $Model->update($id,$datos);
+
+        session()->setFlashdata('msg','Mensaje Leido');
+
+        return redirect()->to(base_url('usuario/admin'));
+    }
+
+    
 }

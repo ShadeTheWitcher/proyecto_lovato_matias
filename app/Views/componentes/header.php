@@ -56,7 +56,7 @@
                             </button>
                             <ul class="dropdown-menu">
                               
-                            <li><a class="dropdown-item" href="<?php echo base_url("usuario/"); ?>">perfil</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url("usuario/perfil"); ?>">perfil</a></li>
                             <li><a class="dropdown-item" href="<?php echo base_url("usuario/envio-logout"); ?>">cerrar sesion</a></li>
                             
                             </ul>

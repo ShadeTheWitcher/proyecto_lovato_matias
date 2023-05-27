@@ -58,6 +58,26 @@ class ProductController extends BaseController
 
     }
 
+    public function productos_eliminados() {
+        $product = new Product();
+        $datos['products'] = $product->orderBy('id', 'DESC')->findAll();
+        $data['title'] = 'Productos eliminados';
+
+  
+        echo view('componentes//header.php' ,[
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+             ]);
+        
+        
+        echo view("componentes//navbar");
+        echo view('back//products//productosEliminados',$datos);
+        
+
+
+    }
+
+
     // save product data
     public function store() {
         $product = new Product();
@@ -152,4 +172,40 @@ class ProductController extends BaseController
         $data['product'] = $product->where('id', $id)->delete($id);
         return $this->response->redirect(site_url('/products'));
     }
+
+
+    public function baja($id){
+    
+        $Model=new Product();
+        
+        $datos=[
+                
+                'activo'  => 'NO',
+                
+            ];
+        $Model->update($id,$datos);
+
+        session()->setFlashdata('msg','Usuario Eliminado');
+
+        return redirect()->back();
+    }
+
+    public function habilitar($id){
+    
+        $Model=new Product();
+        
+        $datos=[
+                
+                'activo'  => 'SI',
+                
+            ];
+        $Model->update($id,$datos);
+
+        session()->setFlashdata('success','Usuario Habilitado');
+
+        return redirect()->back();
+    }
+
+
+
 }

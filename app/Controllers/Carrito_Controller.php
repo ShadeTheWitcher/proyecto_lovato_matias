@@ -52,10 +52,10 @@ class Carrito_Controller extends BaseController
     }
 
     public function gestionVentas(){ //vista de historial de ventas
-        $product = new Product();
-        $datos['productos'] = $product->findAll();
+        $ventas_model = new VentaCabecera_model();
+        $datos['ventas'] = $ventas_model->findAll();
 
-        $data['title'] = 'Catalogo';
+        $data['title'] = 'Admin ventas';
         echo view('componentes/header', [
             "title"=>$data['title'],
             "usuario"=>$this->usuario,

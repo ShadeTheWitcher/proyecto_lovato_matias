@@ -40,7 +40,12 @@ class Home extends BaseController
     }
 
     public function contacto(){
-        $data['title'] = 'Contacto';
+        if($this->usuario){
+            $data['title'] = 'Consultas';
+        }else{
+            $data['title'] = 'Contacto';
+        }
+        
 
         echo view('componentes//header.php' ,[
             "title"=>$data['title'],

@@ -2,7 +2,7 @@
 
 <div class="container mt-4  seccion-tabla-usuario" >
     <div class="d-flex justify-content-end">
-        <a href="<?php echo site_url('/usuarios/eliminados') ?>" class="btn btn-success mb-2">Ver eliminados</a>
+        <a href="<?php echo site_url('/consultas/leidos') ?>" class="btn btn-success mb-2">Ver Leidos</a>
         
 	</div>
     <?php
@@ -16,26 +16,28 @@
           <tr>
              <th></th>
              <th>id</th>
-             <th>Nombre</th>
-             <th>Apellido</th>
+             <th>Nombre y Apellido</th>
              <th>email</th>
+             <th>area</th>
+             <th>razon</th>
              <th>mensaje</th>
              <th>accion</th>
           </tr>
        </thead>
        <tbody>
-          <?php if($usuarios): ?>
-          <?php foreach($usuarios as $key => $usuarios): ?>
+          <?php if($consultas): ?>
+          <?php foreach($consultas as $key => $consulta): ?>
           <tr>
              <td><?php echo $key+1; ?></td>
-             <td><?php echo $usuarios['id']; ?></td>
-             <td><?php echo $usuarios['nombre']; ?></td>
-             <td><?php echo $usuarios['apellido']; ?></td>
-             <td><?php echo $usuarios['usuario']; ?></td>
-             <td><?php echo $usuarios['email']; ?></td>
+             <td><?php echo $consulta['id']; ?></td>
+             <td><?php echo $consulta['nombre_apellido']; ?></td>
+             <td><?php echo $consulta['email']; ?></td>
+             <td><?php echo $consulta['area']; ?></td>
+             <td><?php echo $consulta['razon']; ?></td>
+             <td><?php echo $consulta['mensaje']; ?></td>
              <td>
               
-              <a href="<?php echo base_url('usuario/baja/'.$usuarios['id']);?>" class="btn btn-danger btn-sm">BAJA</a>
+              <a href="<?php echo base_url('consulta-marcar-leido'.$consulta['id']);?>" class="btn btn-danger btn-sm">Marcar como Leido</a>
               </td>
           </tr>
          <?php endforeach; ?>

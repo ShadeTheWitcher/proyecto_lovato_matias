@@ -21,8 +21,8 @@ class usuario_controller extends BaseController{
 
      
 
-
-    public function index(){
+     //vistas
+    public function index(){  //admin de usuarios
         $usuarios = new Modelo_Usuario();
         $data['usuarios'] = $usuarios->orderBy('id', 'DESC')->findAll();
 
@@ -63,11 +63,44 @@ class usuario_controller extends BaseController{
         echo view("componentes//footer.html");
     }
 
+    public function editar($id) {
+        $usuario = new Modelo_Usuario();
+        $data['usuario'] = $usuario->where('id', $id)->first();
+        return view('usuario/edit', $data);
+    }
+
     
+    public function perfil(){
+        $data['title']='perfil'; 
+        echo view('componentes//header.php' ,[
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+         ]);
+        echo view("componentes//navbar");
+        echo view("back//usuario//perfil.php");
+        echo view("componentes//footer.html");
+    }
+
+    public function usuariosBaja(){  //vista dados de baja
+        $usuarios = new Modelo_Usuario();
+        $data['usuarios'] = $usuarios->orderBy('id', 'DESC')->findAll();
 
 
 
+        $data['title']='administrador de usuarios'; 
+        echo view('componentes//header.php' ,[
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+         ]);
+        echo view("componentes//navbar");
+        echo view("back//admin//adminUserBaja.php", [
+            "usuarios"=>$data['usuarios']
+        ]);
+        
+    }
 
+
+//metodos
 public function insertar() {
     $session =session();
    
@@ -158,11 +191,7 @@ public function insertar() {
     //return $this->response->redirect(site_url('/'));
 }
 
-public function editar($id) {
-    $usuario = new Modelo_Usuario();
-    $data['usuario'] = $usuario->where('id', $id)->first();
-    return view('usuario/edit', $data);
-}
+
 
 public function update() {
     $usuario = new Modelo_Usuario();
@@ -187,125 +216,6 @@ public function delete($id) {
     $data['usuario'] = $usuario->where('id', $id)->delete($id);
     return $this->response->redirect(site_url('/'));
 }
-
-
-
-// public function formValidation() {
-
-//     //helper(['form', 'url']);
-//   // $input = $this->validate([
-//   //    'nombre'   => 'required|min_length[3]',
-//   //    'apellido' => 'required|min_length[3]|max_length[25]',
-//   //     'email'    => 'required|min_length[4]|max_length[50]|valid_email|is_unique[usuarios.email]',
-//   //     'usuario'  => 'required|min_length[3]',
-//   //     'password'     => 'required|min_length[3]|max_length[10]',
-//   //     'cpassword'    => 'required|min_length[3]|max_length[10]|matches[password]'
-//   // ]);
-
-//    $input = $this->validate([
-//        'nombre'   =>[
-//            'rules'=>'required|min_length[3]',
-//            'errors'=>[
-//                'required'=>'Su nombre es requerido',
-//                'min_length[3]'=>'Su nombre debe de tener mas de 3 caracteres'
-//                ]
-//            ],
-
-//        'apellido'   =>[
-//            'rules'=>'required|min_length[3]|max_length[30]',
-//            'errors'=>[
-//                'required'=>'Su apellido es requerido',
-//                'min_length[3]'=>'Su apellido debe de tener mas de 3 caracteres',
-//               'max_length[30]'=>'Su apellido supera el limite de caracteres'
-//                ]
-//            ],
-
-//        'email'   =>[
-//            'rules'=>'required|min_length[4]|max_length[50]|valid_email|is_unique[usuarios.email]',
-//            'errors'=>[
-//                'required'=>'Su email es requerido',
-//                'min_length[4]'=>'Su email debe de tener mas de 4 caracteres',
-//                'max_length[50]'=>'Su email supera el limite de caracteres',
-//                'valid_email'=>'Su email no es valido',
-//                'is_unique[usuarios.email]'=>'Su email ya ha sido registrado'
-//                ] 
-//            ],
-
-//        'usuario'=>[
-//            'rules'=>'required|min_length[3]',
-//                'errors'=>[
-//                    'required'=>'Su usuario es requerido',
-//                    'min_length[3]'=>'Su usuario debe de tener mas de 3 caracteres'
-//                    ]
-//                ],      
-       
-//        'pass'=>[
-//            'rules'=>'required|min_length[3]|max_length[20]',
-//            'errors'=>[
-//                'required'=>'Su contraseña es requerida',
-//                'min_length[3]'=>'Su contraseña debe de tener mas de 3 caracteres',
-//                'max_length[20]'=>'Su contraseña supera el limite de caracteres'
-//                ]
-//            ],
-
-//        'pass-repetida'=>[
-//            'rules'=>'required|min_length[3]|max_length[20]|matches[pass]',
-//            'errors'=>[
-//                'required'=>'Debe de confirmar su contraseña',
-//                'min_length[3]'=>'Su contraseña debe de tener mas de 3 caracteres',
-//                'max_length[20]'=>'Su contraseña supera el limite de caracteres',
-//                'matches[password]'=>'Su contraseña no coincide con la anterior'
-//                ]
-//            ]
-//    ]);
-
-  
-//    if (!$input){
-
-//        $data['titulo']='Registro'; 
-//        echo view('componentes/header',$data);
-//        echo view('back/usuario/registrarse', [
-//        'validation' =>$this->validator
-//         ]);
-
-//    } else {
-      
-//        $nombre = $this->request->getVar('nombre');
-//        $apellido = $this->request->getVar('apellido');
-//        $usuario = $this->request->getVar('usuario');
-//        $email = $this->request->getVar('email');
-//        $password = $this->request->getVar('pass');
-          
-//        $values =[
-//            'nombre'=>$nombre,
-//            'apellido'=>$apellido,
-//            'usuario'=>$usuario,
-//            'email'=>$email,
-//            'pass'=>Hash::make($password),
-//        ];
-
-//        $formModel = new Modelo_Usuario();
-       
-//        if(!$formModel->insert($values)){
-//            return redirect()->back()->with('fail','Hubo un error, Lo sentimos mucho :(');
-//        } else{
-//            return redirect()->to('registracion')->with('success','Te has registrado exitosamente :)');
-//        }
-           
-//    }
-
-// }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -334,9 +244,20 @@ public function login(){
                     'usuario'  => $data['usuario'],
                     'email'  => $data['email'],
                     'perfil_id'  => $data['perfil_id'],
+                    'baja'  => $data['baja'],
                     'logged_in'       =>TRUE
                 ];
+
+
+                if ($ses_data["baja"] == "SI") {
+                    $session->setFlashdata('msg', 'Tu usuario está dado de baja');
+                    return redirect()->to(base_url('usuario/login'));
+                }
+
+
                 $session->set($ses_data);
+
+                
 
                 if(session('perfil_id') == 1){
                     return redirect()->to('/usuario/admin');
@@ -361,6 +282,7 @@ public function login(){
         return redirect()->to('/');
     }
 
+    
 
 
     public function baja($id){
@@ -374,7 +296,7 @@ public function login(){
             ];
         $Model->update($id,$datos);
 
-        session()->setFlashdata('mensaje','Usuario Eliminado');
+        session()->setFlashdata('msg','Usuario Eliminado');
 
         return redirect()->to(base_url('usuario/admin'));
     }
@@ -382,17 +304,17 @@ public function login(){
     public function habilitar($id){
     
         $Model=new Modelo_Usuario();
-        $data=$Model->getUsuario($id);
+        $data=$Model->obtenerUserPorID($id);
         $datos=[
-                'id' => 'id',
+                
                 'baja'  => 'NO',
                 
             ];
         $Model->update($id,$datos);
 
-        session()->setFlashdata('mensaje','Usuario Habilitado');
+        session()->setFlashdata('success','Usuario Habilitado');
 
-        return redirect()->to(base_url('eliminados'));
+        return redirect()->back();
     }
 
 

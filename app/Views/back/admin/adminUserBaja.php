@@ -1,4 +1,5 @@
 <section >
+
 <?php if(session()->getFlashdata('msg')):?>
     <div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
   <?php endif;?>
@@ -6,10 +7,10 @@
   <?php if (session()->getFlashdata('success')) : ?>
     <div id="success-message" class="alert alert-success welcome-message"><?= session()->getFlashdata('success') ?></div>
   <?php endif; ?>
-  
+
 <div class="container mt-4  seccion-tabla-usuario" >
     <div class="d-flex justify-content-end">
-        <a href="<?php echo site_url('/usuarios/eliminados') ?>" class="btn btn-success mb-2">Ver eliminados</a>
+        <a href="<?php echo site_url('usuario/admin') ?>" class="btn btn-success mb-2">volver</a>
         
 	</div>
     <?php
@@ -33,7 +34,7 @@
        <tbody>
           <?php if($usuarios): ?>
           <?php foreach($usuarios as $key => $usuario): ?>
-            <?php if($usuario["baja"]=="NO"): ?>
+                <?php if($usuario["baja"]=="SI"): ?>
           <tr class="text-center">
              <td><?php echo $key+1; ?></td>
              <td><?php echo $usuario['id']; ?></td>
@@ -41,16 +42,12 @@
              <td><?php echo $usuario['apellido']; ?></td>
              <td><?php echo $usuario['usuario']; ?></td>
              <td><?php echo $usuario['email']; ?></td>
-
-             <?php if($usuario["perfil_id"]=="1"){ ?>
-                <td >
-                  <?php echo "Administrador"; ?>
+            
+             
+                <td>
+                    <a href="<?php echo base_url('usuario/alta/'.$usuario['id']);?>" class="btn btn-success btn-sm">Alta</a>
                 </td>
-             <?php }else{ ?>
-                <td >
-                    <a href="<?php echo base_url('usuario/baja/'.$usuario['id']);?>" class="btn btn-danger btn-sm">Baja</a>
-                </td>
-             <?php } ?>
+             
 
           </tr>
           <?php endif; ?>
@@ -60,6 +57,7 @@
      </table>
   </div>
 </div>
+
 
 <style>
    .table{

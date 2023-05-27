@@ -64,10 +64,9 @@ class Modelo_Usuario extends Model{
 
      
    public function obtenerUserPorID($id){
-      $existeU= $this-> where("id", $id);
-      return $existeU->get()->getRouteArray();
+      $existeU = $this->where("id", $id);
+      return $existeU->get()->getResultArray();
    }
-
 
 }
 ?>

@@ -49,6 +49,11 @@ $routes->post('products/store', 'ProductController::store');
 $routes->get('products/edit/(:num)', 'ProductController::edit/$1');
 $routes->post('products/update', 'ProductController::update');
 $routes->get('products/delete/(:num)', 'ProductController::delete/$1');
+$routes->get('products/eliminados', 'ProductController::productos_eliminados');
+
+$routes->get('products/baja/(:num)', 'ProductController::baja/$1');
+$routes->get('products/alta/(:num)', 'ProductController::habilitar/$1');
+
 
 //usuario
 
@@ -58,7 +63,7 @@ $routes->post('usuario/enviar-registo', 'usuario_controller::insertar');
 $routes->get('usuario/login', 'usuario_controller::login_form');
 $routes->post('usuario/envio-logearse', 'usuario_controller::login');
 $routes->get('usuario/envio-logout', 'usuario_controller::logout');
-
+$routes->get('usuario/perfil', 'usuario_controller::perfil');
 
 
 //usuario admin
@@ -67,9 +72,17 @@ $routes->get('usuario/edit/(:num)', 'usuario_controller::edit/$1');
 $routes->post('usuario/update', 'usuario_controller::update');
 $routes->get('usuario/delete/(:num)', 'usuario_controller::delete/$1');
 $routes->get('usuario/baja/(:num)', 'usuario_controller::baja/$1');
+$routes->get('usuario/alta/(:num)', 'usuario_controller::habilitar/$1');
 
-$routes->get('/admin/historial-ventas', 'Carrito_Controller::gestionVentas');
+$routes->get('/usuarios/eliminados', 'usuario_controller::usuariosBaja');
+
+$routes->get('/admin/historial-ventas', 'Carrito_Controller::gestionVentas'); //admin gestion ventas
+
+//admin consultas
 $routes->get('/admin/consultas-admin', 'Consultas_controller::index');
+$routes->post('/enviar-consulta', 'Consultas_controller::enviar_consulta');
+$routes->post('consulta-marcar-leido', 'Consultas_controller::marcar_leido');
+
 
 /*Carrito de Compras*/
 $routes->get('/carrito', 'Carrito_Controller::index');
@@ -81,7 +94,7 @@ $routes->get('/enviar-compra','Carrito_Controller::guardarCompra');
 $routes->get('/vaciar-carrito','Carrito_Controller::vaciarCarrito');
 
 
-
+//
 
 
 /*

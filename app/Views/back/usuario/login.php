@@ -15,9 +15,17 @@
         
       </div>
       <p class="text-center">Iniciar sesion</p>
+
+
       <?php if(session()->getFlashdata('msg')):?>
 			<div class="alert alert-danger"><?= session()->getFlashdata('msg') ?></div>
 		  <?php endif;?>
+
+      <?php if(session()->getFlashdata('baja')):?>
+			<div class="alert alert-danger"><?= session()->getFlashdata('baja') ?></div>
+		  <?php endif;?>
+
+      
       <div class="container">
         <label class="form-label col-12" for="usuario"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="Usuario" required>

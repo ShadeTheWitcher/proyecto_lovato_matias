@@ -37,13 +37,13 @@
         
           <div class="col-md-6 div-form ">
           
-            <form action="#" method="post">
+            <form action="<?= base_url('/enviar-consulta') ?>" method="post">
                 
             <?php if ($usuario && isset($usuario['logged_in']) &&  session('perfil_id') == 2){ ?>
                 
                         
-                        <input type="hidden" id="name" name="nombre_visitante" placeholder="" pattern=[A-Z\sa-z]{3,20} required  value="<?= $usuario['nombre'].$usuario['apellido'] ?>">  
-                        <input type="hidden" id="email" name="email_visitante" placeholder="" required  value="<?= $usuario['email'] ?>"> 
+                        <input type="hidden" id="name" name="nombre_apellido" placeholder="" pattern=[A-Z\sa-z]{3,20} required  value="<?= $usuario['nombre']." ".$usuario['apellido'] ?>">  
+                        <input type="hidden" id="email" name="email" placeholder="" required  value="<?= $usuario['email'] ?>"> 
                     
                  
 
@@ -51,11 +51,11 @@
 
                     <div class="elem-grupo"> 
                         <label for="name">Nombre y Apellido</label> 
-                        <input type="text" id="name" name="nombre_visitante" placeholder="Juan Carlos" pattern=[A-Z\sa-z]{3,20} required> 
+                        <input type="text" id="name" name="nombre_apellido" placeholder="Juan Carlos" pattern=[A-Z\sa-z]{3,20} required> 
                     </div> 
                     <div class="elem-grupo"> 
                         <label for="email">Correo electrónico</label> 
-                        <input type="email" id="email" name="email_visitante" placeholder="ejemplo@email.com" required> 
+                        <input type="email" id="email" name="email" placeholder="ejemplo@email.com" required> 
                     </div>
 
                 <?php }  ?>
@@ -64,7 +64,7 @@
                     <label for="departmento-seleccion">
                         Área a contactar
                     </label> 
-                    <select id="departmento-seleccion" name="department-a-elegir" required> 
+                    <select id="departmento-seleccion" name="area" required> 
                         <option value="">Selecciona un área</option> 
                         <option value="facturacion">Facturación</option> 
                         <option value="marketing">Marketing</option> 
@@ -75,14 +75,14 @@
                     <label for="title">
                         Motivo de contacto
                     </label> 
-                    <input type="text" id="title" name="email_title" required placeholder="Problema/Consulta" pattern=[A-Za-z0-9\s]{8,60}> 
+                    <input type="text" id="title" name="razon" required placeholder="Problema/Consulta" pattern=[A-Za-z0-9\s]{8,60}> 
                 </div> 
                 <div class="elem-grupo"> 
                     <label for="mensaje">
                         Solicitud
 
                     </label> 
-                    <textarea id="mensaje" name="visitante_mensaje" placeholder="Escribe tu mensaje aquí." required></textarea> 
+                    <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí." required></textarea> 
                 </div> 
                 <button type="submit">Enviar mensaje</button>
             </form>

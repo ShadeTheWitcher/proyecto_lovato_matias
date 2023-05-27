@@ -26,7 +26,7 @@
                     </li>
                                         
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url("#"); ?>">Consultas</a>
+                        <a class="nav-link" href="<?php echo base_url("/admin/consultas-admin"); ?>">Consultas</a>
                     </li>
 
 
