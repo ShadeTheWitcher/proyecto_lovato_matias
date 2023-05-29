@@ -7,16 +7,41 @@
     <div class="container-compra">
         <form action="<?= site_url("/enviar-compra") ?>" method="POST">
         <div class=" card form-row container ">
-    
+
+
+            <?php if(! empty(session("domicilio_id")) )  {?>
             <div class="form-group form-row">
                 <label for="domicilio">Domicilio:</label>
-                <input type="text" id="domicilio" placeholder="Ej: 200vv mz 45 Barrio" name="direccion" required>
+                <input type="text" id="domicilio" placeholder="Ej: 200vv mz 45 Barrio" name="direccion" value=" <?php echo $domicilio['direccion']; ?>" required>
             </div>
+
+            <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="modificar_domicilio" name="modificar_domicilio">
+                    <label class="form-check-label" for="modificar_domicilio">
+                         Modificar domicilio
+                    </label>
+                </div>
+
+            <div class="form-group form-row">
+                <label for="codigo_postal">Código Postal:</label>
+                <input type="text" id="codigo_postal" placeholder="Ej: 3400" name="cod_postal" value= <?php echo $domicilio['cod_postal']; ?> required>
+            </div>
+
+            <?php }else{?>
+                <div class="form-group form-row">
+                    <label for="domicilio">Domicilio:</label>
+                    <input type="text" id="domicilio" placeholder="Ej: 200vv mz 45 Barrio" name="direccion" required>
+                </div>
+
+                
 
             <div class="form-group form-row">
                 <label for="codigo_postal">Código Postal:</label>
                 <input type="text" id="codigo_postal" placeholder="Ej: 3400" name="cod_postal" required>
             </div>
+
+            <?php }?>
+
 
             <div class="form-group form-row">
               <label>Método de pago:</label>

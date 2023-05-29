@@ -67,10 +67,12 @@ class Carrito_Controller extends BaseController
     }
 
     public function form_compra(){
-        $product = new Product();
-        $datos['productos'] = $product->findAll();
 
-        $data['title'] = 'Catalogo';
+        $domicilio_model = new Domicilio_model();
+        $id= session("domicilio_id") ;
+        $datos['domicilio'] = $domicilio_model->where('id', $id)->first();
+
+        $data['title'] = 'Confirmacion de tu compra';
         echo view('componentes/header', [
             "title"=>$data['title'],
             "usuario"=>$this->usuario,
@@ -335,6 +337,17 @@ class Carrito_Controller extends BaseController
         $session = session();
         $product = new Product();
         $cart = session("cart");
+
+        if(empty($cart)){
+
+            $session->setFlashdata('mensaje', 
+                'no hay nada en el carrito');
+            return redirect('carrito');
+        }
+
+
+
+
         foreach($cart as $item){
 
             $datosProduct = $product->where('id', $item['id'])->first();
@@ -381,22 +394,34 @@ class Carrito_Controller extends BaseController
         );
 
 
-        if (session("domicilio_id")) {
-            // El usuario ya tiene un domicilio registrado, utiliza el domicilio_id existente
-            $domicilioId = session("domicilio_id");
-        } else {
-            // El usuario no tiene un domicilio registrado, inserta uno nuevo
+        // Verificar si el usuario ya tiene un domicilio registrado
+        $domicilioId = session('domicilio_id');
+
+        // Verificar si el usuario está realizando cambios en su domicilio
+        $nuevoDomicilio = false;
+        if ($domicilioId && $this->request->getPost('modificar_domicilio')) {
             $datosDomicilio = array(
                 'direccion' => $this->request->getPost('direccion'),
                 'cod_postal' => $this->request->getPost('cod_postal'),
             );
-        
+
+            // Actualizar el domicilio existente
+            $domicilio_model->update($domicilioId, $datosDomicilio);
+        } else {
+            $datosDomicilio = array(
+                'direccion' => $this->request->getPost('direccion'),
+                'cod_postal' => $this->request->getPost('cod_postal'),
+            );
+
+            // Registramos el domicilio solo si no existe uno previo
             $domicilioId = $domicilio_model->insert($datosDomicilio);
             $usuarioModel->update($idUser, array('domicilio_id' => $domicilioId));
+            $nuevoDomicilio = true;
+            session()->set('domicilio_id', $domicilioId);
         }
-
-        
-       
+        if ($nuevoDomicilio) {
+            $session->setFlashdata('success_domicilio', 'Domicilio registrado exitosamente');
+        }
        
 
 
@@ -451,6 +476,8 @@ class Carrito_Controller extends BaseController
         );
         
         
+
+
         session()->remove("cart");
         session()->remove("totalCarrito");
         return redirect('carrito');
