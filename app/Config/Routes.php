@@ -90,8 +90,11 @@ $routes->post('/agregarItemCarrito', 'Carrito_Controller::add');
 $routes->post('/actualizar(:num)', 'Carrito_Controller::actualizarCarrito/$1');
 $routes->post('/eliminarItem/(:num)', 'Carrito_Controller::borrar/$1');
 
-$routes->get('/enviar-compra','Carrito_Controller::guardarCompra');
+//$routes->get('/enviar-compra','Carrito_Controller::guardarCompra');
+$routes->post('/enviar-compra','Carrito_Controller::registrarCompra');
 $routes->get('/vaciar-carrito','Carrito_Controller::vaciarCarrito');
+$routes->get('/validar-stock','Carrito_Controller::validarStock');
+$routes->get('/form-compra','Carrito_Controller::form_compra');
 
 
 //

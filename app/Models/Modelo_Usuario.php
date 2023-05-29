@@ -5,7 +5,7 @@ use CodeIgniter\Model;
 class Modelo_Usuario extends Model{
     protected $table = 'usuarios';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['nombre','apellido','email','usuario','pass','perfil_id','baja'];
+    protected $allowedFields = ['nombre','apellido','email','usuario','pass', "tel", "domicilio_id" ,'perfil_id','baja'];
 
 
     // public function agregarUsuario(){

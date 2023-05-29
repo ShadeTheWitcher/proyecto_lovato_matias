@@ -6,7 +6,8 @@ use CodeIgniter\Controller;
 use App\Models\Product;
 use App\Models\VentaDetalle_model;
 use App\Models\VentaCabecera_model;
-
+use App\Models\Modelo_Usuario;
+use App\Models\Domicilio_model;
 
 class Carrito_Controller extends BaseController
 {  
@@ -64,6 +65,22 @@ class Carrito_Controller extends BaseController
             echo view('back/admin/adminVentas',$datos);
         
     }
+
+    public function form_compra(){
+        $product = new Product();
+        $datos['productos'] = $product->findAll();
+
+        $data['title'] = 'Catalogo';
+        echo view('componentes/header', [
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+         ]);
+            echo view("componentes/navbar");
+            echo view('back/usuario/vista_form_compra',$datos);
+        
+    }
+
+    //metodos
 
     public function add(){
     
@@ -246,15 +263,19 @@ class Carrito_Controller extends BaseController
             'usuario_id'=> session('id'),
             
             'fecha' => date('Y-m-d'), 
+
+            
         );
 
         
-        $ventaId = $venta->insert($datos);
+        
 
         
         $detalle = new VentaDetalle_model();
         $product = new Product();
         //$total = 0;
+
+        $ventaId = null;
 
         $cart = session("cart");
         foreach($cart as $item){
@@ -263,30 +284,25 @@ class Carrito_Controller extends BaseController
             
             if($datosProduct['cantidad'] < $item['cant']){
                 
-                $venta->where('id', $ventaId)->delete($ventaId);
+                
                 $session->setFlashdata('mensaje', 
                 'No hay stock en linea, por favor eliga otro producto');
                 
                 return redirect('carrito');
 
             }else{
-                $subTotal = 0;
+
+                if ($ventaId === null) {
+                    $ventaId = $venta->insert($datos);
+                }
+                
                 $datos= array(
                     'cantidad'=> $datosProduct['cantidad'] - $item['cant'],  
                 );
 
                 $product->update($datosProduct['id'], $datos);
 
-                // if( $item['cant'] > 1){
-
-                //    $subTotal = $item['cant'] * $item['price'];
-                //    $total = $total + ($item['cant'] * $item['price']);
-
-                // }else{
-
-                //     $subTotal = $item['price'];
-                //     $total = $total + $item['price'];
-                // }
+                
 
                 $detalle_venta = array(
                     'venta_id'=> $ventaId,
@@ -306,10 +322,140 @@ class Carrito_Controller extends BaseController
             'total_venta'=> $total,  
         );
         
-        $venta->update($ventaId ,$datos);
+        
         session()->remove("cart");
         session()->remove("totalCarrito");
         return redirect('carrito');
+    }
+
+
+
+
+    public function validarStock() {
+        $session = session();
+        $product = new Product();
+        $cart = session("cart");
+        foreach($cart as $item){
+
+            $datosProduct = $product->where('id', $item['id'])->first();
+            
+            if($datosProduct['cantidad'] < $item['cant']){
+                
+               
+                $session->setFlashdata('mensaje', 
+                'No hay stock en linea, por favor eliga otro producto');
+                
+                return redirect('carrito');
+
+            }else{
+
+                    return redirect("form-compra");
+
+                }
+
+                
+        }
+
+    }
+
+
+    public function registrarCompra() {
+        $usuarioModel = new Modelo_Usuario();
+        $domicilio_model= new Domicilio_model;
+        $total = session("totalCarrito");
+        
+        $venta = new VentaCabecera_model();
+
+        $session = session();
+
+        $idUser = session('id');
+        
+        
+
+        $datos = array(
+
+            'usuario_id'=> session('id'),
+            
+            'fecha' => date('Y-m-d'), 
+            'total_venta'=> $total,
+        );
+
+
+        if (session("domicilio_id")) {
+            // El usuario ya tiene un domicilio registrado, utiliza el domicilio_id existente
+            $domicilioId = session("domicilio_id");
+        } else {
+            // El usuario no tiene un domicilio registrado, inserta uno nuevo
+            $datosDomicilio = array(
+                'direccion' => $this->request->getPost('direccion'),
+                'cod_postal' => $this->request->getPost('cod_postal'),
+            );
+        
+            $domicilioId = $domicilio_model->insert($datosDomicilio);
+            $usuarioModel->update($idUser, array('domicilio_id' => $domicilioId));
+        }
+
+        
+       
+       
+
+
+        
+        $detalle = new VentaDetalle_model();
+        $product = new Product();
+        //$total = 0;
+
+        $cart = session("cart");
+
+
+        $ventaId = null;
+
+        foreach($cart as $item){
+
+            if ($ventaId === null) {
+                $ventaId = $venta->insert($datos);
+            }
+
+
+
+            $datosProduct = $product->where('id', $item['id'])->first();
+            
+            
+
+                
+                
+                $datos= array(
+                    'cantidad'=> $datosProduct['cantidad'] - $item['cant'],  
+                );
+
+                $product->update($datosProduct['id'], $datos);
+
+                
+
+                $detalle_venta = array(
+                    'venta_id'=> $ventaId,
+                    'producto_id' => $item['id'],
+                    'cantidad' => $item['cant'],
+                    'precio' => $item['price'],
+                    'sub_total' => $item['sub_total'],
+                );
+               
+                $detalle->insert($detalle_venta);
+                $session->setFlashdata('success', 
+                'Productos Comprados Exitosamente');
+            
+        }
+        $datos = array(
+
+            'total_venta'=> $total,  
+        );
+        
+        
+        session()->remove("cart");
+        session()->remove("totalCarrito");
+        return redirect('carrito');
+        
+
     }
 
 

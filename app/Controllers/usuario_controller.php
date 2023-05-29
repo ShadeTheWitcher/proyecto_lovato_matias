@@ -244,8 +244,10 @@ public function login(){
                     'usuario'  => $data['usuario'],
                     'email'  => $data['email'],
                     'perfil_id'  => $data['perfil_id'],
+                    "domicilio_id"=> $data["domicilio_id"],
                     'baja'  => $data['baja'],
-                    'logged_in'       =>TRUE
+                    'logged_in'       =>TRUE,
+                    
                 ];
 
 

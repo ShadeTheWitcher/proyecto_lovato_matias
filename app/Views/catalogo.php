@@ -1,6 +1,6 @@
 <section>
 
-<div class="row justify-content-md-center fila-catalogo">
+<div class="row  fila-catalogo ">
         <?php foreach($productos as $product):?>
             <?php if($product ): ?> 
             <div class="col-6 col-sm-4 col-mid-4 col-lg-3">

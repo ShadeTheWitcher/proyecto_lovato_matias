@@ -23,6 +23,17 @@
   
 }
 
+.carrito-contador {
+  display: inline-block;
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 50%;
+  font-size: 12px;
+  margin-left: -10px;
+}
+
+
 
 #logo-nav > img{
   color: aqua;

@@ -3,7 +3,7 @@
 
 ?>
 <body>
-	<div class="container">
+	<div class="container card">
 		
 		<div class="d-flex justify-content-between">
 			<?php if(!empty(session()->getFlashdata('mensaje'))) {;?>
@@ -83,7 +83,7 @@
 		<?php }?>
 
         <div class="col-md-4 d-flex justify-content-evenly btm-group mt-5">
-		<a href="<?php echo base_url('/enviar-compra')?>" class="edit" data-toggle="modal">
+		<a href="<?php echo base_url('/validar-stock')?>" class="edit" data-toggle="modal">
 		<button class="w-100 btn btn-danger btn-lg" type="submit">Confirmar</button></a>
 
 		<a href="<?php echo base_url('/vaciar-carrito')?>" class="edit" data-toggle="modal">
