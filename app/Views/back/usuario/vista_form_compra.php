@@ -24,7 +24,7 @@
 
             <div class="form-group form-row">
                 <label for="codigo_postal">Código Postal:</label>
-                <input type="text" id="codigo_postal" placeholder="Ej: 3400" name="cod_postal" value= <?php echo $domicilio['cod_postal']; ?> required>
+                <input type="number" id="codigo_postal" placeholder="Ej: 3400" name="cod_postal" value= <?php echo $domicilio['cod_postal']; ?> required>
             </div>
 
             <?php }else{?>
@@ -37,7 +37,7 @@
 
             <div class="form-group form-row">
                 <label for="codigo_postal">Código Postal:</label>
-                <input type="text" id="codigo_postal" placeholder="Ej: 3400" name="cod_postal" required>
+                <input type="number" id="codigo_postal" placeholder="Ej: 3400" name="cod_postal" required>
             </div>
 
             <?php }?>
@@ -76,10 +76,16 @@
               </select>
             </div>
             <div class="button-container">
-            <button type="submit" class="btn btn-info">Confirmar compra</button>
+                <button type="submit" class="btn btn-info">Confirmar compra</button>
+                <a href="<?= site_url("/cancelar-compra") ?>" class="btn btn-danger">Cancelar compra</a>
             </div>
+
+                
+
         </div>
         </form>
+        
+
     </div>
 
     </div>

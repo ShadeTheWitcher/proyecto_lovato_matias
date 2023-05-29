@@ -407,6 +407,14 @@ class Carrito_Controller extends BaseController
 
             // Actualizar el domicilio existente
             $domicilio_model->update($domicilioId, $datosDomicilio);
+        
+        
+        
+        }else if($domicilioId){
+            //no carga datos al sesion y de esta forma no ocurre el problema al rescatar datos
+        
+        
+        
         } else {
             $datosDomicilio = array(
                 'direccion' => $this->request->getPost('direccion'),
