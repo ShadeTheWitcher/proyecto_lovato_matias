@@ -38,7 +38,7 @@ class Carrito_Controller extends BaseController
     public function index(){
        
         $product = new Product();
-        
+        $datos['productos'] = $product->findAll();
         
 
 		$data['title'] = 'Carrito de Compras';
@@ -47,9 +47,9 @@ class Carrito_Controller extends BaseController
             "usuario"=>$this->usuario,
          ]);
          echo view("componentes/navbar");
-        echo view('back/usuario/carrito', [
+        echo view('back/usuario/carrito',$datos 
             
-        ]);
+        );
     }
 
     public function gestionVentas(){ //vista de historial de ventas
@@ -251,7 +251,90 @@ class Carrito_Controller extends BaseController
 
 
 
-    
+public function incrementarCant()
+{
+    $cart = session("cart");
+    $total = session("totalCarrito");
+
+    $request = \Config\Services::request();
+    $product = [
+        'id' => $request->getPost('id'),
+        'name' => $request->getPost('nombre_product'),
+        'price' => $request->getPost('precio'),
+        'cant' => 1,
+        "sub_total" => $request->getPost('precio'),
+    ];
+
+    if (!$cart) {
+        $cart = [];
+        $total = 0;
+    }
+
+    $productExists = false;
+
+    foreach ($cart as &$item) {
+        if ($item['id'] == $product['id']) {
+            $item['cant'] += 1;
+            $item['sub_total'] = $item['cant'] * $item['price'];
+            $productExists = true;
+            break;
+        }
+    }
+
+    if (!$productExists) {
+        $cart[] = $product;
+    }
+
+    $total = array_sum(array_column($cart, 'sub_total'));
+
+    session()->set("cart", $cart);
+    session()->set("totalCarrito", $total);
+
+    return redirect()->back()->withInput();
+}
+
+public function disminuirCant($id)
+{
+    $cart = $this->session->get("cart");
+    $totalCarrito = $this->session->get("totalCarrito");
+
+    if ($cart && !empty($cart)) {
+        $productoEliminado = null;
+        foreach ($cart as $key => $producto) {
+            if ($producto["id"] === $id) {
+                $productoEliminado = $producto;
+                // Verificar si la cantidad es mayor a 1 para decrementarla
+                if ($producto["cant"] > 1) {
+                    $cart[$key]["cant"] -= 1;
+                    $cart[$key]["sub_total"] = $cart[$key]["cant"] * $cart[$key]["price"];
+                } else {
+                    // Eliminar el producto del carrito si la cantidad es 1
+                    unset($cart[$key]);
+                }
+                break;
+            }
+        }
+
+        $this->session->set("cart", $cart);
+
+        if ($productoEliminado) {
+            $subtotalEliminado = $productoEliminado["price"];
+            $totalCarrito -= $subtotalEliminado;
+            $totalCarrito = max(0, $totalCarrito);
+            $this->session->set("totalCarrito", $totalCarrito);
+        }
+    }
+
+    return redirect()->back()->withInput();
+}
+
+
+
+
+
+
+
+
 
     /*Guarda Compra del carrito */
     public function guardarCompra() {

@@ -69,13 +69,25 @@
 
 								<div style="display: inline-block;">
 
-									<button type="submit" class="btn btn-primary">-</button>
+									<form action="<?php echo site_url('desiminuirCant/' . $item['id']); ?>" method="POST">
+
+										<button type="submit" class="btn btn-primary">-</button>
+
+									</form>
+
+									
 
 								</div>
 
 								<div style="display: inline-block;">
 
-									<button type="submit" class="btn btn-success">+</button>
+									<form action="<?= site_url('/agregarItemCarrito') ?>" method="POST">
+										<input type="hidden" name="id" value="<?= $item['id'] ?>">
+										<input type="hidden" name="nombre_product" value="<?= $item['name'] ?>">
+										<input type="hidden" name="precio" value="<?= $item['price'] ?>">
+										<button type="submit" class="btn btn-success" name="action" value="Añadir">+</button>
+									</form>
+
 
 								</div>
 
