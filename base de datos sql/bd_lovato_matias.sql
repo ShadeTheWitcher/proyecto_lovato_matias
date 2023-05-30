@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-05-2023 a las 19:17:03
+-- Tiempo de generación: 30-05-2023 a las 17:58:38
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -105,7 +105,8 @@ INSERT INTO `products` (`id`, `name`, `price`, `description`, `categoria_id`, `c
 (15, 'Doom ', 2000.00, 'un clasico modernizado', 1, 30, '1685109733_84b074711623d59a8448.jpg', 'SI', 'NO'),
 (16, 'Resident Evil Village', 6000.00, 'adentrate en la villa', 2, 20, '1685109799_241b39b646c2572d5aff.jpg', 'SI', 'NO'),
 (17, 'Spiderman Miles Morales', 5900.00, 'spiderman', 2, 9, '1685109847_7a9cd7c61e24d34a7526.jpg', 'SI', 'NO'),
-(18, 'Mortal Kombat X', 2000.00, 'Fatality', 3, 10, '1685128394_31fb045678c9943ae5e7.jpg', 'SI', 'NO');
+(18, 'Mortal Kombat X', 2000.00, 'Fatality', 3, 10, '1685128394_31fb045678c9943ae5e7.jpg', 'SI', 'NO'),
+(19, 'Far Cry 6', 12000.00, 'asd', 1, 60, '1685455640_a3b6d121f18c37228319.jpg', 'SI', 'SI');
 
 -- --------------------------------------------------------
 
@@ -292,7 +293,7 @@ ALTER TABLE `domicilios`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
