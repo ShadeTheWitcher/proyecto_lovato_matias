@@ -102,7 +102,7 @@ class ProductController extends BaseController
             'activo'  => "SI" ,
             'imagen'  => $nombre_aleatorio,
             "categoria_id" => $categoria,
-            "es_tendencia"=> $this->request->getPost('es_tendencia')
+            "es_tendencia"=> $this->request->getPost('opcion_tendencia')
         ];
 
         $product->insert($data);
