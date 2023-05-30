@@ -22,11 +22,11 @@
 
     <div class="container-fluid logo-principal">
         <div class="row">
-            <div class="col-6 col-sm-12 col-md-auto d-flex align-items-center justify-content-center">
+            <div class="col-md-4 col-lg-2 text-center">
                 <img class="img-header" src="<?= base_url('assets/img/GfaMiniT.png') ?>">
             </div>
 
-            <div class="col-6 col-sm-12 col-md-auto d-flex align-items-center justify-content-end">
+            <div class="col-md-8 col-lg-10 d-flex align-items-center justify-content-end">
                 <?php if (session("cart") == null) { ?>
                     <?php $cantidadCarrito = 0; ?>
                 <?php } else { ?>

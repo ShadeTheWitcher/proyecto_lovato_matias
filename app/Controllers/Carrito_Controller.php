@@ -576,6 +576,12 @@ public function disminuirCant($id)
 
     }
 
+    public function cancelar_compra() {
+        session()->remove("cart");
+        session()->remove("totalCarrito");
+        return redirect('carrito');
+    }
+
 
 
 }

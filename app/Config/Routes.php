@@ -97,7 +97,7 @@ $routes->post('/enviar-compra','Carrito_Controller::registrarCompra');
 $routes->get('/vaciar-carrito','Carrito_Controller::vaciarCarrito');
 $routes->get('/validar-stock','Carrito_Controller::validarStock');
 $routes->get('/form-compra','Carrito_Controller::form_compra');
-
+$routes->get('/cancelar-compra','Carrito_Controller::cancelar_compra');
 
 //
 
