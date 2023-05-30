@@ -1,5 +1,23 @@
 <section >
 
+<?php
+
+
+// Verificar si el usuario es el administrador
+if (!isset($_SESSION['id_perfil']) || $_SESSION['id_perfil'] != 1) {
+   // Mostrar un mensaje de error o redirigir al usuario a otra página
+   echo "<div style='text-align: center; margin-top: 100px;'>
+          <h2>Acceso Restringido</h2>
+          <p>Lo sentimos, pero no tienes acceso a esta página.</p>
+          <p>Si crees que esto es un error, por favor, ponte en contacto con el administrador del sitio.</p>
+        </div>";
+   exit();
+ }
+?>
+
+
+
+
 <div class="container mt-4  seccion-tabla-usuario" >
     <div class="d-flex justify-content-end">
         <a href="<?php echo site_url('/consultas/leidos') ?>" class="btn btn-success mb-2">Ver Leidos</a>
