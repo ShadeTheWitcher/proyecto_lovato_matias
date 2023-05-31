@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2023 a las 17:58:38
+-- Tiempo de generación: 31-05-2023 a las 20:49:13
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -152,7 +152,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `usuario`, `pass`, `perfil_id`, `domicilio_id`, `tel`, `baja`) VALUES
 (35, 'Shade', 'Witcher', 'admin@gmail.com', 'admin', '2yn.4fvaTgedM', 1, NULL, NULL, 'NO'),
-(37, '123', '123', '21@gmail.com', '123', '2yG9q7O7s42BI', 2, 14, NULL, 'NO');
+(37, 'Jorge', 'Lopez', '21@gmail.com', '123', '2yG9q7O7s42BI', 2, 14, NULL, 'NO');
 
 -- --------------------------------------------------------
 
@@ -195,7 +195,7 @@ CREATE TABLE `ventas_detalle` (
   `id` int(11) NOT NULL,
   `venta_id` int(11) NOT NULL,
   `producto_id` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL,
+  `cantidad_venta` int(11) NOT NULL,
   `precio` double NOT NULL,
   `sub_total` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -204,7 +204,7 @@ CREATE TABLE `ventas_detalle` (
 -- Volcado de datos para la tabla `ventas_detalle`
 --
 
-INSERT INTO `ventas_detalle` (`id`, `venta_id`, `producto_id`, `cantidad`, `precio`, `sub_total`) VALUES
+INSERT INTO `ventas_detalle` (`id`, `venta_id`, `producto_id`, `cantidad_venta`, `precio`, `sub_total`) VALUES
 (32, 23, 9, 1, 100, 100),
 (33, 23, 10, 1, 5000, 5000),
 (34, 24, 9, 1, 100, 100),
