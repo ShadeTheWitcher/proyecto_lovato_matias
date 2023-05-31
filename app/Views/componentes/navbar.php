@@ -1,7 +1,34 @@
 <section class="barra-de-nav">
+<style>
+    .barra-de-nav {
+        background-color: #333;
+        
+    }
+
+    .barra-de-nav .navbar-brand {
+        font-size: 24px;
+    }
+
+    .barra-de-nav .navbar-nav .nav-link {
+        
+        font-size: 18px;
+    }
+
+
+    
+
+
+    .barra-de-nav .navbar-nav .nav-link:hover {
+        color: #8c6eff;
+    }
+</style>
+
+
+
+
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand disabled" href="#">
             <img id="logo-nav" src="<?= base_url('assets/img/gfa-logo2.png') ?> " width="50">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
