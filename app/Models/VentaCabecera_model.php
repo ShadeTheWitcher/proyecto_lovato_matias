@@ -17,4 +17,12 @@ class VentaCabecera_model extends Model
         return $query->getResultArray();//return array
     
     }
+
+
+    public function findAllWithUsuarioName()
+{
+    $this->join('usuarios', 'ventas.usuario_id = usuarios.id');
+    return $this->findAll();
+}
+
 }

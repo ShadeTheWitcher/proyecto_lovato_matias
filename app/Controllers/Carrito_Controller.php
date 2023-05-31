@@ -15,13 +15,13 @@ class Carrito_Controller extends BaseController
     private $session;
     private $usuario;
 
-    private $dbase;
+    
 
     public function __construct() {
         helper(['form', 'url']);
         $this->session = \Config\Services::session();
         $this->usuario =$this->session->get();
-        $this->dbase = $this->db->select("");
+        
 
     }
 
@@ -58,7 +58,7 @@ class Carrito_Controller extends BaseController
 
     public function gestionVentas(){ //vista de historial de ventas
         $ventas_model = new VentaCabecera_model();
-        $datos['ventas'] = $ventas_model->findAll();
+        $datos['ventas'] = $ventas_model->getUserAll();
 
         $data['title'] = 'Admin ventas';
         echo view('componentes/header', [
@@ -68,6 +68,21 @@ class Carrito_Controller extends BaseController
             echo view("componentes/navbar");
             echo view('back/admin/adminVentas',$datos);
         
+    }
+
+    public function detalleVenta($id){
+        $ventas_detalle_model = new VentaDetalle_model();
+        
+        
+        $datos['ventas_detalle'] = $ventas_detalle_model->getProductosPorVenta($id);
+
+        $data['title'] = 'detalle venta';
+        echo view('componentes/header', [
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+         ]);
+            echo view("componentes/navbar");
+            echo view('back/admin/adminDetalle',$datos);
     }
 
     public function form_compra(){

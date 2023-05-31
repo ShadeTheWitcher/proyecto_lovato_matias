@@ -30,14 +30,14 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
 
       
      ?>
-  <div class="mt-3">
+  <div class="mt-3 card">
      <table class="table table-bordered" id="usuarios-list">
        <thead>
           <tr>
-             <th></th>
-             <th>id</th>
+             
+             <th>id_factura</th>
              <th>fecha</th>
-             <th>id usuario</th>
+             <th>Nombre y apellido </th>
              <th>total venta</th>
              
              <th>acciones</th>
@@ -47,14 +47,14 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
           <?php if($ventas): ?>
           <?php foreach($ventas as $key => $venta): ?>
           <tr>
-             <td><?php echo $key+1; ?></td>
+             
              <td><?php echo $venta['id']; ?></td>
              <td><?php echo $venta['fecha']; ?></td>
-             <td><?php echo $venta['usuario_id']; ?></td>
+             <td><?php echo $venta['nombre']." ".$venta['apellido']; ?></td>
              <td><?php echo $venta['total_venta']; ?></td>
              <td>
               
-              <a href="<?php echo base_url('usuario/baja/'.$venta['id']);?>" class="btn btn-danger btn-sm">Ver detalle</a>
+              <a href="<?php echo base_url('admin/detalle-venta/' . $venta["id"] );?>" class="btn btn-danger btn-sm">Ver detalle</a>
               </td>
           </tr>
          <?php endforeach; ?>
@@ -66,7 +66,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
 
 <style>
    .table{
-      color: azure;
+      
    }
 </style>
 

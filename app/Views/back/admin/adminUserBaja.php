@@ -4,15 +4,15 @@
 
 
 // Verificar si el usuario es el administrador
-if (!isset($_SESSION['id_perfil']) || $_SESSION['id_perfil'] != 1) {
-   // Mostrar un mensaje de error o redirigir al usuario a otra página
-   echo "<div style='text-align: center; margin-top: 100px;'>
-          <h2>Acceso Restringido</h2>
-          <p>Lo sentimos, pero no tienes acceso a esta página.</p>
-          <p>Si crees que esto es un error, por favor, ponte en contacto con el administrador del sitio.</p>
-        </div>";
-   exit();
- }
+if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
+  // Mostrar un mensaje de error o redirigir al usuario a otra página
+  echo "<div style='text-align: center; margin-top: 100px;'>
+         <h2>Acceso Restringido</h2>
+         <p>Lo sentimos, pero no tienes acceso a esta página.</p>
+         <p>Si crees que esto es un error, por favor, ponte en contacto con el administrador del sitio.</p>
+       </div>";
+  exit();
+}
 ?>
 
 
@@ -35,7 +35,7 @@ if (!isset($_SESSION['id_perfil']) || $_SESSION['id_perfil'] != 1) {
         echo $_SESSION['msg'];
       }
      ?>
-  <div class="mt-3">
+  <div class="mt-3 card">
      <table class="table table-bordered" id="usuarios-list">
        <thead>
           <tr class="text-center">
@@ -78,7 +78,7 @@ if (!isset($_SESSION['id_perfil']) || $_SESSION['id_perfil'] != 1) {
 
 <style>
    .table{
-        background-color: azure;
+        
     }
 </style>
 

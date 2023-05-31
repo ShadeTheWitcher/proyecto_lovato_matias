@@ -77,6 +77,7 @@ $routes->get('usuario/alta/(:num)', 'usuario_controller::habilitar/$1');
 $routes->get('/usuarios/eliminados', 'usuario_controller::usuariosBaja');
 
 $routes->get('/admin/historial-ventas', 'Carrito_Controller::gestionVentas'); //admin gestion ventas
+$routes->get('/admin/detalle-venta/(:num)', 'Carrito_Controller::detalleVenta/$1');
 
 //admin consultas
 $routes->get('/admin/consultas-admin', 'Consultas_controller::index');

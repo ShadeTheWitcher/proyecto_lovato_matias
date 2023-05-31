@@ -37,7 +37,8 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
         echo $_SESSION['msg'];
       }
      ?>
-  <div class="mt-3">
+  <div class="mt-3 card">
+    <h4>Usuarios registrados</h4>
      <table class="table table-bordered" id="usuarios-list">
        <thead>
           <tr class="text-center">
@@ -83,7 +84,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
 
 <style>
    .table{
-        background-color: azure;
+        
     }
 </style>
 
