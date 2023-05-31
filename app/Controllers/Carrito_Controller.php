@@ -227,7 +227,7 @@ class Carrito_Controller extends BaseController
             session()->remove("totalCarrito"); // y el total 
         }
 
-        return redirect()->back()->withInput();
+        return redirect()->to("catalogo")->withInput();
 }
 
 
