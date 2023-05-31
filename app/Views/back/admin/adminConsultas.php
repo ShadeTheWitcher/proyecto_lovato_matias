@@ -4,7 +4,7 @@
 
 
 // Verificar si el usuario es el administrador
-if (!isset($_SESSION['id_perfil']) || $_SESSION['id_perfil'] != 1) {
+if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
    // Mostrar un mensaje de error o redirigir al usuario a otra página
    echo "<div style='text-align: center; margin-top: 100px;'>
           <h2>Acceso Restringido</h2>
@@ -64,6 +64,12 @@ if (!isset($_SESSION['id_perfil']) || $_SESSION['id_perfil'] != 1) {
      </table>
   </div>
 </div>
+
+<style>
+   .seccion-tabla-usuario table{
+      color:white;
+   }
+</style>
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

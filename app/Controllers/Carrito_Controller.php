@@ -15,10 +15,14 @@ class Carrito_Controller extends BaseController
     private $session;
     private $usuario;
 
+    private $dbase;
+
     public function __construct() {
         helper(['form', 'url']);
         $this->session = \Config\Services::session();
         $this->usuario =$this->session->get();
+        $this->dbase = $this->db->select("");
+
     }
 
     public function catalogo(){
@@ -86,82 +90,44 @@ class Carrito_Controller extends BaseController
 
     public function add(){
     
-    $cart = session("cart");
-    $total = session("totalCarrito");
+        $cart = session("cart");
+        $total = session("totalCarrito");
     
-    $request = \Config\Services::request();
-    $product = [
-        'id' => $request->getPost('id'),
-        'name' => $request->getPost('nombre_product'),
-        'price' => $request->getPost('precio'),
-        'cant' => 1,
-        "sub_total"=>$request->getPost('precio'),
-        
-    ];
-
-    // // Verifica si el carrito existe en la sesión
-    // if (!$cart) {
-    //     // Si el carrito no existe, crea un nuevo array vacío
-        
-    //     $cart = [];
-    //     $total= 0;
-    // }
-
-    // foreach($cart as &$item ){
-    //     if($item["id"]==$product["id"]){
-    //         $item["cant"]+=1;
-            
-            
-            
-    //     }
-
-    //     $item["sub_total"]= $item["cant"] * $item["price"];
-
-    //     $total= $total + $item["sub_total"];
-         
-    // }
-
-    // $existeProducto = array_filter($cart, function($producto) use($product){
-    //     return $producto["id"]==$product["id"];
-    // });
-
-    // if(empty($existeProducto)){
-    //     // Agrega el producto al carrito
-        
-    //     $cart[] = $product;
-    // }
-         
-
-    if (!$cart) {
-        $cart = [];
-        $total = 0;
-    }
-
-    $productExists = false;
-
-    foreach ($cart as &$item) {
-        if ($item['id'] == $product['id']) {
-            $item['cant'] += 1;
-            $item['sub_total'] = $item['cant'] * $item['price'];
-            $productExists = true;
-            break;
+        $request = \Config\Services::request();
+        $product = [
+            'id' => $request->getPost('id'),
+            'name' => $request->getPost('nombre_product'),
+            'price' => $request->getPost('precio'),
+            'cant' => 1,
+            "sub_total" => $request->getPost('precio'),
+        ];
+    
+        if (!$cart) {
+            $cart = [];
+            $total = 0;
         }
-    }
-
-    if (!$productExists) {
-        $cart[] = $product;
-    }
-
-    $total = array_sum(array_column($cart, 'sub_total'));
-   
-
-
-    // Guarda el carrito actualizado en la sesión
-    session()->set("cart", $cart);
     
-    session()->set("totalCarrito", $total);
-
-    return redirect()->back()->withInput();
+        $productExists = false;
+    
+        foreach ($cart as &$item) {
+            if ($item['id'] == $product['id']) {
+                $item['cant'] += 1;
+                $item['sub_total'] = $item['cant'] * $item['price'];
+                $productExists = true;
+                break;
+            }
+        }
+    
+        if (!$productExists) {
+            $cart[] = $product;
+        }
+    
+        $total = array_sum(array_column($cart, 'sub_total'));
+    
+        session()->set("cart", $cart);
+        session()->set("totalCarrito", $total);
+    
+        return redirect()->back()->withInput();
 }
 
 
