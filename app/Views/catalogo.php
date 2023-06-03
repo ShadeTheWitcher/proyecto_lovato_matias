@@ -1,5 +1,5 @@
 <section>
-
+<div class="container">
 <div class="row  fila-catalogo ">
         <?php foreach($productos as $product):?>
             <?php if($product ): ?> 
@@ -34,5 +34,5 @@
             <?php endforeach; ?>
      </div>
 
-
+     </div>
 </section>

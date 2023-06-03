@@ -1,5 +1,4 @@
-<section >
-
+<section>
 <?php
 
 
@@ -21,7 +20,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
 <div class="container mt-4  seccion-tabla-usuario card" >
    <h3>Consultas</h3>
     <div class="d-flex justify-content-end">
-        <a href="<?php echo site_url('/admin/consultas-ver-leidos') ?>" class="btn btn-success mb-2">Ver Leidos</a>
+        <a href="<?php echo site_url('/admin/consultas-admin') ?>" class="btn btn-success mb-2">volver</a>
         
 	</div>
     <?php
@@ -40,15 +39,16 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
              <th>area</th>
              <th>razon</th>
              <th>mensaje</th>
-             <th>accion</th>
+             
           </tr>
        </thead>
        <tbody>
           <?php if($consultas): ?>
           <?php foreach($consultas as $key => $consulta): ?>
           <tr>
-          <?php if($consulta["leido"]=="NO"){ ?>
-             <td><?php echo $key+1; ?></td>
+
+            <?php if($consulta["leido"]=="SI"){ ?>
+             
              <td><?php echo $consulta['id']; ?></td>
              <td><?php echo $consulta['nombre_apellido']; ?></td>
              <td><?php echo $consulta['email']; ?></td>
@@ -56,11 +56,10 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
              <td><?php echo $consulta['razon']; ?></td>
              <td><?php echo $consulta['mensaje']; ?></td>
              <td>
+
+             <?php } ?>
              
-
-              <a href="<?php echo base_url('/marcar-leido/'.$consulta['id']);?>" class="btn btn-danger btn-sm">Marcar como Leido</a>
-
-              <?php }?>
+              
               </td>
           </tr>
          <?php endforeach; ?>
@@ -85,6 +84,10 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
       $('#products-list').DataTable();
     });
 </script>
+
+
+
+
 
 
 </section>

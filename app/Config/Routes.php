@@ -82,8 +82,8 @@ $routes->get('/admin/detalle-venta/(:num)', 'Carrito_Controller::detalleVenta/$1
 //admin consultas
 $routes->get('/admin/consultas-admin', 'Consultas_controller::index');
 $routes->post('/enviar-consulta', 'Consultas_controller::enviar_consulta');
-$routes->post('consulta-marcar-leido', 'Consultas_controller::marcar_leido');
-
+$routes->get('/marcar-leido/(:num)', 'Consultas_controller::marcar_leido/$1');
+$routes->get('/admin/consultas-ver-leidos', 'Consultas_controller::vista_leidos');
 
 /*Carrito de Compras*/
 $routes->get('/carrito', 'Carrito_Controller::index');

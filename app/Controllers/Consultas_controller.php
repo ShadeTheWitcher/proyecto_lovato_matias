@@ -33,6 +33,18 @@ class Consultas_controller extends BaseController{
             echo view('/back/admin/adminConsultas',$consultas);
     }
 
+    public function vista_leidos(){
+        $consulta_model = new Consulta_model();
+        $consultas['consultas'] = $consulta_model->findAll();
+
+        $data['title'] = 'consultas leidas';
+        echo view('componentes/header', [
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+         ]);
+            echo view("componentes/navbar");
+            echo view('/back/admin/adminConsultasLeidas',$consultas);
+    }
 
     
 
@@ -80,7 +92,7 @@ class Consultas_controller extends BaseController{
 
         session()->setFlashdata('msg','Mensaje Leido');
 
-        return redirect()->to(base_url('usuario/admin'));
+        return redirect()->back();
     }
 
     
