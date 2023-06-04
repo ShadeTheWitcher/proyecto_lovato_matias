@@ -1,9 +1,6 @@
 <section>
 <style type="text/css">
-/*=====================================
-reset estilos
-no es necesario que copies esto
-=====================================*/
+
 
 html {
     -webkit-text-size-adjust: 100%;
@@ -50,12 +47,7 @@ body {
     height: 17rem;
     background-image: linear-gradient(45deg, #BC3CFF, #317FFF);
     border-radius: 0 0 20px 20px;
-    /*
-    background-image: url('http://localhost/multimedia/png/user-portada-3.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    */
+    
 }
 
 .seccion-perfil-usuario .perfil-usuario-portada .boton-portada {

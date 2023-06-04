@@ -21,7 +21,9 @@
 .datos-titular{
     
     width: 50%;
+    color: #000;
     background-color: rgb(39, 47, 67);
+    background-image: linear-gradient(to bottom right, #dfdfdf, #324197);
     height: 50%;
     border-radius: 1em;
     
@@ -39,6 +41,7 @@
     font-size: large;
     color: rgb(0, 0, 0);
     /*background-color: rgb(93, 109, 155); */
+    
     padding: 0%;
     text-align: center;
     
@@ -75,6 +78,7 @@
     border: 1px solid #CCC;
     border-radius: 1em;
     background-color: rgb(93, 109, 155);
+    background-image: linear-gradient(to bottom right, #337c99, #C0C0FF);
   }
   
   .elem-grupo {

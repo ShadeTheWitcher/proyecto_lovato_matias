@@ -25,14 +25,14 @@
        <thead class="thead-light">
           <tr>
              <th></th>
-             <th>Name</th>
-             <th>Price</th>
-             <th>Description</th>
+             <th>Nombre</th>
+             <th>Precio</th>
+             <th>Descripcion</th>
              <th>Imagen</th>
              <th>Cantidad</th>
              <th>Categoria</th>
              <th>Es Tendencia</th>
-             <th>Action</th>
+             <th>Acciones</th>
           </tr>
        </thead>
        <tbody>

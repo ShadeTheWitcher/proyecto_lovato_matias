@@ -80,10 +80,12 @@ $routes->get('/admin/historial-ventas', 'Carrito_Controller::gestionVentas'); //
 $routes->get('/admin/detalle-venta/(:num)', 'Carrito_Controller::detalleVenta/$1');
 
 //admin consultas
-$routes->get('/admin/consultas-admin', 'Consultas_controller::index');
+$routes->get('/admin/consultas-admin', 'Consultas_controller::consultasUsuarios');
+$routes->get('/admin/consultas-visitante', 'Consultas_controller::consultasVisitante');
 $routes->post('/enviar-consulta', 'Consultas_controller::enviar_consulta');
 $routes->get('/marcar-leido/(:num)', 'Consultas_controller::marcar_leido/$1');
 $routes->get('/admin/consultas-ver-leidos', 'Consultas_controller::vista_leidos');
+$routes->get('/admin/consultas-ver-leidos-vist', 'Consultas_controller::vista_leidos_Visitante');
 
 /*Carrito de Compras*/
 $routes->get('/carrito', 'Carrito_Controller::index');

@@ -44,8 +44,8 @@
                         
                         <input type="hidden" id="name" name="nombre_apellido" placeholder="" pattern=[A-Z\sa-z]{3,20} required  value="<?= $usuario['nombre']." ".$usuario['apellido'] ?>">  
                         <input type="hidden" id="email" name="email" placeholder="" required  value="<?= $usuario['email'] ?>"> 
-                    
-                 
+                       
+
 
                 <?php }else{  ?>
 

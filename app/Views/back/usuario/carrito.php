@@ -142,3 +142,24 @@
 		</div>
 	</div>
 </body>
+
+
+<style>
+		
+	</style>
+
+
+<script>
+		window.addEventListener('DOMContentLoaded', function() {
+			const container = document.querySelector('.container.card');
+			container.style.animation = 'fadeIn 1s ease-in-out';
+
+			const alerts = document.querySelectorAll('.alert');
+			alerts.forEach(function(alert) {
+				alert.style.animation = 'slideIn 0.5s ease-in-out';
+				setTimeout(function() {
+					alert.style.animation = 'slideOut 0.5s ease-in-out';
+				}, 3000);
+			});
+		});
+	</script>

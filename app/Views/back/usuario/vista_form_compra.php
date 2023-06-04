@@ -137,12 +137,16 @@
 
   <style>
     .container-compra {
-      
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: ;
-    }
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				background-color: ;
+				animation: slideInRight 0.5s ease-in-out;
+			}
+
+			.Detalles-compra {
+				animation: slideInRight 0.5s ease-in-out;
+			}
 
     .container-compra .card{
         background-color: ;
@@ -167,4 +171,31 @@
       justify-content: center;
     }
   </style>
+
+
+<style>
+		@keyframes slideInRight {
+			from {
+				transform: translateX(100%);
+				opacity: 0;
+			}
+			to {
+				transform: translateX(0);
+				opacity: 1;
+			}
+		}
+	</style>
+	<script>
+		window.addEventListener('DOMContentLoaded', function() {
+			const containerCompra = document.querySelector('.container-compra');
+			containerCompra.style.animation = 'slideInRight 0.5s ease-in-out';
+
+			const detallesCompra = document.querySelector('.Detalles-compra');
+			detallesCompra.style.animation = 'slideInRight 0.5s ease-in-out';
+		});
+	</script>
+
+
+
+
 </section>

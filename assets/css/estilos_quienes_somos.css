@@ -12,7 +12,7 @@
 
 .container-quienes-somos .presentacion{
     padding: 2%;
-    background-color: rgb(61, 47, 73);
+    background-image: linear-gradient(to bottom right, rgb(153, 134, 179), #1a3385);
 }
 
 
@@ -28,7 +28,7 @@
     margin: 1%;
     color: azure;
     width: 30%;
-    background-color: rgb(61, 47, 73);
+    background-image: linear-gradient(to bottom right, rgb(153, 134, 179), #1a3385);
     border-radius: 2px;
     justify-content: center;
     font-family: "Nunito", sans-serif;

@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <div class="container mt-5 ">
+  <div class="container mt-5 card">
     <form enctype="multipart/form-data" method="post" id="createProduct" action="<?= site_url('/products/store') ?>">
       <div class="form-group">
         <label>Nombre del producto</label>
@@ -32,7 +32,7 @@
       </div>
 
       <div class="form-group">
-        <label>Description</label>
+        <label>Descripcion</label>
         <textarea type="text" name="description" class="form-control"></textarea>
       </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use CodeIgniter\Model\Modelo_Usuario;
+use App\Models\Product;
 class Home extends BaseController
 {   
     private $session;
@@ -14,6 +15,9 @@ class Home extends BaseController
 
     public function index()
     {
+        $product = new Product();
+        $datos['productos'] = $product->findAll();
+
         //$perfil_id = $_SESSION['perfil_id'];
         //$estado_session = $_SESSION['logged_in'];
 
@@ -23,12 +27,14 @@ class Home extends BaseController
         echo view('componentes//header.php' ,[
             "title"=>$data['title'],
             "usuario"=>$this->usuario,
+            
              ]);
         
         
         echo view("componentes//navbar");
         echo view("principal" ,[
-            "usuario"=>$this->usuario
+            "usuario"=>$this->usuario,
+            "productos" =>$product->findAll()
         ]);
         //echo view("componentes//footer.html");
         return view("componentes//footer.html", ["usuario"=>$this->usuario]   )  ;

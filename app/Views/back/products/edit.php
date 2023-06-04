@@ -19,25 +19,25 @@
 </head>
 
 <body>
-  <div class="container mt-5">
+  <div class="container mt-5 card">
     <form enctype="multipart/form-data" method="post" id="createProduct" action="<?= site_url('/products/update') ?>">
         <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
             <div class="form-group">
-                <label>Name</label>
+                <label>Nombre del producto</label>
                 <input type="text" name="name" class="form-control" value="<?php echo $product['name']; ?>">
             </div>
             <div class="form-group">
-                <label>Price</label>
+                <label>Precio</label>
                 <input type="number" name="price" class="form-control" value="<?php echo $product['price']; ?>">
             </div>
             <div class="form-group">
-                <label>Description</label>
+                <label>Descripcion</label>
                 <textarea type="text" name="description" class="form-control"><?php echo $product['description']; ?></textarea>
             </div>
             
 
             <div class="form-group">
-                <label>Cantidad</label>
+                <label>Cantidad (stock)</label>
                 <input type="number" name="cantidad" class="form-control" value="<?php echo $product['cantidad']; ?>"  ></input>
             </div>
 
@@ -73,7 +73,7 @@
           </div> 
 
           <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Save</button>
+                <button type="submit" class="btn btn-primary btn-block">Guardar cambios</button>
           </div>
 
     </form>

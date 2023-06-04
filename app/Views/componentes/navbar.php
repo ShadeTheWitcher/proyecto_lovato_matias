@@ -28,9 +28,7 @@
 
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand disabled" href="#">
-            <img id="logo-nav" src="<?= base_url('assets/img/gfa-logo2.png') ?> " width="50">
-        </a>
+        
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -54,6 +52,10 @@
                                         
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url("/admin/consultas-admin"); ?>">Consultas</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url("/admin/consultas-visitante"); ?>">Contacto</a>
                     </li>
 
 
