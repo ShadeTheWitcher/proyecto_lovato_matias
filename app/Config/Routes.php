@@ -39,7 +39,7 @@ $routes->add('/quienes-somos', 'Home::quienes_somos');
 $routes->add('/comercializacion', 'Home::comercializacion');
 $routes->add('/term-usos', 'Home::term_usos');
 $routes->add('/catalogo', 'Carrito_Controller::catalogo');
-
+    $routes->post('productos/filtrar', 'Carrito_Controller::filtrar');
 
 
 //rutas producto

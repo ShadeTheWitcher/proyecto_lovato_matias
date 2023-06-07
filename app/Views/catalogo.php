@@ -1,5 +1,29 @@
 <section>
+
+
+
+
+
+
+
     <div class="container">
+    <form action="<?= site_url('productos/filtrar') ?>" method="POST">
+    <div class="form-group">
+        <label for="categoria">Filtrar por categoría:</label>
+        <select class="form-control form-control-sm" name="categoria" id="categoria">
+            <option value="">Todas las categorías</option>
+            <option value="1" <?php echo ($categoria_seleccionada == 1) ? 'selected' : ''; ?>>Accion</option>  
+            <option value="2" <?php echo ($categoria_seleccionada == 2) ? 'selected' : ''; ?>>Aventura</option>  
+            <option value="3" <?php echo ($categoria_seleccionada == 3) ? 'selected' : ''; ?>>Lucha</option>
+            <option value="4" <?php echo ($categoria_seleccionada == 4) ? 'selected' : ''; ?>>Carreras</option>
+            
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Filtrar</button>
+</form>
+
+
+
         <div class="row  fila-catalogo ">
             <?php foreach ($productos as $product): ?>
                 <?php if ($product["activo"] == "SI"): ?>

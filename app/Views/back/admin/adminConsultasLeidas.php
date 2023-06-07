@@ -32,7 +32,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
      <table class="table table-bordered" id="usuarios-list">
        <thead>
           <tr>
-             <th></th>
+             
              <th>id</th>
              <th>Nombre y Apellido</th>
              <th>email</th>

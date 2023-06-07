@@ -39,6 +39,34 @@ class Carrito_Controller extends BaseController
         
     }
 
+    public function filtrar(){   
+        $request = \Config\Services::request();
+        $product = new Product();
+        $categoria = $this->request->getPost('categoria');
+
+        if(!empty($categoria)){
+            // Realiza la lógica de filtrado según la categoría seleccionada
+            $productos['productos'] = $product->where('categoria_id', $categoria)->findAll();
+        }else{
+            $productos['productos'] = $product->findAll();
+        }
+
+        
+        
+        // Pasa los datos filtrados a la vista
+        $data['title'] = 'Catalogo';
+        echo view('componentes/header', [
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+            "categoria_seleccionada"=> $categoria,
+         ]);
+            echo view("componentes/navbar");
+            echo view('catalogo.php',$productos);
+        
+    }
+
+   
+
     public function index(){
        
         $product = new Product();
@@ -312,87 +340,6 @@ public function disminuirCant($id)
 
 
 
-
-
-
-
-
-    /*Guarda Compra del carrito */
-    public function guardarCompra() {
-        $total = session("totalCarrito");
-        
-        $venta = new VentaCabecera_model();
-        $session = session();
-
-        $datos = array(
-
-            'usuario_id'=> session('id'),
-            
-            'fecha' => date('Y-m-d'), 
-
-            
-        );
-
-        
-        
-
-        
-        $detalle = new VentaDetalle_model();
-        $product = new Product();
-        //$total = 0;
-
-        $ventaId = null;
-
-        $cart = session("cart");
-        foreach($cart as $item){
-
-            $datosProduct = $product->where('id', $item['id'])->first();
-            
-            if($datosProduct['cantidad'] < $item['cant']){
-                
-                
-                $session->setFlashdata('mensaje', 
-                'No hay stock en linea, por favor eliga otro producto');
-                
-                return redirect('carrito');
-
-            }else{
-
-                if ($ventaId === null) {
-                    $ventaId = $venta->insert($datos);
-                }
-                
-                $datos= array(
-                    'cantidad'=> $datosProduct['cantidad'] - $item['cant'],  
-                );
-
-                $product->update($datosProduct['id'], $datos);
-
-                
-
-                $detalle_venta = array(
-                    'venta_id'=> $ventaId,
-                    'producto_id' => $item['id'],
-                    'cantidad' => $item['cant'],
-                    'precio' => $item['price'],
-                    'sub_total' => $item['sub_total'],
-                );
-               
-                $detalle->insert($detalle_venta);
-                $session->setFlashdata('success', 
-                'Productos Comprados Exitosamente');
-            }
-        }
-        $datos = array(
-
-            'total_venta'=> $total,  
-        );
-        
-        
-        session()->remove("cart");
-        session()->remove("totalCarrito");
-        return redirect('carrito');
-    }
 
 
 

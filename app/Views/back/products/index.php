@@ -44,11 +44,11 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
           <th></th>
           <th>Nombre</th>
           <th>Precio</th>
-          <th>Descripción</th>
-          <th>Imagen</th>
+          <th class="d-none d-sm-table-cell">Descripción</th>
+          <th class="d-none d-sm-table-cell" >Imagen</th>
           <th>Cantidad</th>
           <th>Categoría</th>
-          <th>Es Tendencia</th>
+          <th class="d-none d-sm-table-cell">Es Tendencia</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -60,13 +60,13 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
                 <td><?php echo $key + 1; ?></td>
                 <td><?php echo $product['name']; ?></td>
                 <td><?php echo $product['price']; ?></td>
-                <td><?php echo $product['description']; ?></td>
-                <td>
+                <td class="d-none d-sm-table-cell" ><?php echo $product['description']; ?></td>
+                <td class="d-none d-sm-table-cell">
                   <img src="<?= base_url() ?>/assets/uploads/<?= $product['imagen']; ?>" width="100" alt="">
                 </td>
                 <td><?php echo $product['cantidad']; ?></td>
                 <td><?php echo $product['categoria_id']; ?></td>
-                <td><?php echo $product['es_tendencia']; ?></td>
+                <td class="d-none d-sm-table-cell"><?php echo $product['es_tendencia']; ?></td>
                 <td>
                   <a href="<?php echo base_url('products/edit/' . $product['id']); ?>" class="btn btn-primary btn-sm">Editar</a>
                   <a href="<?php echo base_url('products/baja/' . $product['id']); ?>" class="btn btn-danger btn-sm">Baja</a>
