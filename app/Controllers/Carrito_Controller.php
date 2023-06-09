@@ -28,11 +28,15 @@ class Carrito_Controller extends BaseController
     public function catalogo(){
         $product = new Product();
         $datos['productos'] = $product->findAll();
+        $categoria = $this->request->getPost('categoria');
+
+        session();
 
         $data['title'] = 'Catalogo';
         echo view('componentes/header', [
             "title"=>$data['title'],
             "usuario"=>$this->usuario,
+            "categoria_seleccionada"=> $categoria,
          ]);
             echo view("componentes/navbar");
             echo view('catalogo.php',$datos);

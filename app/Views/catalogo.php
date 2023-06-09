@@ -7,10 +7,12 @@
 
 
     <div class="container">
+
+    
     <form action="<?= site_url('productos/filtrar') ?>" method="POST">
     <div class="form-group">
         <label for="categoria">Filtrar por categoría:</label>
-        <select class="form-control form-control-sm" name="categoria" id="categoria">
+        <select class="form-control"  style=" padding: 0.25rem 0.5rem; width: 300px;"  name="categoria" id="categoria">
             <option value="">Todas las categorías</option>
             <option value="1" <?php echo ($categoria_seleccionada == 1) ? 'selected' : ''; ?>>Accion</option>  
             <option value="2" <?php echo ($categoria_seleccionada == 2) ? 'selected' : ''; ?>>Aventura</option>  
@@ -68,6 +70,10 @@
 
 
     <style>
+
+        
+
+
         .card {
             border: 1px solid #ccc;
             border-radius: 8px;
