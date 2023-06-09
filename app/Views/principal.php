@@ -413,5 +413,20 @@
         border-color: #bd2130;
         color: #fff;
     }
+
+    .alert {
+    transition: opacity 0.5s;
+    }
 </style>
 </section>
+
+<script>
+    // Espera 3 segundos y luego oculta y elimina el mensaje flash
+    setTimeout(function() {
+        var alertElement = document.querySelector('.alert');
+        alertElement.style.opacity = '0';
+        setTimeout(function() {
+            alertElement.parentNode.removeChild(alertElement);
+        }, 500);
+    }, 3000);
+</script>

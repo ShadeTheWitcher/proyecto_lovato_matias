@@ -71,13 +71,18 @@ class usuario_controller extends BaseController{
 
     
     public function perfil(){
+        $usuario = new Modelo_Usuario();
+        $id= $this->usuario["domicilio_id"];
+        $data['domicilio'] = $usuario->getUserDomicilioPorID( $id);
+
         $data['title']='perfil'; 
         echo view('componentes//header.php' ,[
             "title"=>$data['title'],
             "usuario"=>$this->usuario,
+            "domicilio"=>$data
          ]);
         echo view("componentes//navbar");
-        echo view("back//usuario//perfil.php");
+        echo view("back//usuario//perfil.php" ,$data);
         echo view("componentes//footer.html");
     }
 
@@ -264,6 +269,7 @@ public function login(){
                 if(session('perfil_id') == 1){
                     return redirect()->to('/usuario/admin');
                 }else{
+                    $session->setFlashdata('success', 'Bienvenido');
                     return redirect()->to('/');
                 }
                 

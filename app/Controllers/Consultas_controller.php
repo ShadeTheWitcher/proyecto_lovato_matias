@@ -116,7 +116,8 @@ class Consultas_controller extends BaseController{
                 'mensaje'=> $mensaje
             ];
         }
-    
+        $this->session->setflashdata('msg', 'La consulta se ha enviado correctamente.');
+
         $consulta_model->insert($data);
         return redirect()->back();
     }

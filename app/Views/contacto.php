@@ -12,7 +12,11 @@
     
 
 
-
+        <?php if (session()->getFlashdata('msg')): ?>
+            <div id="success-message" class="alert alert-success welcome-message">
+            <?= session()->getFlashdata('msg') ?>
+        </div>
+    <?php endif; ?>
 
 
 
@@ -107,4 +111,13 @@
 
 
 </div>
+
+
 </section>
+
+<script>
+    // Espera 3 segundos y luego oculta el mensaje flash
+    setTimeout(function() {
+        document.querySelector('.alert').style.display = 'none';
+    }, 3000);
+</script>

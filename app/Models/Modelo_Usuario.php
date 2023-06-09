@@ -68,5 +68,27 @@ class Modelo_Usuario extends Model{
       return $existeU->get()->getResultArray();
    }
 
+
+   public function getUserDomicilio(){
+      $db = \Config\Database::connect();//Conecta la base de datos
+      $builder = $db->table('domicilios');//Tabla domicilios
+      $builder->select('*');
+      //Obtiene la relacion entre las tablas
+      $builder->join('usuarios',' usuarios.domicilio_id = domicilios.id ');
+      $query = $builder->get();//guarda
+      return $query->getResultArray();//return array
+  
+  }
+
+  public function getUserDomicilioPorID($domicilio_id){
+   $db = \Config\Database::connect();
+   $builder = $db->table('domicilios');
+   $builder->select('*');
+   $builder->where('id', $domicilio_id); // Filtra por la ID del domicilio
+   $query = $builder->get();
+   return $query->getRow(); // Retorna una única fila en lugar de un array
+}
+
+
 }
 ?>

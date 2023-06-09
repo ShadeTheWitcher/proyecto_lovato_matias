@@ -75,7 +75,7 @@
 
 
       <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Save</button>
+        <button type="submit" class="btn btn-primary btn-block">Guardar</button>
       </div>
 
 
@@ -123,25 +123,25 @@
         },
         messages: {
           name: {
-            required: "Name is required.",
+            required: "nombre es requerido.",
           },
           price: {
-            required: "Price is required.",
+            required: "Precio es requerido.",
           },
           description: {
-            required: "Description is required.",
+            required: "Description es requerido.",
           },
           cantidad: {
-            required: "cantidad is required.",
+            required: "cantidad es requerido.",
           },
           categorias: {
-            required: "categorias is required.",
+            required: "categorias es requerido.",
           },
           opcion_tendencia: {
-            required: "tendencia is required.",
+            required: "tendencia es requerido.",
           },
           imagen: {
-            required: "imagen is required.",
+            required: "imagen es requerido.",
           },
           
         },
