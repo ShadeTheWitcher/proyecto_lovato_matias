@@ -23,17 +23,17 @@
     <form enctype="multipart/form-data" method="post" id="createProduct" action="<?= site_url('/products/store') ?>">
       <div class="form-group">
         <label>Nombre del producto</label>
-        <input type="text" name="name" class="form-control">
+        <input type="text" name="nombre" class="form-control">
       </div>
 
       <div class="form-group">
         <label>Precio</label>
-        <input type="number" name="price" class="form-control">
+        <input type="number" name="precio" class="form-control">
       </div>
 
       <div class="form-group">
         <label>Descripcion</label>
-        <textarea type="text" name="description" class="form-control"></textarea>
+        <textarea type="text" name="descripcion" class="form-control"></textarea>
       </div>
 
       <div class="form-group">
@@ -68,15 +68,23 @@
 
 
       <div class="form-group">
-            <label>Imagen</label>
-              <input type="file" name="imagen" placeholder="" class="form-control"/>
-      </div> 
+    <label>Imagen</label>
+    <input type="file" name="imagen" id="imagen" class="form-control" onchange="mostrarVistaPrevia(event)">
+    <div id="vista-previa"></div>
+</div> 
 
 
 
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+<div class="form-group">
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary btn-block">Agregar Producto</button>
+        </div>
+        <div class="col">
+          <a href="<?= site_url('/products') ?>" class="btn btn-secondary btn-block">Cancelar</a>
+        </div>
       </div>
+    </div>
 
 
 
@@ -148,6 +156,27 @@
       })
     }
   </script>
+
+<script>
+    function mostrarVistaPrevia(event) {
+        var input = event.target;
+        var vistaPrevia = document.getElementById('vista-previa');
+        
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                vistaPrevia.innerHTML = '<img src="' + e.target.result + '" width="300" alt="Vista previa de la imagen">';
+            };
+            reader.readAsDataURL(input.files[0]);
+        } else {
+            vistaPrevia.innerHTML = '';
+        }
+    }
+</script>
+
+
+
+
 </body>
 
 </html>

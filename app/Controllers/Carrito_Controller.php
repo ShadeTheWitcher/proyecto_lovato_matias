@@ -483,7 +483,7 @@ public function disminuirCant($id)
                 $detalle_venta = array(
                     'venta_id'=> $ventaId,
                     'producto_id' => $item['id'],
-                    'cantidad' => $item['cant'],
+                    'cantidad_venta' => $item['cant'],
                     'precio' => $item['price'],
                     'sub_total' => $item['sub_total'],
                 );

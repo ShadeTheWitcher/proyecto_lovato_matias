@@ -8,5 +8,5 @@ class Product extends Model
     protected $primaryKey = 'id';
     protected $useAutoIncreament = true;
 
-    protected $allowedFields = ['name', 'price', 'description' , "cantidad" , "categoria_id" , "imagen", "activo" , "es_tendencia"];
+    protected $allowedFields = ['nombre_producto', 'precio_producto', 'descripcion' , "cantidad" , "categoria_id" , "imagen", "activo" , "es_tendencia"];
 }

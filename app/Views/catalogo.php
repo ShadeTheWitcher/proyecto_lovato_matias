@@ -35,20 +35,20 @@
                                 src="<?= base_url() ?>assets/uploads/<?= $product['imagen']; ?>" width="100" alt="">
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <?= $product['name'] ?>
+                                    <?= $product['nombre_producto'] ?>
                                 </h4>
                                 <h6 class="card-subtitle">
-                                    <?= $product['description'] ?>
+                                    <?= $product['descripcion'] ?>
                                 </h6>
                                 <p class="card-text">
-                                    <?= $product['price'] ?>$
+                                    <?= $product['precio_producto'] ?>$
                                 </p>
 
                                 <?php if (session('logged_in')): ?>
                                     <form action="<?= site_url('agregarItemCarrito') ?>" method="POST">
                                         <input type="hidden" name="id" value="<?= $product['id'] ?>">
-                                        <input type="hidden" name="nombre_product" value="<?= $product['name'] ?>">
-                                        <input type="hidden" name="precio" value="<?= $product['price'] ?>">
+                                        <input type="hidden" name="nombre_product" value="<?= $product['nombre_producto'] ?>">
+                                        <input type="hidden" name="precio" value="<?= $product['precio_producto'] ?>">
                                         <button class="btn btn-danger" type="submit" name="action"
                                             value="Agregar al Carrito">Agregar al Carrito</button>
                                     </form>

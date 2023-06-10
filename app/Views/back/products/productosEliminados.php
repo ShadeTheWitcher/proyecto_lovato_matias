@@ -41,9 +41,9 @@
             <?php if($product["activo"]=="NO"): ?>
           <tr>
              <td><?php echo $key+1; ?></td>
-             <td><?php echo $product['name']; ?></td>
-             <td><?php echo $product['price']; ?></td>
-             <td><?php echo $product['description']; ?></td>
+             <td><?php echo $product['nombre_producto']; ?></td>
+             <td><?php echo $product['precio_producto']; ?></td>
+             <td><?php echo $product['descripcion']; ?></td>
              <th>
 						<img src="<?=base_url()?>/assets/uploads/<?= $product['imagen'];?>" 
 						width="100"alt="">

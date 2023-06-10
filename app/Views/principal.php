@@ -143,175 +143,6 @@
 
 
 
-    <!-- <div class="grid-container">
-    <div class="grid-item1">1</div>
-    <div class="grid-item2">2</div>
-    <div class="grid-item3">3</div>
-    <div class="grid-item4">4</div>
-    
-    
-
-</div> -->
-
-    <!--
-    <div class="container seccion-productos">
-
-        <h4 class="text-left">Tendencias <br> </h4>
-
-        <div class="row ">
-            <div class="col-sm-6  col-md-6 col-lg-6 col-xl-3">
-                <div class=" producto rounded">
-                    <img src="<?= base_url('assets/img/productos/sm-mm.jpg') ?> " class="card-img-top" alt="">
-
-                    <div class="row">
-                        <div class="col-9">
-                            <p class="text-left">Marvel’s Spider-Man: Miles Morales </p>
-                        </div>
-
-                        <div class="col-3">
-                            <p class="fw-bold">$60.00</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-sm-6  col-md-6 col-lg-6 col-xl-3">
-                <div class="card-img-top producto rounded">
-                    <img src="<?= base_url('assets/img/productos/injustice-god.jpg') ?>" alt="">
-
-                    <div class="row">
-                        <div class="col-9">
-                            <p class="text-left">Injustice </p>
-                        </div>
-
-                        <div class="col-3">
-                            <p class="fw-bold">$30.00</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-sm-6  col-md-6 col-lg-6 col-xl-3">
-                <div class="card-img-top producto rounded">
-                    <img src="<?= base_url('assets/img/productos/the-last-of-us.jpg') ?>" alt="">
-
-                    <div class="row">
-                        <div class="col-9">
-                            <p class="text-left">The Last of Us Part I </p>
-                        </div>
-
-                        <div class="col-3">
-                            <p class="fw-bold">$40.50</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-sm-6  col-md-6 col-lg-6 col-xl-3">
-                <div class="card-img-top producto rounded">
-                    <img src="<?= base_url('assets/img/productos/wrc.jpg') ?>" alt="">
-                    <div class="row">
-                        <div class="col-9">
-                            <p class="text-left">WRC Generations Fully Loaded Edition</p>
-                        </div>
-
-                        <div class="col-3">
-                            <p class="fw-bold">$33.40</p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="row ">
-            <div class="col-sm-6  col-md-6 col-lg-6 col-xl-3">
-                <div class=" producto rounded">
-                    <img src="<?= base_url('assets/img/productos/dredge.jpg') ?>" class="card-img-top" alt="">
-
-                    <div class="row">
-                        <div class="col-9">
-                            <p class="text-left">Dredge </p>
-                        </div>
-
-                        <div class="col-3">
-                            <p class="fw-bold">$40.50</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-sm-6  col-md-6 col-lg-6 col-xl-3">
-                <div class="card-img-top producto rounded">
-                    <img src="<?= base_url('assets/img/productos/grim-dawn.jpg') ?>" alt="">
-
-                    <div class="row">
-                        <div class="col-9">
-                            <p class="text-left">Grim Dawn </p>
-                        </div>
-
-                        <div class="col-3">
-                            <p class="fw-bold">$20.00</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3">
-                <div class="card-img-top producto rounded">
-                    <img src="<?= base_url('assets/img/productos/planet-zoo.jpg') ?>" alt="">
-
-                    <div class="row">
-                        <div class="col-9">
-                            <p class="text-left">Planet Zoo </p>
-                        </div>
-
-                        <div class="col-3">
-                            <p class="fw-bold">$40.00</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-sm-6  col-md-6 col-lg-6 col-xl-3">
-                <div class="card-img-top producto rounded">
-                    <img src="<?= base_url('assets/img/productos/assetto-corsa-competizione.jpg') ?>" alt="">
-                    <div class="row">
-                        <div class="col-9">
-                            <p class="text-left">Asseto Corsa Competizione</p>
-                        </div>
-
-                        <div class="col-3">
-                            <p class="fw-bold">$33.00</p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-
-
-
-    </div>
-
-
-    -->
-
 
 
 
@@ -330,20 +161,20 @@
                                 src="<?= base_url() ?>assets/uploads/<?= $product['imagen']; ?>" width="100" alt="">
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <?= $product['name'] ?>
+                                    <?= $product['nombre_producto'] ?>
                                 </h4>
                                 <h6 class="card-subtitle">
-                                    <?= $product['description'] ?>
+                                    <?= $product['descripcion'] ?>
                                 </h6>
                                 <p class="card-text">
-                                    <?= $product['price'] ?>$
+                                    <?= $product['precio_producto'] ?>$
                                 </p>
 
                                 <?php if (session('logged_in')): ?>
                                     <form action="<?= site_url('agregarItemCarrito') ?>" method="POST">
                                         <input type="hidden" name="id" value="<?= $product['id'] ?>">
-                                        <input type="hidden" name="nombre_product" value="<?= $product['name'] ?>">
-                                        <input type="hidden" name="precio" value="<?= $product['price'] ?>">
+                                        <input type="hidden" name="nombre_product" value="<?= $product['nombre_producto'] ?>">
+                                        <input type="hidden" name="precio" value="<?= $product['precio_producto'] ?>">
                                         <button class="btn btn-danger" type="submit" name="action"
                                             value="Agregar al Carrito">Agregar al Carrito</button>
                                     </form>
@@ -360,7 +191,7 @@
             <?php endforeach; ?>
         </div>
     </div>
-</section>
+
 
 <style>
     .card {

@@ -78,7 +78,7 @@ class ProductController extends BaseController
     }
 
 
-    // save product data
+    // guarda el producto
     public function store() {
         $product = new Product();
         
@@ -95,9 +95,9 @@ class ProductController extends BaseController
         
 
         $data = [
-            'name' => $this->request->getVar('name'),
-            'price'  => $this->request->getVar('price'),
-            'description'  => $this->request->getVar('description'),
+            'nombre_producto' => $this->request->getVar('nombre'),
+            'precio_producto'  => $this->request->getVar('precio'),
+            'descripcion'  => $this->request->getVar('descripcion'),
             'cantidad'  => $this->request->getVar('cantidad'),
             'activo'  => "SI" ,
             'imagen'  => $nombre_aleatorio,
@@ -129,44 +129,48 @@ class ProductController extends BaseController
     }
 
     // update product data
-    public function update(){
-
-    $product = new Product();
-    $id = $this->request->getVar('id');
-    $productData = $product->find($id);
-
-    $img = $this->request->getFile('imagen');
-
-    if ($img->isValid()) {
-        $nombre_aleatorio = $img->getRandomName();
-        $img->move(ROOTPATH . 'assets/uploads', $nombre_aleatorio);
-
-        // Eliminar la imagen anterior
-        if (!empty($productData['imagen'])) {
-            unlink(ROOTPATH . 'assets/uploads/' . $productData['imagen']);
+    public function update() {
+        $product = new Product();
+        $id = $this->request->getVar('id');
+        $productData = $product->find($id);
+        $img = $this->request->getFile('imagen');
+    
+        $data = [
+            'nombre_producto' => $this->request->getVar('nombre'),
+            'precio_producto' => $this->request->getVar('precio'),
+            'descripcion' => $this->request->getVar('descripcion'),
+            'cantidad' => $this->request->getVar('cantidad'),
+            'activo' => "SI",
+            'categoria_id' => $this->request->getPost('categorias'),
+            'es_tendencia' => $this->request->getPost('opcion_tendencia')
+        ];
+    
+        if ($img->isValid()) {
+            $nombre_aleatorio = $img->getRandomName();
+            $img->move(ROOTPATH . 'assets/uploads', $nombre_aleatorio);
+    
+            // Eliminar la imagen anterior
+            if (!empty($productData['imagen'])) {
+                $imagen_anterior = ROOTPATH . 'assets/uploads/' . $productData['imagen'];
+                if (file_exists($imagen_anterior)) {
+                    unlink($imagen_anterior);
+                }
+            }
+    
+            // Asignar el nombre de la nueva imagen al campo 'imagen' en $data
+            $data['imagen'] = $nombre_aleatorio;
         }
+    
+        $product->update($id, $data);
+        return redirect()->to(site_url('/products'));
     }
-
-    $data = [
-        'name' => $this->request->getVar('name'),
-        'price' => $this->request->getVar('price'),
-        'description' => $this->request->getVar('description'),
-        'cantidad'  => $this->request->getVar('cantidad'),
-        'activo' => "SI",
-        'categoria_id' => $this->request->getPost('categorias'),
-        'es_tendencia' => $this->request->getPost('opcion_tendencia')
-    ];
-
-    if ($img->isValid()) {
-        $data['imagen'] = $nombre_aleatorio;
-    }
-
-    $product->update($id, $data);
-    return redirect()->to(site_url('/products'));
-}
+    
+    
+    
 
 
-    // delete product
+
+    // elimina product
     public function delete($id) {
         $product = new Product();
         $data['product'] = $product->where('id', $id)->delete($id);

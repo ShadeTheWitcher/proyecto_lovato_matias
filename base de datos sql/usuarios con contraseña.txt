@@ -1,0 +1,3 @@
+usuario cliente:  usuario: 123  pw: 123
+
+administrador:   user: admin  pw: admin

@@ -33,7 +33,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
      <table class="table table-bordered" id="usuarios-list">
        <thead>
           <tr>
-             <th></th>
+             
              <th>id</th>
              <th>Nombre y Apellido</th>
              <th>email</th>
@@ -48,7 +48,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
           <?php foreach($consultas as $key => $consulta): ?>
           <tr>
           <?php if($consulta["leido"]=="NO" && $consulta["tipo_usuario"]=="1" ){ ?>
-             <td><?php echo $key+1; ?></td>
+             
              <td><?php echo $consulta['id']; ?></td>
              <td><?php echo $consulta['nombre_apellido']; ?></td>
              <td><?php echo $consulta['email']; ?></td>
