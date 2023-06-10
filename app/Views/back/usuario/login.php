@@ -1,5 +1,12 @@
 <section>
-
+<?php
+// Verificar si el usuario ya ha iniciado sesión
+if (isset($_SESSION['logged_in'])) {
+    // Redirigir al usuario a la página principal u otra página deseada
+    header('Location: pagina_principal.php');
+    exit;
+}
+?>
 
 
 

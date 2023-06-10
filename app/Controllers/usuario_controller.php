@@ -54,6 +54,13 @@ class usuario_controller extends BaseController{
 
 
     public function login_form(){
+        if (isset($_SESSION['logged_in'])) {
+            // Redirigir al usuario a la página principal u otra página deseada
+            return redirect()->to('/');
+            
+        }
+
+
         $data['title']='login'; 
         echo view('componentes//header.php' ,[
             "title"=>$data['title'],

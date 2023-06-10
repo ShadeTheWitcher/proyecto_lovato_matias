@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-06-2023 a las 19:52:40
+-- Tiempo de generación: 11-06-2023 a las 00:41:29
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -47,7 +47,9 @@ INSERT INTO `consultas` (`id`, `nombre_apellido`, `email`, `razon`, `area`, `men
 (4, '123 123', 'matii_seba_11@hotmail.com', 'problema', 'facturacion', 'hola quiero reportar un problema con un juego', 'NO', 2),
 (5, 'Juancho el mas capo', 'juankapo1@gmail.com', 'problema', 'soporte tecnico', 'no me abre el juego, me sale una pantalla azul en el windows cuando intento abrir el Cyberbug 2077', 'NO', 1),
 (6, 'Juancho el mas capo', 'juankapo1@gmail.com', 'problema', 'soporte tecnico', 'como hago para registrarme en tu pagina porque vivo en el campo y no se como hacerle ', 'NO', 1),
-(20, 'Jorge Lopez', '21@gmail.com', 'denuncia', 'facturacion', 'asdasd', 'NO', 2);
+(20, 'Jorge Lopez', '21@gmail.com', 'denuncia', 'facturacion', 'asdasd', 'SI', 2),
+(21, 'Jorge Lopez', '21@gmail.com', 'Problema', 'facturacion', 'No me diste mi factura, no se si que compre ', 'NO', 2),
+(22, 'Jorge Lopez', '21@gmail.com', 'Consulta', 'soporte tecnico', 'Tenes el gta 7?', 'NO', 2);
 
 -- --------------------------------------------------------
 
@@ -74,7 +76,7 @@ INSERT INTO `domicilios` (`id`, `direccion`, `cod_postal`) VALUES
 (11, '  barrio quintana asd', 3400),
 (12, '   barrio quintana asdasd', 3400),
 (13, '    barrio quintana asdasd', 3400),
-(14, '       barrio quintana', 3400),
+(14, 'barrio quintana123', 3400),
 (15, 'B pirayui', 3400);
 
 -- --------------------------------------------------------
@@ -85,9 +87,9 @@ INSERT INTO `domicilios` (`id`, `direccion`, `cod_postal`) VALUES
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `price` double(16,2) DEFAULT NULL,
-  `description` text DEFAULT NULL,
+  `nombre_producto` varchar(255) DEFAULT NULL,
+  `precio_producto` double(16,2) DEFAULT NULL,
+  `descripcion` text DEFAULT NULL,
   `categoria_id` int(2) NOT NULL,
   `cantidad` int(100) NOT NULL,
   `imagen` varchar(200) NOT NULL,
@@ -99,20 +101,28 @@ CREATE TABLE `products` (
 -- Volcado de datos para la tabla `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `price`, `description`, `categoria_id`, `cantidad`, `imagen`, `activo`, `es_tendencia`) VALUES
-(8, 'Asseto Corsa', 3000.00, 'carrera', 4, 52, '1685053151_4c6bc46a3e2976c7a22d.jpg', 'SI', 'SI'),
-(9, 'The last of us', 100.00, 'zombies', 2, 63, '1685060454_bb4442de5a191a152208.jpg', 'SI', 'SI'),
-(10, 'Dredge', 5000.00, 'asd', 2, 63, '1685075794_34c4f1891b5ec54cd6a8.jpg', 'SI', 'NO'),
-(11, 'Resident Evil 4 RE', 12000.00, 'el clasico ha vuelto ', 2, 25, '1685109489_781e62756643636c2412.jpg', 'SI', 'NO'),
-(12, 'Sifu', 5000.00, 'sobrevive y cumple tu venganza', 2, 19, '1685109550_ae4d3642844c510aa4c3.jpg', 'SI', 'NO'),
-(13, 'Resident Evil 2 RE', 6000.00, 'el clásico reimaginado', 1, 60, '1685109624_ce9fdcea0d1c391f7305.jpg', 'SI', 'NO'),
-(14, 'Doom Eternal', 6800.00, 'mata demonios', 1, 50, '1685109697_98ad4fa457e05a39e57c.jpg', 'SI', 'NO'),
-(15, 'Doom ', 2000.00, 'un clasico modernizado', 1, 30, '1685109733_84b074711623d59a8448.jpg', 'SI', 'NO'),
-(16, 'Resident Evil Village', 6000.00, 'adentrate en la villa', 2, 20, '1685109799_241b39b646c2572d5aff.jpg', 'SI', 'SI'),
-(17, 'Spiderman Miles Morales', 5900.00, 'spiderman', 2, 9, '1685109847_7a9cd7c61e24d34a7526.jpg', 'SI', 'SI'),
-(18, 'Mortal Kombat X', 2000.00, 'Fatality', 3, 10, '1685128394_31fb045678c9943ae5e7.jpg', 'SI', 'SI'),
-(19, 'Far Cry 6', 12000.00, 'asd', 1, 60, '1685455640_a3b6d121f18c37228319.jpg', 'SI', 'SI'),
-(20, 'Grand Theft Auto 6', 20000.00, 'Volvemos a Vice City!', 1, 200, '1685850382_073120cf04d890174d73.jpg', 'SI', 'SI');
+INSERT INTO `products` (`id`, `nombre_producto`, `precio_producto`, `descripcion`, `categoria_id`, `cantidad`, `imagen`, `activo`, `es_tendencia`) VALUES
+(8, 'Asseto Corsa', 3000.00, 'carrera', 4, 47, '1685053151_4c6bc46a3e2976c7a22d.jpg', 'SI', 'SI'),
+(9, 'The last of us', 100.00, 'zombies', 2, 53, '1685060454_bb4442de5a191a152208.jpg', 'SI', 'SI'),
+(10, 'Dredge', 5000.00, 'asd', 2, 58, '1685075794_34c4f1891b5ec54cd6a8.jpg', 'SI', 'NO'),
+(11, 'Resident Evil 4 RE', 12000.00, 'el clasico ha vuelto ', 2, 23, '1685109489_781e62756643636c2412.jpg', 'SI', 'NO'),
+(12, 'Sifu', 5000.00, 'sobrevive y cumple tu venganza', 2, 17, '1685109550_ae4d3642844c510aa4c3.jpg', 'SI', 'NO'),
+(13, 'Resident Evil 2 RE', 6000.00, 'el clásico reimaginado', 1, 59, '1685109624_ce9fdcea0d1c391f7305.jpg', 'SI', 'NO'),
+(14, 'Doom Eternal', 6800.00, 'mata demonios', 1, 47, '1685109697_98ad4fa457e05a39e57c.jpg', 'SI', 'NO'),
+(15, 'Doom ', 2000.00, 'un clasico modernizado', 1, 28, '1685109733_84b074711623d59a8448.jpg', 'SI', 'NO'),
+(16, 'Resident Evil Village', 6000.00, 'adentrate en la villa', 2, 18, '1685109799_241b39b646c2572d5aff.jpg', 'SI', 'SI'),
+(17, 'Spiderman Miles Morales', 5900.00, 'spiderman', 2, 8, '1685109847_7a9cd7c61e24d34a7526.jpg', 'SI', 'SI'),
+(18, 'Mortal Kombat X', 2000.00, 'Fatality', 3, 10, '1685128394_31fb045678c9943ae5e7.jpg', 'SI', 'NO'),
+(19, 'Far Cry 6', 12000.00, 'Far Cry ahora en cuba ', 2, 58, '1685455640_a3b6d121f18c37228319.jpg', 'SI', 'SI'),
+(20, 'Grand Theft Auto 6', 20000.00, 'Volvemos a Vice City!', 1, 199, '1685850382_073120cf04d890174d73.jpg', 'SI', 'SI'),
+(25, 'Jedi Survivor', 1230.00, 'asd', 2, 123, '1686427753_30c5a1b93b72c4cd16eb.jpg', 'SI', 'SI'),
+(26, 'Street Fighter V', 12000.00, 'vuelve la saga favorita de luchas a la edad moderna ', 3, 100, '1686428562_386e4b2b4b3fb56249cf.jpg', 'SI', 'SI'),
+(27, 'GTA Triology', 6000.00, 'los clasicos GTA han vuelto', 1, 300, '1686434490_689e0ef21f3740727daa.jpg', 'SI', 'NO'),
+(28, 'GTA 4 Complete Edition', 3000.00, 'Liberty City una ciudad oscura y llena de oportunidades', 1, 200, '1686434567_368cbb5ba4480d94e48f.jpg', 'SI', 'NO'),
+(29, 'Call of Duty Black Ops 3', 1000.00, 'un fps donde la tecnologia es vital', 1, 250, '1686434646_2e2e81d18b33ba17ed2a.jpg', 'SI', 'NO'),
+(30, 'Battlefiel 1 Revolution', 1500.00, 'un shooter lleno de destruccion', 1, 200, '1686434735_85b3d712b27564631b6d.jpg', 'SI', 'NO'),
+(31, 'Dark Souls Remastered', 6000.00, 'Adentrate a esta aventura llena de dificultades', 2, 600, '1686434836_d5756d441c33111b1312.jpg', 'SI', 'NO'),
+(32, 'GTA 5', 1200.00, 'construye tu imperio del crimen', 1, 300, '1686434948_57dd0a3b26996988fd3a.jpg', 'SI', 'NO');
 
 -- --------------------------------------------------------
 
@@ -158,7 +168,7 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `usuario`, `pass`, `perfil_id`, `domicilio_id`, `tel`, `baja`) VALUES
 (35, 'Shade', 'Witcher', 'admin@gmail.com', 'admin', '2yn.4fvaTgedM', 1, NULL, NULL, 'NO'),
-(37, 'Jorge', 'Lopez', '21@gmail.com', '123', '2yG9q7O7s42BI', 2, 14, NULL, 'NO'),
+(37, 'Jorge', 'Lopez', '21@gmail.com', '123', '2yG9q7O7s42BI', 2, 14, 379451221, 'NO'),
 (38, 'Jose', 'Ralls', 'js@gmail.com', 'js123', '2yG9q7O7s42BI', 2, 15, NULL, 'NO'),
 (39, 'Julio Reynaldo', 'Lovato', '1234@hotmail.com', 'julio', '2yG9q7O7s42BI', 2, NULL, NULL, 'NO');
 
@@ -180,19 +190,11 @@ CREATE TABLE `ventas_cabecera` (
 --
 
 INSERT INTO `ventas_cabecera` (`id`, `fecha`, `usuario_id`, `total_venta`) VALUES
-(23, '2023-05-29', 37, 5100),
-(24, '2023-05-29', 37, 100),
-(25, '2023-05-29', 37, 100),
-(26, '2023-05-29', 37, 100),
-(27, '2023-05-29', 37, 100),
-(28, '2023-05-29', 37, 17000),
-(29, '2023-05-29', 37, 5000),
-(30, '2023-05-29', 37, 100),
-(31, '2023-05-29', 37, 3100),
-(32, '2023-05-29', 37, 100),
-(33, '2023-05-29', 37, 5900),
-(34, '2023-05-29', 37, 5000),
-(35, '2023-05-31', 38, 27100);
+(40, '2023-06-10', 37, 16200),
+(41, '2023-06-10', 37, 3100),
+(42, '2023-06-10', 37, 12000),
+(43, '2023-06-10', 37, 100),
+(44, '2023-06-10', 37, 122500);
 
 -- --------------------------------------------------------
 
@@ -214,24 +216,25 @@ CREATE TABLE `ventas_detalle` (
 --
 
 INSERT INTO `ventas_detalle` (`id`, `venta_id`, `producto_id`, `cantidad_venta`, `precio`, `sub_total`) VALUES
-(32, 23, 9, 1, 100, 100),
-(33, 23, 10, 1, 5000, 5000),
-(34, 24, 9, 1, 100, 100),
-(35, 25, 9, 1, 100, 100),
-(36, 26, 9, 1, 100, 100),
-(37, 27, 9, 1, 100, 100),
-(38, 28, 10, 1, 5000, 5000),
-(39, 28, 11, 1, 12000, 12000),
-(40, 29, 10, 1, 5000, 5000),
-(41, 30, 9, 1, 100, 100),
-(42, 31, 9, 1, 100, 100),
-(43, 31, 8, 1, 3000, 3000),
-(44, 32, 9, 1, 100, 100),
-(45, 33, 17, 1, 5900, 5900),
-(46, 34, 10, 1, 5000, 5000),
-(47, 35, 11, 0, 12000, 12000),
-(48, 35, 10, 0, 5000, 15000),
-(49, 35, 9, 0, 100, 100);
+(56, 40, 8, 2, 3000, 6000),
+(57, 40, 9, 2, 100, 200),
+(58, 40, 10, 2, 5000, 10000),
+(59, 41, 8, 1, 3000, 3000),
+(60, 41, 9, 1, 100, 100),
+(61, 42, 11, 1, 12000, 12000),
+(62, 43, 9, 1, 100, 100),
+(63, 44, 9, 2, 100, 200),
+(64, 44, 16, 2, 6000, 12000),
+(65, 44, 14, 3, 6800, 20400),
+(66, 44, 15, 2, 2000, 4000),
+(67, 44, 19, 2, 12000, 24000),
+(68, 44, 20, 1, 20000, 20000),
+(69, 44, 12, 2, 5000, 10000),
+(70, 44, 17, 1, 5900, 5900),
+(71, 44, 13, 1, 6000, 6000),
+(72, 44, 8, 1, 3000, 3000),
+(73, 44, 10, 1, 5000, 5000),
+(74, 44, 11, 1, 12000, 12000);
 
 --
 -- Índices para tablas volcadas
@@ -293,7 +296,7 @@ ALTER TABLE `ventas_detalle`
 -- AUTO_INCREMENT de la tabla `consultas`
 --
 ALTER TABLE `consultas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `domicilios`
@@ -305,7 +308,7 @@ ALTER TABLE `domicilios`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -317,13 +320,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `ventas_cabecera`
 --
 ALTER TABLE `ventas_cabecera`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas_detalle`
 --
 ALTER TABLE `ventas_detalle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- Restricciones para tablas volcadas
