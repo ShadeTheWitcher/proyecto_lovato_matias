@@ -59,7 +59,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
               <tr>
                 <td><?php echo $key + 1; ?></td>
                 <td><?php echo $product['nombre_producto']; ?></td>
-                <td><?php echo $product['precio_producto']; ?></td>
+                <td>$<?php echo $product['precio_producto']; ?></td>
                 <td class="d-none d-sm-table-cell" ><?php echo $product['descripcion']; ?></td>
                 <td class="d-none d-sm-table-cell">
                   <img src="<?= base_url() ?>/assets/uploads/<?= $product['imagen']; ?>" width="100" alt="">

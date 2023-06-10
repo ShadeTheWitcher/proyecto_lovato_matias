@@ -226,11 +226,11 @@
             <div class="perfil-usuario-footer">
                 <ul class="lista-datos">
                     <?php if (!empty($domicilio->direccion)){ ?>
-                        <li><i class="icono fas fa-map-signs"></i> Direccion de usuario:
+                        <li><i class="icono fas fa-map-signs"></i> Direccion:
                             <?= $domicilio->direccion ?>
                         </li>
                     <?php }else{ ?>
-                        <li><i class="icono fas fa-map-signs"></i> Direccion de usuario:
+                        <li><i class="icono fas fa-map-signs"></i> Direccion:
                             n/a
                         </li>
                         <?php } ?>

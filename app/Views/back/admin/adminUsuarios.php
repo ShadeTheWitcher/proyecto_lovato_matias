@@ -45,8 +45,8 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
           <tr class="text-center">
              
              <th>id</th>
-             <th>Nombre</th>
-             <th>Apellido</th>
+             <th class="d-none d-sm-table-cell">Nombre</th>
+             <th class="d-none d-sm-table-cell">Apellido</th>
              <th>Usuario</th>
              <th>email</th>
              <th>accion</th>
@@ -59,8 +59,8 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
           <tr class="text-center">
              
              <td><?php echo $usuario['id']; ?></td>
-             <td><?php echo $usuario['nombre']; ?></td>
-             <td><?php echo $usuario['apellido']; ?></td>
+             <td class="d-none d-sm-table-cell"><?php echo $usuario['nombre']; ?></td>
+             <td class="d-none d-sm-table-cell"><?php echo $usuario['apellido']; ?></td>
              <td><?php echo $usuario['usuario']; ?></td>
              <td><?php echo $usuario['email']; ?></td>
 

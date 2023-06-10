@@ -35,9 +35,9 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
           <tr>
              
              <th>id</th>
-             <th>Nombre y Apellido</th>
+             <th class="d-none d-sm-table-cell">Nombre y Apellido</th>
              <th>email</th>
-             <th>area</th>
+             <th class="d-none d-sm-table-cell">area</th>
              <th>razon</th>
              <th>mensaje</th>
              <th>accion</th>
@@ -50,9 +50,9 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
           <?php if($consulta["leido"]=="NO" && $consulta["tipo_usuario"]=="2"){ ?>
              
              <td><?php echo $consulta['id']; ?></td>
-             <td><?php echo $consulta['nombre_apellido']; ?></td>
+             <td class="d-none d-sm-table-cell"><?php echo $consulta['nombre_apellido']; ?></td>
              <td><?php echo $consulta['email']; ?></td>
-             <td><?php echo $consulta['area']; ?></td>
+             <td class="d-none d-sm-table-cell"><?php echo $consulta['area']; ?></td>
              <td><?php echo $consulta['razon']; ?></td>
              <td><?php echo $consulta['mensaje']; ?></td>
              <td>

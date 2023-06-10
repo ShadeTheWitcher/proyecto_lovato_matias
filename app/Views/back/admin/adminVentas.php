@@ -51,7 +51,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
              <td><?php echo $venta['id']; ?></td>
              <td><?php echo $venta['fecha']; ?></td>
              <td><?php echo $venta['nombre']." ".$venta['apellido']; ?></td>
-             <td><?php echo $venta['total_venta']; ?></td>
+             <td>$<?php echo $venta['total_venta']; ?></td>
              <td>
               
               <a href="<?php echo base_url('admin/detalle-venta/' . $venta["id"] );?>" class="btn btn-danger btn-sm">Ver detalle</a>

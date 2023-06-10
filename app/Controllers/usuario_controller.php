@@ -94,7 +94,7 @@ class usuario_controller extends BaseController{
     
     public function perfil(){
         $usuario = new Modelo_Usuario();
-        $id= $this->usuario["domicilio_id"];
+        $id = array_key_exists("domicilio_id", $this->usuario) ? $this->usuario["domicilio_id"] : null;
         $data['domicilio'] = $usuario->getUserDomicilioPorID( $id);
 
         $data['title']='perfil'; 
@@ -223,7 +223,7 @@ public function insertar() {
 public function update() {
     $domicilio_model = new Domicilio_model;
     $usuarioModel = new Modelo_Usuario();
-    $id_dom= $this->usuario["domicilio_id"];
+    
     
     $idUser = $this->request->getVar('id');
 
@@ -277,7 +277,7 @@ public function update() {
 
 
     // Actualizar el domicilio existente
-    $domicilio_model->update($id_dom, $datosDomicilio);
+    $domicilio_model->update($domicilioId, $datosDomicilio);
 
     $usuarioModel->update($idUser, $data);
     //return $this->response->redirect(site_url('/'));
