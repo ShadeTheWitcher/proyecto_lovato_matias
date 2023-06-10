@@ -18,7 +18,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
 
 
 <div class="container mt-4  seccion-tabla-usuario card" >
-   <h3>Consultas</h3>
+   <h3>Consultas Leidas</h3>
     <div class="d-flex justify-content-end">
         <a href="<?= $previous_url ?>" class="btn btn-success mb-2">volver</a>
         

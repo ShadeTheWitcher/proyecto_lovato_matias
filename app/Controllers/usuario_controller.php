@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\Modelo_Usuario;
+use App\Models\Domicilio_model;
 use CodeIgniter\Controller;
 
 
@@ -65,8 +66,22 @@ class usuario_controller extends BaseController{
 
     public function editar($id) {
         $usuario = new Modelo_Usuario();
+        $domicilio_model = new Domicilio_model();
+        $id_dom= session("domicilio_id") ;
+
         $data['usuario'] = $usuario->where('id', $id)->first();
-        return view('usuario/edit', $data);
+        $data['domicilio'] = $domicilio_model->where('id', $id_dom)->first();
+
+        $data['title']='editar perfil'; 
+        echo view('componentes//header.php' ,[
+            "title"=>$data['title'],
+            "usuario"=>$this->usuario,
+         ]);
+
+         echo view("componentes//navbar");
+        echo view("back//usuario//editar_perfil.php", $data);
+        echo view("componentes//footer.html");
+
     }
 
     
@@ -199,20 +214,67 @@ public function insertar() {
 
 
 public function update() {
-    $usuario = new Modelo_Usuario();
-    $id = $this->request->getVar('id');
+    $domicilio_model = new Domicilio_model;
+    $usuarioModel = new Modelo_Usuario();
+    $id_dom= $this->usuario["domicilio_id"];
+    
+    $idUser = $this->request->getVar('id');
+
+    $tel = $this->request->getVar('tel');
+
 
     $data = [
-        'usuario' => $this->request->getVar('usuario'),
-        'nombre' => $this->request->getVar('nombre'),
-        'apellido'  => $this->request->getVar('apellido'),
-        'email'  => $this->request->getVar('email'),
-        'pass'  => $this->request->getVar('pass'),
+        
+        "tel"   => $tel,
     ];
 
-    $usuario->update($id, $data);
+    // Verificar si el usuario ya tiene un domicilio registrado
+    $domicilioId = session('domicilio_id');
+
+    // Verificar si el usuario está realizando cambios en su domicilio
+    $nuevoDomicilio = false;
+    if ($domicilioId) {
+        $datosDomicilio = array(
+            'direccion' => $this->request->getPost('direccion'),
+            'cod_postal' => $this->request->getPost('cod_postal'),
+        );
+
+        // Actualizar el domicilio existente
+        $domicilio_model->update($domicilioId, $datosDomicilio);
+        session()->set('tel', $tel);
+    
+    
+    }else if($domicilioId){
+        //no carga datos al sesion y de esta forma no ocurre el problema al rescatar datos
+    
+    
+    
+    } else {
+        $datosDomicilio = array(
+            'direccion' => $this->request->getPost('direccion'),
+            'cod_postal' => $this->request->getPost('cod_postal'),
+        );
+
+        // Registramos el domicilio solo si no existe uno previo
+        $domicilioId = $domicilio_model->insert($datosDomicilio);
+        $usuarioModel->update($idUser, array('domicilio_id' => $domicilioId));
+        $nuevoDomicilio = true;
+
+        session()->set('domicilio_id', $domicilioId);
+        session()->set('tel', $tel);
+    }
+
+
+
+
+
+
+    // Actualizar el domicilio existente
+    $domicilio_model->update($id_dom, $datosDomicilio);
+
+    $usuarioModel->update($idUser, $data);
     //return $this->response->redirect(site_url('/'));
-    return redirect()->back();
+    return redirect()->to("usuario/perfil");
 }
 
 // delete product
@@ -248,6 +310,7 @@ public function login(){
                     'apellido' => $data['apellido'],
                     'usuario'  => $data['usuario'],
                     'email'  => $data['email'],
+                    'tel'  => $data['tel'],
                     'perfil_id'  => $data['perfil_id'],
                     "domicilio_id"=> $data["domicilio_id"],
                     'baja'  => $data['baja'],

@@ -170,7 +170,7 @@
                                     <?= $product['precio_producto'] ?>$
                                 </p>
 
-                                <?php if (session('logged_in')): ?>
+                                <?php if (session('logged_in') && session('perfil_id') == 2): ?>
                                     <form action="<?= site_url('agregarItemCarrito') ?>" method="POST">
                                         <input type="hidden" name="id" value="<?= $product['id'] ?>">
                                         <input type="hidden" name="nombre_product" value="<?= $product['nombre_producto'] ?>">
@@ -178,6 +178,8 @@
                                         <button class="btn btn-danger" type="submit" name="action"
                                             value="Agregar al Carrito">Agregar al Carrito</button>
                                     </form>
+                                <?php elseif (session('logged_in') && session('perfil_id') != 2): ?>
+                                    
                                 <?php else: ?>
                                     <a href="<?php echo base_url('usuario/login') ?>">
                                         <button class="btn btn-danger" type="button" aria-expanded="false">Agregar al
@@ -193,70 +195,70 @@
     </div>
 
 
-<style>
-    .card {
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        padding: 10px;
-        margin-bottom: 20px;
-        background: linear-gradient(to bottom, #e0c3fc, #8ec5fc);
-        /* Colores morado claro */
-    }
+    <style>
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom, #e0c3fc, #8ec5fc);
+            /* Colores morado claro */
+        }
 
-    .card:hover {
-        transform: scale(1.05);
-        transition: transform 0.3s ease;
-    }
+        .card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
 
 
 
-    .card-img-top {
-        width: 100%;
-        height: auto;
-    }
+        .card-img-top {
+            width: 100%;
+            height: auto;
+        }
 
-    .card-title {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
 
-    .card-subtitle {
-        font-size: 1rem;
+        .card-subtitle {
+            font-size: 1rem;
 
-        margin-bottom: 10px;
-    }
+            margin-bottom: 10px;
+        }
 
-    .card-text {
-        font-size: 1.1rem;
-        font-weight: bold;
-        margin-bottom: 15px;
-    }
+        .card-text {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
 
-    .btn-danger {
-        background-color: #dc3545;
-        border-color: #dc3545;
-        color: #fff;
-    }
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            color: #fff;
+        }
 
-    .btn-danger:hover {
-        background-color: #c82333;
-        border-color: #bd2130;
-        color: #fff;
-    }
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+            color: #fff;
+        }
 
-    .alert {
-    transition: opacity 0.5s;
-    }
-</style>
+        .alert {
+            transition: opacity 0.5s;
+        }
+    </style>
 </section>
 
 <script>
     // Espera 3 segundos y luego oculta y elimina el mensaje flash
-    setTimeout(function() {
+    setTimeout(function () {
         var alertElement = document.querySelector('.alert');
         alertElement.style.opacity = '0';
-        setTimeout(function() {
+        setTimeout(function () {
             alertElement.parentNode.removeChild(alertElement);
         }, 500);
     }, 3000);

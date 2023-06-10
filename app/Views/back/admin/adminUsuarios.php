@@ -39,10 +39,11 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
      ?>
   <div class="mt-3 card">
     <h4>Usuarios registrados</h4>
+    <div class="table-responsive">
      <table class="table table-bordered" id="usuarios-list">
        <thead>
           <tr class="text-center">
-             <th></th>
+             
              <th>id</th>
              <th>Nombre</th>
              <th>Apellido</th>
@@ -56,7 +57,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
           <?php foreach($usuarios as $key => $usuario): ?>
             <?php if($usuario["baja"]=="NO"): ?>
           <tr class="text-center">
-             <td><?php echo $key+1; ?></td>
+             
              <td><?php echo $usuario['id']; ?></td>
              <td><?php echo $usuario['nombre']; ?></td>
              <td><?php echo $usuario['apellido']; ?></td>
@@ -79,6 +80,7 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION['perfil_id'] != 1) {
          <?php endif; ?>
        </tbody>
      </table>
+     </div>
   </div>
 </div>
 

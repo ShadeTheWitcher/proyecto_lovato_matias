@@ -8,25 +8,26 @@
 
     <div class="container">
 
-    
-    <form action="<?= site_url('productos/filtrar') ?>" method="POST">
-    <div class="form-group">
-        <label for="categoria">Filtrar por categoría:</label>
-        <select class="form-control"  style=" padding: 0.25rem 0.5rem; width: 300px;"  name="categoria" id="categoria">
-            <option value="">Todas las categorías</option>
-            <option value="1" <?php echo ($categoria_seleccionada == 1) ? 'selected' : ''; ?>>Accion</option>  
-            <option value="2" <?php echo ($categoria_seleccionada == 2) ? 'selected' : ''; ?>>Aventura</option>  
-            <option value="3" <?php echo ($categoria_seleccionada == 3) ? 'selected' : ''; ?>>Lucha</option>
-            <option value="4" <?php echo ($categoria_seleccionada == 4) ? 'selected' : ''; ?>>Carreras</option>
-            
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Filtrar</button>
-</form>
+
+        <form action="<?= site_url('productos/filtrar') ?>" method="POST">
+            <div class="form-group">
+                <label for="categoria">Filtrar por categoría:</label>
+                <select class="form-control" style=" padding: 0.25rem 0.5rem; width: 300px;" name="categoria"
+                    id="categoria">
+                    <option value="">Todas las categorías</option>
+                    <option value="1" <?php echo ($categoria_seleccionada == 1) ? 'selected' : ''; ?>>Accion</option>
+                    <option value="2" <?php echo ($categoria_seleccionada == 2) ? 'selected' : ''; ?>>Aventura</option>
+                    <option value="3" <?php echo ($categoria_seleccionada == 3) ? 'selected' : ''; ?>>Lucha</option>
+                    <option value="4" <?php echo ($categoria_seleccionada == 4) ? 'selected' : ''; ?>>Carreras</option>
+
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+        </form>
 
 
 
-        <div class="row  fila-catalogo ">
+        <div class="row fila-catalogo">
             <?php foreach ($productos as $product): ?>
                 <?php if ($product["activo"] == "SI"): ?>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
@@ -44,7 +45,7 @@
                                     <?= $product['precio_producto'] ?>$
                                 </p>
 
-                                <?php if (session('logged_in')): ?>
+                                <?php if (session('logged_in') && session('perfil_id') == 2): ?>
                                     <form action="<?= site_url('agregarItemCarrito') ?>" method="POST">
                                         <input type="hidden" name="id" value="<?= $product['id'] ?>">
                                         <input type="hidden" name="nombre_product" value="<?= $product['nombre_producto'] ?>">
@@ -52,6 +53,8 @@
                                         <button class="btn btn-danger" type="submit" name="action"
                                             value="Agregar al Carrito">Agregar al Carrito</button>
                                     </form>
+                                <?php elseif (session('logged_in') && session('perfil_id') != 2): ?>
+                                    <p>Solo los clientes pueden agregar productos al carrito.</p>
                                 <?php else: ?>
                                     <a href="<?php echo base_url('usuario/login') ?>">
                                         <button class="btn btn-danger" type="button" aria-expanded="false">Agregar al
@@ -70,10 +73,6 @@
 
 
     <style>
-
-        
-
-
         .card {
             border: 1px solid #ccc;
             border-radius: 8px;

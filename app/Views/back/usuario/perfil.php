@@ -140,7 +140,7 @@
         }
 
         .seccion-perfil-usuario .lista-datos {
-            width: 50%;
+            width: 100%;
             list-style: none;
         }
 
@@ -162,36 +162,10 @@
             flex-direction: column;
         }
 
-        .seccion-perfil-usuario .redes-sociales .boton-redes {
-            border: 0;
-            background-color: #fff;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            color: #fff;
-            box-shadow: 0 0 12px rgba(0, 0, 0, .2);
-            font-size: 1.3rem;
-        }
+        
+        
 
-        .seccion-perfil-usuario .redes-sociales .boton-redes+.boton-redes {
-            margin-top: .5rem;
-        }
-
-        .seccion-perfil-usuario .boton-redes.facebook {
-            background-color: #5955FF;
-        }
-
-        .seccion-perfil-usuario .boton-redes.twitter {
-            background-color: #35E1BF;
-        }
-
-        .seccion-perfil-usuario .boton-redes.instagram {
-            background: linear-gradient(45deg, #FF2DFD, #40A7FF);
-        }
+        
 
         /* adactacion a dispositivos */
         @media (max-width: 750px) {
@@ -282,9 +256,7 @@
                 </ul>
 
             </div>
-            <button type="button" class="btn btn-info">Editar perfil
-
-            </button>
+            <a href="<?php echo base_url('usuario/editar/' . $usuario['id']); ?>" class="btn btn-primary btn-sm">Editar</a>
 
         </div>
     </section>

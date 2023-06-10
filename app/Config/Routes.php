@@ -64,7 +64,8 @@ $routes->get('usuario/login', 'usuario_controller::login_form');
 $routes->post('usuario/envio-logearse', 'usuario_controller::login');
 $routes->get('usuario/envio-logout', 'usuario_controller::logout');
 $routes->get('usuario/perfil', 'usuario_controller::perfil');
-
+$routes->get('usuario/editar/(:num)', 'usuario_controller::editar/$1');
+$routes->post('usuario/update', 'usuario_controller::update');
 
 //usuario admin
 $routes->get('usuario/admin', 'usuario_controller::index');

@@ -21,26 +21,56 @@
 <body>
   <div class="container mt-5 card">
     <form enctype="multipart/form-data" method="post" id="createProduct" action="<?= site_url('/usuario/update') ?>">
-        <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+        <input type="hidden" name="id" value="<?php echo $usuario['id']; ?>">
+        <?php if ($domicilio !== null): ?>
             <div class="form-group">
-                <label>direccion</label>
+                <label>Dirección</label>
                 <input type="text" name="direccion" class="form-control" value="<?php echo $domicilio['direccion']; ?>">
             </div>
             <div class="form-group">
-                <label>codigo postal</label>
+                <label>Código Postal</label>
                 <input type="number" name="cod_postal" class="form-control" value="<?php echo $domicilio['cod_postal']; ?>">
             </div>
+
             <div class="form-group">
                 <label>telefono</label>
-                <textarea type="text" name="tel" class="form-control"><?php echo $usuario['tel']; ?></textarea>
+                <input type="number" name="tel" class="form-control" value="<?php echo $usuario['tel']; ?>">
+            </div>
+
+        <?php else: ?>
+          <div class="form-group">
+                <label>Dirección</label>
+                <input type="text" name="direccion" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label>Código Postal</label>
+                <input type="number" name="cod_postal" class="form-control" >
+            </div>
+
+            <div class="form-group">
+                <label>telefono</label>
+                <input type="number" name="tel" class="form-control" >
             </div>
             
 
+        <?php endif; ?>
+
+        
+
             
 
-          <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Guardar cambios</button>
-          </div>
+            
+
+        <div class="form-group">
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary btn-block">Guardar cambios</button>
+        </div>
+        <div class="col">
+          <a href="<?= site_url('usuario/perfil') ?>" class="btn btn-secondary btn-block">Cancelar cambios</a>
+        </div>
+      </div>
+    </div>
 
     </form>
   </div>
