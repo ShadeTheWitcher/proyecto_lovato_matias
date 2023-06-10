@@ -80,11 +80,9 @@
     
     
 
-    <label>
-      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-    </label>
+    
 
-    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+    <p>Al crearte una cuenta aceptas nuestros <a href="<?php echo base_url('/term-usos'); ?>" style="color:dodgerblue">terminos y condiciones</a>.</p>
 
     <div class="clearfix">
      
