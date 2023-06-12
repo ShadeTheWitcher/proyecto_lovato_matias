@@ -35,13 +35,14 @@
                             <img class="card-img-top img-thumbnail"
                                 src="<?= base_url() ?>assets/uploads/<?= $product['imagen']; ?>" width="100" alt="">
                             <div class="card-body">
-                                <h4 class="card-title">
+                                <h4 class="card-title" style="font-family: Arial, Helvetica, sans-serif;">
                                     <?= $product['nombre_producto'] ?>
                                 </h4>
-                                <h6 class="card-subtitle">
+                                <h6 class="card-subtitle" style="font-family: Arial, Helvetica, sans-serif;">
                                     <?= $product['descripcion'] ?>
                                 </h6>
-                                <p class="card-text">
+                                <p class="card-text"
+                                    style="font-family: Montserrat, 'Open Sans Condensed', Oswald, sans-serif;">
                                     <?= $product['precio_producto'] ?>$
                                 </p>
 
@@ -100,8 +101,8 @@
         }
 
         .card-subtitle {
+            color: #4c3779;
             font-size: 1rem;
-            color: grey;
             margin-bottom: 10px;
         }
 

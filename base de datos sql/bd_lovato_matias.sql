@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2023 a las 00:41:29
+-- Tiempo de generación: 12-06-2023 a las 17:42:50
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -44,12 +44,13 @@ CREATE TABLE `consultas` (
 
 INSERT INTO `consultas` (`id`, `nombre_apellido`, `email`, `razon`, `area`, `mensaje`, `leido`, `tipo_usuario`) VALUES
 (3, 'Juan Porto', 'j@gmail.com', 'denuncia', 'facturacion', 'hola quiero denunciar uno de tus empleados', 'SI', 1),
-(4, '123 123', 'matii_seba_11@hotmail.com', 'problema', 'facturacion', 'hola quiero reportar un problema con un juego', 'NO', 2),
+(4, '123 123', 'matii_seba_11@hotmail.com', 'problema', 'facturacion', 'hola quiero reportar un problema con un juego', 'SI', 2),
 (5, 'Juancho el mas capo', 'juankapo1@gmail.com', 'problema', 'soporte tecnico', 'no me abre el juego, me sale una pantalla azul en el windows cuando intento abrir el Cyberbug 2077', 'NO', 1),
 (6, 'Juancho el mas capo', 'juankapo1@gmail.com', 'problema', 'soporte tecnico', 'como hago para registrarme en tu pagina porque vivo en el campo y no se como hacerle ', 'NO', 1),
 (20, 'Jorge Lopez', '21@gmail.com', 'denuncia', 'facturacion', 'asdasd', 'SI', 2),
 (21, 'Jorge Lopez', '21@gmail.com', 'Problema', 'facturacion', 'No me diste mi factura, no se si que compre ', 'NO', 2),
-(22, 'Jorge Lopez', '21@gmail.com', 'Consulta', 'soporte tecnico', 'Tenes el gta 7?', 'NO', 2);
+(22, 'Jorge Lopez', '21@gmail.com', 'Consulta', 'soporte tecnico', 'Tenes el gta 7?', 'NO', 2),
+(23, 'juan carlo', '123@gmail.com', 'consulta', 'facturacion', 'asd', 'NO', 1);
 
 -- --------------------------------------------------------
 
@@ -77,7 +78,9 @@ INSERT INTO `domicilios` (`id`, `direccion`, `cod_postal`) VALUES
 (12, '   barrio quintana asdasd', 3400),
 (13, '    barrio quintana asdasd', 3400),
 (14, 'barrio quintana123', 3400),
-(15, 'B pirayui', 3400);
+(15, 'B pirayui', 3400),
+(16, 'barrio chiquita', 3400),
+(17, '245vv asda', 3400);
 
 -- --------------------------------------------------------
 
@@ -104,7 +107,7 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `nombre_producto`, `precio_producto`, `descripcion`, `categoria_id`, `cantidad`, `imagen`, `activo`, `es_tendencia`) VALUES
 (8, 'Asseto Corsa', 3000.00, 'carrera', 4, 47, '1685053151_4c6bc46a3e2976c7a22d.jpg', 'SI', 'SI'),
 (9, 'The last of us', 100.00, 'zombies', 2, 53, '1685060454_bb4442de5a191a152208.jpg', 'SI', 'SI'),
-(10, 'Dredge', 5000.00, 'asd', 2, 58, '1685075794_34c4f1891b5ec54cd6a8.jpg', 'SI', 'NO'),
+(10, 'Dredge', 5000.00, 'asd', 2, 57, '1685075794_34c4f1891b5ec54cd6a8.jpg', 'SI', 'NO'),
 (11, 'Resident Evil 4 RE', 12000.00, 'el clasico ha vuelto ', 2, 23, '1685109489_781e62756643636c2412.jpg', 'SI', 'NO'),
 (12, 'Sifu', 5000.00, 'sobrevive y cumple tu venganza', 2, 17, '1685109550_ae4d3642844c510aa4c3.jpg', 'SI', 'NO'),
 (13, 'Resident Evil 2 RE', 6000.00, 'el clásico reimaginado', 1, 59, '1685109624_ce9fdcea0d1c391f7305.jpg', 'SI', 'NO'),
@@ -170,7 +173,9 @@ INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `email`, `usuario`, `pass`, 
 (35, 'Shade', 'Witcher', 'admin@gmail.com', 'admin', '2yn.4fvaTgedM', 1, NULL, NULL, 'NO'),
 (37, 'Jorge', 'Lopez', '21@gmail.com', '123', '2yG9q7O7s42BI', 2, 14, 379451221, 'NO'),
 (38, 'Jose', 'Ralls', 'js@gmail.com', 'js123', '2yG9q7O7s42BI', 2, 15, NULL, 'NO'),
-(39, 'Julio Reynaldo', 'Lovato', '1234@hotmail.com', 'julio', '2yG9q7O7s42BI', 2, NULL, NULL, 'NO');
+(39, 'Julio Reynaldo', 'Lovato', '1234@hotmail.com', 'julio', '2yG9q7O7s42BI', 2, NULL, NULL, 'NO'),
+(40, 'Enzo', 'Lopez', '124as@gmail.com', 'le1', '2yG9q7O7s42BI', 2, 16, 0, 'NO'),
+(41, 'asd', 'asd', 'asd@gmail.com', '12355', '2yG9q7O7s42BI', 2, 17, 345, 'SI');
 
 -- --------------------------------------------------------
 
@@ -194,7 +199,8 @@ INSERT INTO `ventas_cabecera` (`id`, `fecha`, `usuario_id`, `total_venta`) VALUE
 (41, '2023-06-10', 37, 3100),
 (42, '2023-06-10', 37, 12000),
 (43, '2023-06-10', 37, 100),
-(44, '2023-06-10', 37, 122500);
+(44, '2023-06-10', 37, 122500),
+(45, '2023-06-10', 41, 5000);
 
 -- --------------------------------------------------------
 
@@ -234,7 +240,8 @@ INSERT INTO `ventas_detalle` (`id`, `venta_id`, `producto_id`, `cantidad_venta`,
 (71, 44, 13, 1, 6000, 6000),
 (72, 44, 8, 1, 3000, 3000),
 (73, 44, 10, 1, 5000, 5000),
-(74, 44, 11, 1, 12000, 12000);
+(74, 44, 11, 1, 12000, 12000),
+(75, 45, 10, 1, 5000, 5000);
 
 --
 -- Índices para tablas volcadas
@@ -296,13 +303,13 @@ ALTER TABLE `ventas_detalle`
 -- AUTO_INCREMENT de la tabla `consultas`
 --
 ALTER TABLE `consultas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `domicilios`
 --
 ALTER TABLE `domicilios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
@@ -314,19 +321,19 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas_cabecera`
 --
 ALTER TABLE `ventas_cabecera`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `ventas_detalle`
 --
 ALTER TABLE `ventas_detalle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- Restricciones para tablas volcadas

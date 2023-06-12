@@ -160,15 +160,15 @@
                             <img class="card-img-top img-thumbnail"
                                 src="<?= base_url() ?>assets/uploads/<?= $product['imagen']; ?>" width="100" alt="">
                             <div class="card-body">
-                                <h4 class="card-title">
-                                    <?= $product['nombre_producto'] ?>
-                                </h4>
-                                <h6 class="card-subtitle">
-                                    <?= $product['descripcion'] ?>
-                                </h6>
-                                <p class="card-text">
-                                    <?= $product['precio_producto'] ?>$
-                                </p>
+                            <h4 class="card-title" style="font-family: Arial, Helvetica, sans-serif;">
+                            <?= $product['nombre_producto'] ?>
+                            </h4>
+                            <h6 class="card-subtitle" style="font-family: Arial, Helvetica, sans-serif;">
+                                <?= $product['descripcion'] ?>
+                            </h6>
+                            <p class="card-text" style="font-family: Montserrat, 'Open Sans Condensed', Oswald, sans-serif;">
+                                <?= $product['precio_producto'] ?>$
+                            </p>
 
                                 <?php if (session('logged_in') && session('perfil_id') == 2): ?>
                                     <form action="<?= site_url('agregarItemCarrito') ?>" method="POST">

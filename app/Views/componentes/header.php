@@ -43,14 +43,12 @@
                         </a>
                     <?php } ?>
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #8e44ad;"  >
                             <i class="fa-solid fa-user fa-2xl" style="color: #ffffff;"></i>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="<?php echo base_url("usuario/perfil"); ?>">perfil</a></li>
-                            <li><a class="dropdown-item" href="<?php echo base_url("usuario/envio-logout"); ?>">cerrar
-                                    sesion</a></li>
+                            <li><a class="dropdown-item" href="<?php echo base_url("usuario/envio-logout"); ?>">cerrar sesion</a></li>
                         </ul>
                     </div>
                 <?php } else { ?>
