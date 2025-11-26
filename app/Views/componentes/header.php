@@ -10,9 +10,10 @@
     <title>GFA
         <?php echo ($title); ?>
     </title>
-    <link href="<?= base_url('../assets/css/bootstrap.min.css') ?> " rel="stylesheet" integrity=" " crossorigin="">
+    <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
     <link href="<?= base_url('assets/css/miestilo2.css') ?>" rel="stylesheet">
-    <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>" integrity="" crossorigin=""></script>
+    <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
+
 
     <link rel="stylesheet" href="<?= base_url('assets/fontawesome/css/fontawesome.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/fontawesome/css/all.css') ?>">
@@ -78,5 +79,5 @@
 </head>
 
 <body>
-    <script src="<?= base_url('./assets/fontawesome/js/brands.js') ?>" integrity="" crossorigin=""></script>
-    <script src="<?= base_url('./assets/fontawesome/js/solid.js') ?>" integrity="" crossorigin=""></script>
+    <script src="<?= base_url('assets/fontawesome/js/brands.js') ?>" integrity="" crossorigin=""></script>
+    <script src="<?= base_url('assets/fontawesome/js/solid.js') ?>" integrity="" crossorigin=""></script>
