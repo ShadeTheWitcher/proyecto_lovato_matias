@@ -1,6 +1,6 @@
 FROM php:8.2-apache
 
-# Instalamos dependencias necesarias para intl y otras extensiones
+# Instalar dependencias
 RUN apt-get update && apt-get install -y \
     libicu-dev \
     g++ \
@@ -12,14 +12,19 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install mysqli pdo pdo_mysql intl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Copiamos todo el proyecto
+# Copiamos configuración para permitir .htaccess
+COPY docker/apache.conf /etc/apache2/conf-enabled/apache.conf
+
+# Copiamos el proyecto
 COPY . /var/www/html/
 
-# Cambiamos permisos para Apache
+# Permisos
 RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
+    && chmod -R 755 /var/www/html \
+    && chmod -R 777 /var/www/html/writable \
+    && chmod -R 777 /var/www/html/assets/uploads
 
-# Habilitamos mod_rewrite para URLs amigables
+# Activar mod_rewrite
 RUN a2enmod rewrite
 
 EXPOSE 80
