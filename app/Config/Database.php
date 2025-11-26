@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'      => '',
-        'hostname' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'database' => 'bd_lovato_matias',
+        'hostname' => 'db',
+        'username' => 'ci3_user',
+        'password' => 'ci3_pass',
+        'database' => 'ci3_db',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
