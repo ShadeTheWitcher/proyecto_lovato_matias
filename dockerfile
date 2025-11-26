@@ -2,7 +2,9 @@
 FROM php:8.2-apache
 
 # Instalamos extensiones necesarias para CodeIgniter
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN apt-get update && apt-get install -y libicu-dev \
+    && docker-php-ext-install mysqli pdo pdo_mysql intl \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Copiamos todo el proyecto al contenedor
 COPY . /var/www/html/
