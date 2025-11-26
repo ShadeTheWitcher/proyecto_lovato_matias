@@ -1,0 +1,28 @@
+services:
+  app:
+    build: .
+    container_name: ci3_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    container_name: ci3_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: ci3_db
+      MYSQL_USER: ci3_user
+      MYSQL_PASSWORD: ci3_pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./base_de_datos_sql:/docker-entrypoint-initdb.d
+
+volumes:
+  db_data:
