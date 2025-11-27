@@ -10,9 +10,10 @@
     <title>GFA
         <?php echo ($title); ?>
     </title>
-    <link rel="stylesheet" href="<?= base_url('assets/css/bootstrap.min.css') ?>">
-    <link href="<?= base_url('assets/css/miestilo2.css') ?>" rel="stylesheet">
-    <script src="<?= base_url('assets/js/bootstrap.bundle.min.js') ?>"></script>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/miestilo2.css">
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+
 
 
     <link rel="stylesheet" href="<?= base_url('assets/fontawesome/css/fontawesome.css') ?>">
